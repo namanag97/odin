@@ -1,4 +1,5 @@
-# L1 DOMAIN CONTRACTS — PROCESS MINING DOMAIN
+# L1 DOMAIN CONTRACTS — PROCESS MINING DOMAIN implemented
+
 > PM4Py-aligned data models with OCEL 2.0 support
 
 ---
@@ -26,7 +27,7 @@ interface DataPool {
   readonly createdBy: UserId;
 }
 
-type DataPoolStatus = 'active' | 'archived' | 'error';
+type DataPoolStatus = "active" | "archived" | "error";
 
 interface DataPoolSettings {
   readonly timezone: string;
@@ -35,7 +36,7 @@ interface DataPoolSettings {
   readonly deduplicationEnabled: boolean;
 }
 
-type NullHandling = 'keep' | 'empty_string' | 'default';
+type NullHandling = "keep" | "empty_string" | "default";
 
 interface DataPoolStatistics {
   readonly tableCount: NonNegativeInt;
@@ -50,15 +51,21 @@ interface DataPoolStatistics {
 ```typescript
 interface IDataPoolRepository {
   findById(id: DataPoolId): AsyncResult<DataPool | null>;
-  findByTenantId(tenantId: TenantId, options?: QueryOptions): AsyncResult<PaginatedResult<DataPool>>;
+  findByTenantId(
+    tenantId: TenantId,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<DataPool>>;
   findByName(tenantId: TenantId, name: string): AsyncResult<DataPool | null>;
-  
+
   create(data: CreateDataPoolData): AsyncResult<DataPool>;
   update(id: DataPoolId, data: UpdateDataPoolData): AsyncResult<DataPool>;
-  updateStatistics(id: DataPoolId, stats: Partial<DataPoolStatistics>): AsyncResult<DataPool>;
+  updateStatistics(
+    id: DataPoolId,
+    stats: Partial<DataPoolStatistics>
+  ): AsyncResult<DataPool>;
   archive(id: DataPoolId): AsyncResult<void>;
   delete(id: DataPoolId): AsyncResult<void>;
-  
+
   getTables(poolId: DataPoolId): AsyncResult<readonly Table[]>;
   getDataModels(poolId: DataPoolId): AsyncResult<readonly DataModel[]>;
 }
@@ -85,7 +92,7 @@ interface Table {
   readonly updatedAt: ISODateTime;
 }
 
-type TableSourceType = 'csv' | 'xlsx' | 'parquet' | 'json' | 'database' | 'api';
+type TableSourceType = "csv" | "xlsx" | "parquet" | "json" | "database" | "api";
 
 interface TableSourceConfig {
   readonly connectionId?: UUID;
@@ -121,21 +128,24 @@ interface ITableRepository {
   findById(id: UUID): AsyncResult<Table | null>;
   findByDataPoolId(poolId: DataPoolId): AsyncResult<readonly Table[]>;
   findByName(poolId: DataPoolId, name: string): AsyncResult<Table | null>;
-  
+
   create(data: CreateTableData): AsyncResult<Table>;
   update(id: UUID, data: UpdateTableData): AsyncResult<Table>;
   delete(id: UUID): AsyncResult<void>;
-  
+
   // Data Operations
   importData(tableId: UUID, data: TableImportData): AsyncResult<ImportResult>;
   truncate(tableId: UUID): AsyncResult<void>;
-  preview(tableId: UUID, limit?: number): AsyncResult<readonly Record<string, unknown>[]>;
-  
+  preview(
+    tableId: UUID,
+    limit?: number
+  ): AsyncResult<readonly Record<string, unknown>[]>;
+
   // Schema Operations
   updateSchema(tableId: UUID, columns: readonly Column[]): AsyncResult<Table>;
   addColumn(tableId: UUID, column: Column): AsyncResult<Table>;
   removeColumn(tableId: UUID, columnName: string): AsyncResult<Table>;
-  
+
   // Statistics
   refreshStatistics(tableId: UUID): AsyncResult<Table>;
 }
@@ -145,10 +155,10 @@ interface TableImportData {
   readonly options: ImportOptions;
 }
 
-type ImportSource = 
-  | { type: 'file'; fileId: UUID }
-  | { type: 'raw'; data: readonly Record<string, unknown>[] }
-  | { type: 'query'; connectionId: UUID; query: string };
+type ImportSource =
+  | { type: "file"; fileId: UUID }
+  | { type: "raw"; data: readonly Record<string, unknown>[] }
+  | { type: "query"; connectionId: UUID; query: string };
 
 interface ImportOptions {
   readonly mode: ImportMode;
@@ -158,7 +168,7 @@ interface ImportOptions {
   readonly transformations?: readonly ColumnTransformation[];
 }
 
-type ImportMode = 'replace' | 'append' | 'upsert';
+type ImportMode = "replace" | "append" | "upsert";
 
 interface ImportResult {
   readonly rowsImported: number;
@@ -197,12 +207,12 @@ interface DataModel {
   readonly createdBy: UserId;
 }
 
-type DataModelType = 'case_centric' | 'object_centric';
+type DataModelType = "case_centric" | "object_centric";
 
 interface DataModelConfiguration {
   // For case-centric (traditional)
   readonly caseCentric?: CaseCentricConfig;
-  
+
   // For object-centric (OCEL 2.0)
   readonly objectCentric?: ObjectCentricConfig;
 }
@@ -222,9 +232,9 @@ interface ObjectCentricConfig {
   readonly eventIdColumn: string;
   readonly activityColumn: string;
   readonly timestampColumn: string;
-  
+
   readonly objectTypes: readonly ObjectTypeConfig[];
-  readonly eventToObjectTableId?: UUID;      // E2O relation table
+  readonly eventToObjectTableId?: UUID; // E2O relation table
 }
 
 interface ObjectTypeConfig {
@@ -233,7 +243,7 @@ interface ObjectTypeConfig {
   readonly tableId: UUID;
   readonly objectIdColumn: string;
   readonly attributes: readonly AttributeMapping[];
-  readonly color?: string;                   // For visualization
+  readonly color?: string; // For visualization
 }
 
 interface AttributeMapping {
@@ -244,11 +254,18 @@ interface AttributeMapping {
   readonly aggregation?: AggregationType;
 }
 
-type AggregationType = 'sum' | 'avg' | 'min' | 'max' | 'count' | 'first' | 'last';
+type AggregationType =
+  | "sum"
+  | "avg"
+  | "min"
+  | "max"
+  | "count"
+  | "first"
+  | "last";
 
 interface DataModelStatistics {
   readonly eventCount: number;
-  readonly objectCounts: Record<string, number>;  // By object type
+  readonly objectCounts: Record<string, number>; // By object type
   readonly activityCount: number;
   readonly uniqueActivities: readonly string[];
   readonly timeRange: DateRange;
@@ -261,21 +278,40 @@ interface DataModelStatistics {
 ```typescript
 interface IDataModelRepository {
   findById(id: DataModelId): AsyncResult<DataModel | null>;
-  findByTenantId(tenantId: TenantId, options?: QueryOptions): AsyncResult<PaginatedResult<DataModel>>;
+  findByTenantId(
+    tenantId: TenantId,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<DataModel>>;
   findByDataPoolId(poolId: DataPoolId): AsyncResult<readonly DataModel[]>;
-  
+
   create(data: CreateDataModelData): AsyncResult<DataModel>;
   update(id: DataModelId, data: UpdateDataModelData): AsyncResult<DataModel>;
   delete(id: DataModelId): AsyncResult<void>;
-  
+
   // Configuration
-  updateConfiguration(id: DataModelId, config: Partial<DataModelConfiguration>): AsyncResult<DataModel>;
-  addObjectType(id: DataModelId, objectType: ObjectTypeConfig): AsyncResult<DataModel>;
-  removeObjectType(id: DataModelId, objectTypeName: string): AsyncResult<DataModel>;
-  
+  updateConfiguration(
+    id: DataModelId,
+    config: Partial<DataModelConfiguration>
+  ): AsyncResult<DataModel>;
+  addObjectType(
+    id: DataModelId,
+    objectType: ObjectTypeConfig
+  ): AsyncResult<DataModel>;
+  removeObjectType(
+    id: DataModelId,
+    objectTypeName: string
+  ): AsyncResult<DataModel>;
+
   // Loading
-  updateStatus(id: DataModelId, status: LoadStatus, error?: string): AsyncResult<DataModel>;
-  updateStatistics(id: DataModelId, stats: DataModelStatistics): AsyncResult<DataModel>;
+  updateStatus(
+    id: DataModelId,
+    status: LoadStatus,
+    error?: string
+  ): AsyncResult<DataModel>;
+  updateStatistics(
+    id: DataModelId,
+    stats: DataModelStatistics
+  ): AsyncResult<DataModel>;
 }
 ```
 
@@ -292,14 +328,14 @@ interface OCELEvent {
   readonly dataModelId: DataModelId;
   readonly activity: string;
   readonly timestamp: ISODateTime;
-  readonly objects: readonly EventObject[];     // Multiple object references
+  readonly objects: readonly EventObject[]; // Multiple object references
   readonly attributes: Record<string, unknown>;
 }
 
 interface EventObject {
   readonly objectType: string;
   readonly objectId: ObjectId;
-  readonly qualifier?: string;                  // Relationship qualifier
+  readonly qualifier?: string; // Relationship qualifier
 }
 
 /**
@@ -317,7 +353,7 @@ interface ObjectLifecycle {
   readonly createdAt: ISODateTime;
   readonly lastEventAt: ISODateTime;
   readonly eventCount: number;
-  readonly activities: readonly string[];       // Unique activities
+  readonly activities: readonly string[]; // Unique activities
 }
 
 /**
@@ -326,8 +362,8 @@ interface ObjectLifecycle {
 interface ObjectRelation {
   readonly sourceObjectId: ObjectId;
   readonly targetObjectId: ObjectId;
-  readonly qualifier: string;                   // Relationship type
-  readonly timestamp?: ISODateTime;             // When relation was established
+  readonly qualifier: string; // Relationship type
+  readonly timestamp?: ISODateTime; // When relation was established
 }
 ```
 
@@ -340,64 +376,64 @@ interface IOCELRepository {
     modelId: DataModelId,
     options?: OCELQueryOptions
   ): AsyncResult<PaginatedResult<OCELEvent>>;
-  
+
   getEventById(
     modelId: DataModelId,
     eventId: EventId
   ): AsyncResult<OCELEvent | null>;
-  
+
   getEventsByObject(
     modelId: DataModelId,
     objectType: string,
     objectId: ObjectId,
     options?: QueryOptions
   ): AsyncResult<readonly OCELEvent[]>;
-  
+
   getEventsByActivity(
     modelId: DataModelId,
     activity: string,
     options?: QueryOptions
   ): AsyncResult<PaginatedResult<OCELEvent>>;
-  
+
   // Objects
   getObjects(
     modelId: DataModelId,
     objectType: string,
     options?: QueryOptions
   ): AsyncResult<PaginatedResult<OCELObject>>;
-  
+
   getObjectById(
     modelId: DataModelId,
     objectType: string,
     objectId: ObjectId
   ): AsyncResult<OCELObject | null>;
-  
+
   getObjectTypes(modelId: DataModelId): AsyncResult<readonly string[]>;
-  
+
   getObjectLifecycle(
     modelId: DataModelId,
     objectType: string,
     objectId: ObjectId
   ): AsyncResult<ObjectLifecycle>;
-  
+
   // Relations
   getObjectRelations(
     modelId: DataModelId,
     objectId: ObjectId
   ): AsyncResult<readonly ObjectRelation[]>;
-  
+
   getRelatedObjects(
     modelId: DataModelId,
     objectId: ObjectId,
     qualifier?: string
   ): AsyncResult<readonly OCELObject[]>;
-  
+
   // Aggregations
   getActivityStatistics(
     modelId: DataModelId,
     filters?: OCELFilter[]
   ): AsyncResult<readonly ActivityStatistic[]>;
-  
+
   getObjectTypeStatistics(
     modelId: DataModelId
   ): AsyncResult<readonly ObjectTypeStatistic[]>;
@@ -411,7 +447,7 @@ interface OCELQueryOptions extends QueryOptions {
 }
 
 interface OCELFilter {
-  readonly type: 'event' | 'object';
+  readonly type: "event" | "object";
   readonly objectType?: string;
   readonly field: string;
   readonly operator: FilterOperator;
@@ -445,7 +481,7 @@ interface ObjectTypeStatistic {
  * Traditional case-centric view - also derivable from OCEL.
  */
 interface Case {
-  readonly id: string;                         // Business case ID
+  readonly id: string; // Business case ID
   readonly dataModelId: DataModelId;
   readonly variant: VariantId;
   readonly events: readonly CaseEvent[];
@@ -453,7 +489,7 @@ interface Case {
   readonly metrics: CaseMetrics;
 }
 
-type VariantId = Brand<string, 'VariantId'>;
+type VariantId = Brand<string, "VariantId">;
 
 interface CaseEvent {
   readonly eventId: EventId;
@@ -475,7 +511,7 @@ interface Variant {
   readonly id: VariantId;
   readonly dataModelId: DataModelId;
   readonly activitySequence: readonly string[];
-  readonly hash: string;                        // For deduplication
+  readonly hash: string; // For deduplication
   readonly caseCount: number;
   readonly frequency: Percentage;
   readonly avgThroughputTime: Duration;
@@ -488,44 +524,41 @@ interface Variant {
 
 ```typescript
 interface ICaseRepository {
-  findById(
-    modelId: DataModelId,
-    caseId: string
-  ): AsyncResult<Case | null>;
-  
+  findById(modelId: DataModelId, caseId: string): AsyncResult<Case | null>;
+
   findByModelId(
     modelId: DataModelId,
     options?: CaseQueryOptions
   ): AsyncResult<PaginatedResult<Case>>;
-  
+
   findByVariant(
     modelId: DataModelId,
     variantId: VariantId,
     options?: QueryOptions
   ): AsyncResult<PaginatedResult<Case>>;
-  
+
   getCaseEvents(
     modelId: DataModelId,
     caseId: string
   ): AsyncResult<readonly CaseEvent[]>;
-  
+
   // Variants
   getVariants(
     modelId: DataModelId,
     options?: VariantQueryOptions
   ): AsyncResult<PaginatedResult<Variant>>;
-  
+
   getVariantById(
     modelId: DataModelId,
     variantId: VariantId
   ): AsyncResult<Variant | null>;
-  
+
   // Metrics
   getCaseMetrics(
     modelId: DataModelId,
     caseId: string
   ): AsyncResult<CaseMetrics>;
-  
+
   getAggregatedMetrics(
     modelId: DataModelId,
     filters?: CaseFilter[]
@@ -579,7 +612,7 @@ interface HistogramBucket {
 interface ProcessModel {
   readonly id: ProcessModelId;
   readonly tenantId: TenantId;
-  readonly dataModelId?: DataModelId;          // null if imported
+  readonly dataModelId?: DataModelId; // null if imported
   readonly name: string;
   readonly description?: string;
   readonly type: ProcessModelType;
@@ -592,31 +625,35 @@ interface ProcessModel {
   readonly createdBy: UserId;
 }
 
-type ModelSource = 'discovered' | 'imported' | 'designed';
+type ModelSource = "discovered" | "imported" | "designed";
 
-type ModelFormat = 
-  | 'petri_net' | 'process_tree' | 'bpmn' 
-  | 'dfg' | 'ocel_net' | 'powl';
+type ModelFormat =
+  | "petri_net"
+  | "process_tree"
+  | "bpmn"
+  | "dfg"
+  | "ocel_net"
+  | "powl";
 
 interface ProcessModelContent {
   // Petri Net (most common in PM4Py)
   readonly petriNet?: PetriNet;
-  
+
   // Process Tree
   readonly processTree?: ProcessTree;
-  
+
   // DFG
   readonly dfg?: DirectlyFollowsGraph;
-  
+
   // BPMN
   readonly bpmn?: BPMNModel;
-  
+
   // OC-PN (Object-Centric Petri Net)
   readonly ocelNet?: OCELPetriNet;
-  
+
   // Serialized format for storage
   readonly serialized?: string;
-  readonly serializationFormat?: 'json' | 'pnml' | 'bpmn_xml';
+  readonly serializationFormat?: "json" | "pnml" | "bpmn_xml";
 }
 
 interface ProcessModelMetadata {
@@ -661,7 +698,7 @@ interface Place {
 
 interface Transition {
   readonly id: string;
-  readonly name?: string;                      // null = silent/tau
+  readonly name?: string; // null = silent/tau
   readonly label?: string;
   readonly isSilent: boolean;
   readonly properties?: Record<string, unknown>;
@@ -669,13 +706,13 @@ interface Transition {
 
 interface Arc {
   readonly id: string;
-  readonly source: string;                     // Place or Transition ID
+  readonly source: string; // Place or Transition ID
   readonly target: string;
   readonly weight: PositiveInt;
 }
 
 interface Marking {
-  readonly tokens: Record<string, number>;     // Place ID -> token count
+  readonly tokens: Record<string, number>; // Place ID -> token count
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -689,18 +726,18 @@ interface ProcessTree {
 interface ProcessTreeNode {
   readonly id: string;
   readonly type: ProcessTreeNodeType;
-  readonly label?: string;                     // For leaf nodes
+  readonly label?: string; // For leaf nodes
   readonly children?: readonly ProcessTreeNode[];
 }
 
-type ProcessTreeNodeType = 
-  | 'sequence'      // →
-  | 'xor'           // ×
-  | 'parallel'      // +
-  | 'loop'          // ↺
-  | 'or'            // ∨
-  | 'activity'      // Leaf
-  | 'tau';          // Silent
+type ProcessTreeNodeType =
+  | "sequence" // →
+  | "xor" // ×
+  | "parallel" // +
+  | "loop" // ↺
+  | "or" // ∨
+  | "activity" // Leaf
+  | "tau"; // Silent
 
 // ═══════════════════════════════════════════════════════════════
 // DIRECTLY-FOLLOWS GRAPH (DFG)
@@ -753,11 +790,19 @@ interface BPMNElement {
   readonly properties?: Record<string, unknown>;
 }
 
-type BPMNElementType = 
-  | 'startEvent' | 'endEvent' | 'intermediateEvent'
-  | 'task' | 'userTask' | 'serviceTask' | 'scriptTask'
-  | 'exclusiveGateway' | 'parallelGateway' | 'inclusiveGateway'
-  | 'subProcess' | 'callActivity';
+type BPMNElementType =
+  | "startEvent"
+  | "endEvent"
+  | "intermediateEvent"
+  | "task"
+  | "userTask"
+  | "serviceTask"
+  | "scriptTask"
+  | "exclusiveGateway"
+  | "parallelGateway"
+  | "inclusiveGateway"
+  | "subProcess"
+  | "callActivity";
 
 interface BPMNFlow {
   readonly id: string;
@@ -787,7 +832,7 @@ interface OCELPetriNet {
 interface OCPlace {
   readonly id: string;
   readonly name?: string;
-  readonly objectType: string;                 // Associated object type
+  readonly objectType: string; // Associated object type
   readonly isInitial: boolean;
   readonly isFinal: boolean;
 }
@@ -806,7 +851,7 @@ interface OCArc {
   readonly source: string;
   readonly target: string;
   readonly objectType: string;
-  readonly isVariable: boolean;                // Variable arc
+  readonly isVariable: boolean; // Variable arc
 }
 ```
 
@@ -815,22 +860,39 @@ interface OCArc {
 ```typescript
 interface IProcessModelRepository {
   findById(id: ProcessModelId): AsyncResult<ProcessModel | null>;
-  findByTenantId(tenantId: TenantId, options?: QueryOptions): AsyncResult<PaginatedResult<ProcessModel>>;
-  findByDataModelId(dataModelId: DataModelId): AsyncResult<readonly ProcessModel[]>;
-  
+  findByTenantId(
+    tenantId: TenantId,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<ProcessModel>>;
+  findByDataModelId(
+    dataModelId: DataModelId
+  ): AsyncResult<readonly ProcessModel[]>;
+
   create(data: CreateProcessModelData): AsyncResult<ProcessModel>;
-  update(id: ProcessModelId, data: UpdateProcessModelData): AsyncResult<ProcessModel>;
-  updateContent(id: ProcessModelId, content: ProcessModelContent): AsyncResult<ProcessModel>;
-  updateMetrics(id: ProcessModelId, metrics: ModelQualityMetrics): AsyncResult<ProcessModel>;
+  update(
+    id: ProcessModelId,
+    data: UpdateProcessModelData
+  ): AsyncResult<ProcessModel>;
+  updateContent(
+    id: ProcessModelId,
+    content: ProcessModelContent
+  ): AsyncResult<ProcessModel>;
+  updateMetrics(
+    id: ProcessModelId,
+    metrics: ModelQualityMetrics
+  ): AsyncResult<ProcessModel>;
   delete(id: ProcessModelId): AsyncResult<void>;
-  
+
   // Format Conversion
-  convertTo(id: ProcessModelId, targetFormat: ModelFormat): AsyncResult<ProcessModelContent>;
-  
+  convertTo(
+    id: ProcessModelId,
+    targetFormat: ModelFormat
+  ): AsyncResult<ProcessModelContent>;
+
   // Export
   exportToPNML(id: ProcessModelId): AsyncResult<string>;
   exportToBPMN(id: ProcessModelId): AsyncResult<string>;
-  exportToImage(id: ProcessModelId, format: 'svg' | 'png'): AsyncResult<Buffer>;
+  exportToImage(id: ProcessModelId, format: "svg" | "png"): AsyncResult<Buffer>;
 }
 ```
 
@@ -860,7 +922,7 @@ type DataModelCreatedEvent = DomainEvent<{
 
 type DataModelLoadStartedEvent = DomainEvent<{
   modelId: DataModelId;
-  triggeredBy: UserId | 'system';
+  triggeredBy: UserId | "system";
 }>;
 
 type DataModelLoadCompletedEvent = DomainEvent<{
