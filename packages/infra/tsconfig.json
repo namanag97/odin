@@ -3,7 +3,9 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["ES2022"],
+    "lib": [
+      "ES2022"
+    ],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -11,21 +13,38 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "composite": true,
+    "composite": false,
     "outDir": "dist",
-    "rootDir": ".",
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "exactOptionalPropertyTypes": false
+    "noPropertyAccessFromIndexSignature": false,
+    "exactOptionalPropertyTypes": false,
+    "skipDefaultLibCheck": true,
+    "disableReferencedProjectLoad": true,
+    "paths": {
+      "@odin/domain": [
+        "../domain/index.ts"
+      ],
+      "@odin/domain/*": [
+        "../domain/*"
+      ]
+    }
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules", "dist"],
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "references": [
-    { "path": "../core-contracts" },
-    { "path": "../core-lib" },
-    { "path": "../domain" }
+    {
+      "path": "../core-contracts"
+    },
+    {
+      "path": "../core-lib"
+    }
   ]
 }

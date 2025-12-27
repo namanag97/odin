@@ -12,11 +12,23 @@
     "./entities/identity": "./entities/identity/index.ts",
     "./entities/commercial": "./entities/commercial/index.ts",
     "./entities/operational": "./entities/operational/index.ts",
+    "./entities/temporal": "./entities/temporal/index.ts",
+    "./entities/integration": "./entities/integration/index.ts",
+    "./entities/process-mining": "./entities/process-mining/index.ts",
+    "./entities/analytics": "./entities/analytics/index.ts",
+    "./entities/studio": "./entities/studio/index.ts",
+    "./entities/automation": "./entities/automation/index.ts",
     "./repositories": "./repositories/index.ts",
     "./repositories/existence": "./repositories/existence/index.ts",
     "./repositories/identity": "./repositories/identity/index.ts",
     "./repositories/commercial": "./repositories/commercial/index.ts",
     "./repositories/operational": "./repositories/operational/index.ts",
+    "./repositories/temporal": "./repositories/temporal/index.ts",
+    "./repositories/integration": "./repositories/integration/index.ts",
+    "./repositories/process-mining": "./repositories/process-mining/index.ts",
+    "./repositories/analytics": "./repositories/analytics/index.ts",
+    "./repositories/studio": "./repositories/studio/index.ts",
+    "./repositories/automation": "./repositories/automation/index.ts",
     "./events": "./events/index.ts"
   },
   "files": [
@@ -26,8 +38,10 @@
     "CHANGELOG.md"
   ],
   "scripts": {
+    "build": "tsc --build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "domain",

@@ -1,0 +1,959 @@
+{
+  "api/index.ts": [
+    "api/middleware/index.ts",
+    "api/routes/index.ts"
+  ],
+  "api/middleware/index.ts": [],
+  "api/routes/index.ts": [],
+  "core-contracts/auth/context.test.ts": [
+    "core-contracts/auth/context.ts"
+  ],
+  "core-contracts/auth/context.ts": [],
+  "core-contracts/auth/index.ts": [
+    "core-contracts/auth/context.ts",
+    "core-contracts/auth/permissions.ts",
+    "core-contracts/auth/roles.ts"
+  ],
+  "core-contracts/auth/permissions.test.ts": [
+    "core-contracts/auth/permissions.ts"
+  ],
+  "core-contracts/auth/permissions.ts": [],
+  "core-contracts/auth/roles.test.ts": [
+    "core-contracts/auth/permissions.ts",
+    "core-contracts/auth/roles.ts"
+  ],
+  "core-contracts/auth/roles.ts": [
+    "core-contracts/auth/permissions.ts"
+  ],
+  "core-contracts/contracts/cache.ts": [],
+  "core-contracts/contracts/datetime.ts": [
+    "core-contracts/types/common.ts"
+  ],
+  "core-contracts/contracts/events.ts": [],
+  "core-contracts/contracts/id-generator.ts": [],
+  "core-contracts/contracts/index.ts": [
+    "core-contracts/contracts/cache.ts",
+    "core-contracts/contracts/datetime.ts",
+    "core-contracts/contracts/events.ts",
+    "core-contracts/contracts/id-generator.ts",
+    "core-contracts/contracts/logger.ts",
+    "core-contracts/contracts/storage.ts"
+  ],
+  "core-contracts/contracts/logger.ts": [],
+  "core-contracts/contracts/storage.ts": [],
+  "core-contracts/enums/index.ts": [],
+  "core-contracts/errors/base.ts": [
+    "core-contracts/types/common.ts"
+  ],
+  "core-contracts/errors/index.ts": [
+    "core-contracts/errors/base.ts",
+    "core-contracts/errors/types.ts"
+  ],
+  "core-contracts/errors/types.test.ts": [
+    "core-contracts/errors/types.ts"
+  ],
+  "core-contracts/errors/types.ts": [
+    "core-contracts/errors/base.ts",
+    "core-contracts/types/common.ts"
+  ],
+  "core-contracts/index.ts": [
+    "core-contracts/auth/context.ts",
+    "core-contracts/auth/permissions.ts",
+    "core-contracts/auth/roles.ts",
+    "core-contracts/contracts/cache.ts",
+    "core-contracts/contracts/datetime.ts",
+    "core-contracts/contracts/events.ts",
+    "core-contracts/contracts/id-generator.ts",
+    "core-contracts/contracts/logger.ts",
+    "core-contracts/contracts/storage.ts",
+    "core-contracts/enums/index.ts",
+    "core-contracts/errors/base.ts",
+    "core-contracts/errors/types.ts",
+    "core-contracts/types/common.ts",
+    "core-contracts/types/identifiers.ts",
+    "core-contracts/types/pagination.ts",
+    "core-contracts/types/query.ts",
+    "core-contracts/types/result.ts"
+  ],
+  "core-contracts/types/common.ts": [],
+  "core-contracts/types/identifiers.test.ts": [
+    "core-contracts/types/identifiers.ts"
+  ],
+  "core-contracts/types/identifiers.ts": [],
+  "core-contracts/types/index.ts": [
+    "core-contracts/types/common.ts",
+    "core-contracts/types/identifiers.ts",
+    "core-contracts/types/pagination.ts",
+    "core-contracts/types/query.ts",
+    "core-contracts/types/result.ts"
+  ],
+  "core-contracts/types/pagination.ts": [],
+  "core-contracts/types/query.test.ts": [
+    "core-contracts/types/common.ts",
+    "core-contracts/types/query.ts"
+  ],
+  "core-contracts/types/query.ts": [
+    "core-contracts/types/common.ts",
+    "core-contracts/types/pagination.ts"
+  ],
+  "core-contracts/types/result.test.ts": [
+    "core-contracts/types/result.ts"
+  ],
+  "core-contracts/types/result.ts": [
+    "core-contracts/errors/base.ts"
+  ],
+  "core-contracts/vitest.config.ts": [],
+  "core-lib/implementations/index.ts": [
+    "core-lib/implementations/logger.ts",
+    "core-lib/implementations/result.ts"
+  ],
+  "core-lib/implementations/logger.ts": [
+    "core-contracts/index.ts"
+  ],
+  "core-lib/implementations/result.ts": [
+    "core-contracts/index.ts"
+  ],
+  "core-lib/index.ts": [
+    "core-lib/implementations/logger.ts",
+    "core-lib/implementations/result.ts",
+    "core-lib/utils/date.ts",
+    "core-lib/utils/guards.ts",
+    "core-lib/utils/string.ts",
+    "core-lib/utils/validation.ts"
+  ],
+  "core-lib/utils/date.ts": [],
+  "core-lib/utils/guards.ts": [],
+  "core-lib/utils/index.ts": [
+    "core-lib/utils/date.ts",
+    "core-lib/utils/guards.ts",
+    "core-lib/utils/string.ts",
+    "core-lib/utils/validation.ts"
+  ],
+  "core-lib/utils/string.ts": [],
+  "core-lib/utils/validation.ts": [],
+  "domain/entities/commercial/coupon.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/plan.ts"
+  ],
+  "domain/entities/commercial/index.ts": [
+    "domain/entities/commercial/coupon.ts",
+    "domain/entities/commercial/invoice.ts",
+    "domain/entities/commercial/payment-method.ts",
+    "domain/entities/commercial/plan.ts",
+    "domain/entities/commercial/subscription.ts",
+    "domain/entities/commercial/usage-record.ts"
+  ],
+  "domain/entities/commercial/invoice.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/plan.ts"
+  ],
+  "domain/entities/commercial/payment-method.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/commercial/plan.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/existence/tenant.ts"
+  ],
+  "domain/entities/commercial/subscription.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/commercial/usage-record.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/plan.ts"
+  ],
+  "domain/entities/existence/environment.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/existence/index.ts": [
+    "domain/entities/existence/environment.ts",
+    "domain/entities/existence/organization.ts",
+    "domain/entities/existence/tenant.ts"
+  ],
+  "domain/entities/existence/organization.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/existence/tenant.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/identity/identity-provider.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/identity/index.ts": [
+    "domain/entities/identity/identity-provider.ts",
+    "domain/entities/identity/mfa-device.ts",
+    "domain/entities/identity/role.ts",
+    "domain/entities/identity/session.ts",
+    "domain/entities/identity/team.ts",
+    "domain/entities/identity/user.ts"
+  ],
+  "domain/entities/identity/mfa-device.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/identity/role.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/identity/session.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/identity/team.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/identity/user.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/index.ts": [
+    "domain/entities/commercial/index.ts",
+    "domain/entities/existence/index.ts",
+    "domain/entities/identity/index.ts",
+    "domain/entities/integration/index.ts",
+    "domain/entities/operational/index.ts",
+    "domain/entities/process-mining/index.ts",
+    "domain/entities/temporal/index.ts"
+  ],
+  "domain/entities/integration/api-key.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/integration/index.ts": [
+    "domain/entities/integration/api-key.ts",
+    "domain/entities/integration/integration.ts",
+    "domain/entities/integration/oauth-token.ts",
+    "domain/entities/integration/webhook.ts"
+  ],
+  "domain/entities/integration/integration.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/integration/oauth-token.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/integration/webhook.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/operational/feature-flag.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/existence/environment.ts",
+    "domain/entities/existence/tenant.ts"
+  ],
+  "domain/entities/operational/index.ts": [
+    "domain/entities/operational/feature-flag.ts",
+    "domain/entities/operational/system-config.ts",
+    "domain/entities/operational/tenant-settings.ts"
+  ],
+  "domain/entities/operational/system-config.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/operational/tenant-settings.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/bpmn.ts": [],
+  "domain/entities/process-mining/case.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/data-model.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/data-pool.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/dfg.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/index.ts": [
+    "domain/entities/process-mining/bpmn.ts",
+    "domain/entities/process-mining/case.ts",
+    "domain/entities/process-mining/data-model.ts",
+    "domain/entities/process-mining/data-pool.ts",
+    "domain/entities/process-mining/dfg.ts",
+    "domain/entities/process-mining/ocel-event.ts",
+    "domain/entities/process-mining/ocel-object.ts",
+    "domain/entities/process-mining/ocel-petri-net.ts",
+    "domain/entities/process-mining/petri-net.ts",
+    "domain/entities/process-mining/process-model.ts",
+    "domain/entities/process-mining/process-tree.ts",
+    "domain/entities/process-mining/table.ts",
+    "domain/entities/process-mining/variant.ts"
+  ],
+  "domain/entities/process-mining/ocel-event.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/ocel-object.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/ocel-petri-net.ts": [],
+  "domain/entities/process-mining/petri-net.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/process-model.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/process-mining/bpmn.ts",
+    "domain/entities/process-mining/dfg.ts",
+    "domain/entities/process-mining/ocel-petri-net.ts",
+    "domain/entities/process-mining/petri-net.ts",
+    "domain/entities/process-mining/process-tree.ts"
+  ],
+  "domain/entities/process-mining/process-tree.ts": [],
+  "domain/entities/process-mining/table.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/process-mining/variant.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/temporal/audit-log.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/temporal/compliance-record.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/entities/temporal/entity-history.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/temporal/audit-log.ts"
+  ],
+  "domain/entities/temporal/index.ts": [
+    "domain/entities/temporal/audit-log.ts",
+    "domain/entities/temporal/compliance-record.ts",
+    "domain/entities/temporal/entity-history.ts",
+    "domain/entities/temporal/scheduled-job.ts"
+  ],
+  "domain/entities/temporal/scheduled-job.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/events/commercial-events.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/index.ts"
+  ],
+  "domain/events/index.ts": [
+    "domain/events/commercial-events.ts",
+    "domain/events/operational-events.ts",
+    "domain/events/process-mining-events.ts",
+    "domain/events/role-events.ts",
+    "domain/events/session-events.ts",
+    "domain/events/tenant-events.ts",
+    "domain/events/user-events.ts"
+  ],
+  "domain/events/operational-events.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/events/process-mining-events.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/process-mining/index.ts"
+  ],
+  "domain/events/role-events.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/identity/role.ts"
+  ],
+  "domain/events/session-events.ts": [
+    "core-contracts/index.ts"
+  ],
+  "domain/events/tenant-events.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/existence/tenant.ts"
+  ],
+  "domain/events/user-events.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/identity/mfa-device.ts",
+    "domain/entities/identity/role.ts",
+    "domain/entities/identity/user.ts"
+  ],
+  "domain/index.ts": [
+    "domain/entities/index.ts",
+    "domain/events/index.ts",
+    "domain/repositories/index.ts"
+  ],
+  "domain/repositories/commercial/coupon-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/coupon.ts"
+  ],
+  "domain/repositories/commercial/index.ts": [
+    "domain/repositories/commercial/coupon-repository.ts",
+    "domain/repositories/commercial/invoice-repository.ts",
+    "domain/repositories/commercial/payment-method-repository.ts",
+    "domain/repositories/commercial/plan-repository.ts",
+    "domain/repositories/commercial/subscription-repository.ts",
+    "domain/repositories/commercial/usage-repository.ts"
+  ],
+  "domain/repositories/commercial/invoice-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/invoice.ts"
+  ],
+  "domain/repositories/commercial/payment-method-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/payment-method.ts"
+  ],
+  "domain/repositories/commercial/plan-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/plan.ts"
+  ],
+  "domain/repositories/commercial/subscription-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/subscription.ts"
+  ],
+  "domain/repositories/commercial/usage-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/commercial/plan.ts",
+    "domain/entities/commercial/usage-record.ts"
+  ],
+  "domain/repositories/existence/environment-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/existence/environment.ts"
+  ],
+  "domain/repositories/existence/index.ts": [
+    "domain/repositories/existence/environment-repository.ts",
+    "domain/repositories/existence/organization-repository.ts",
+    "domain/repositories/existence/tenant-repository.ts"
+  ],
+  "domain/repositories/existence/organization-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/existence/organization.ts",
+    "domain/entities/identity/role.ts",
+    "domain/entities/identity/user.ts"
+  ],
+  "domain/repositories/existence/tenant-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/existence/tenant.ts"
+  ],
+  "domain/repositories/identity/identity-provider-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/identity/identity-provider.ts"
+  ],
+  "domain/repositories/identity/index.ts": [
+    "domain/repositories/identity/identity-provider-repository.ts",
+    "domain/repositories/identity/mfa-device-repository.ts",
+    "domain/repositories/identity/role-repository.ts",
+    "domain/repositories/identity/session-repository.ts",
+    "domain/repositories/identity/team-repository.ts",
+    "domain/repositories/identity/user-repository.ts"
+  ],
+  "domain/repositories/identity/mfa-device-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/identity/mfa-device.ts"
+  ],
+  "domain/repositories/identity/role-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/identity/role.ts",
+    "domain/entities/identity/user.ts"
+  ],
+  "domain/repositories/identity/session-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/identity/session.ts"
+  ],
+  "domain/repositories/identity/team-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/identity/team.ts"
+  ],
+  "domain/repositories/identity/user-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/identity/role.ts",
+    "domain/entities/identity/user.ts"
+  ],
+  "domain/repositories/index.ts": [
+    "domain/repositories/commercial/index.ts",
+    "domain/repositories/existence/index.ts",
+    "domain/repositories/identity/index.ts",
+    "domain/repositories/integration/index.ts",
+    "domain/repositories/operational/index.ts",
+    "domain/repositories/process-mining/index.ts",
+    "domain/repositories/temporal/index.ts"
+  ],
+  "domain/repositories/integration/api-key-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/integration/api-key.ts"
+  ],
+  "domain/repositories/integration/index.ts": [
+    "domain/repositories/integration/api-key-repository.ts",
+    "domain/repositories/integration/integration-repository.ts",
+    "domain/repositories/integration/oauth-token-repository.ts",
+    "domain/repositories/integration/webhook-repository.ts"
+  ],
+  "domain/repositories/integration/integration-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/integration/integration.ts"
+  ],
+  "domain/repositories/integration/oauth-token-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/integration/oauth-token.ts"
+  ],
+  "domain/repositories/integration/webhook-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/integration/webhook.ts"
+  ],
+  "domain/repositories/operational/feature-flag-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/operational/feature-flag.ts"
+  ],
+  "domain/repositories/operational/index.ts": [
+    "domain/repositories/operational/feature-flag-repository.ts",
+    "domain/repositories/operational/system-config-repository.ts",
+    "domain/repositories/operational/tenant-settings-repository.ts"
+  ],
+  "domain/repositories/operational/system-config-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/operational/system-config.ts"
+  ],
+  "domain/repositories/operational/tenant-settings-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/operational/tenant-settings.ts"
+  ],
+  "domain/repositories/process-mining/case-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/process-mining/case.ts",
+    "domain/entities/process-mining/variant.ts"
+  ],
+  "domain/repositories/process-mining/data-model-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/process-mining/data-model.ts"
+  ],
+  "domain/repositories/process-mining/data-pool-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/process-mining/data-model.ts",
+    "domain/entities/process-mining/data-pool.ts",
+    "domain/entities/process-mining/table.ts"
+  ],
+  "domain/repositories/process-mining/index.ts": [
+    "domain/repositories/process-mining/case-repository.ts",
+    "domain/repositories/process-mining/data-model-repository.ts",
+    "domain/repositories/process-mining/data-pool-repository.ts",
+    "domain/repositories/process-mining/ocel-repository.ts",
+    "domain/repositories/process-mining/process-model-repository.ts",
+    "domain/repositories/process-mining/table-repository.ts"
+  ],
+  "domain/repositories/process-mining/ocel-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/process-mining/ocel-event.ts",
+    "domain/entities/process-mining/ocel-object.ts"
+  ],
+  "domain/repositories/process-mining/process-model-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/process-mining/process-model.ts"
+  ],
+  "domain/repositories/process-mining/table-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/process-mining/table.ts"
+  ],
+  "domain/repositories/temporal/audit-log-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/temporal/audit-log.ts"
+  ],
+  "domain/repositories/temporal/entity-history-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/temporal/audit-log.ts",
+    "domain/entities/temporal/entity-history.ts"
+  ],
+  "domain/repositories/temporal/index.ts": [
+    "domain/repositories/temporal/audit-log-repository.ts",
+    "domain/repositories/temporal/entity-history-repository.ts",
+    "domain/repositories/temporal/scheduled-job-repository.ts"
+  ],
+  "domain/repositories/temporal/scheduled-job-repository.ts": [
+    "core-contracts/index.ts",
+    "domain/entities/temporal/scheduled-job.ts"
+  ],
+  "infra/database/bun-sqlite.d.ts": [],
+  "infra/database/connection.ts": [
+    "core-contracts/index.ts"
+  ],
+  "infra/database/error-mapper.ts": [
+    "core-contracts/index.ts"
+  ],
+  "infra/database/index.ts": [
+    "infra/database/connection.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/repositories/analytics/filter.repository.ts",
+    "infra/database/repositories/analytics/knowledge-model.repository.ts",
+    "infra/database/repositories/analytics/kpi.repository.ts",
+    "infra/database/repositories/analytics/record.repository.ts",
+    "infra/database/repositories/analytics/variable.repository.ts",
+    "infra/database/repositories/automation/action-flow.repository.ts",
+    "infra/database/repositories/automation/execution.repository.ts",
+    "infra/database/repositories/automation/sensor.repository.ts",
+    "infra/database/repositories/automation/signal.repository.ts",
+    "infra/database/repositories/automation/skill.repository.ts",
+    "infra/database/repositories/automation/task.repository.ts",
+    "infra/database/repositories/commercial/coupon.repository.ts",
+    "infra/database/repositories/commercial/invoice.repository.ts",
+    "infra/database/repositories/commercial/payment-method.repository.ts",
+    "infra/database/repositories/commercial/plan.repository.ts",
+    "infra/database/repositories/commercial/subscription.repository.ts",
+    "infra/database/repositories/commercial/usage-record.repository.ts",
+    "infra/database/repositories/existence/environment.repository.ts",
+    "infra/database/repositories/existence/organization.repository.ts",
+    "infra/database/repositories/existence/tenant.repository.ts",
+    "infra/database/repositories/identity/identity-provider.repository.ts",
+    "infra/database/repositories/identity/mfa-device.repository.ts",
+    "infra/database/repositories/identity/role.repository.ts",
+    "infra/database/repositories/identity/session.repository.ts",
+    "infra/database/repositories/identity/team.repository.ts",
+    "infra/database/repositories/identity/user.repository.ts",
+    "infra/database/repositories/integration/api-key.repository.ts",
+    "infra/database/repositories/integration/integration.repository.ts",
+    "infra/database/repositories/integration/oauth-token.repository.ts",
+    "infra/database/repositories/integration/webhook.repository.ts",
+    "infra/database/repositories/operational/extended-tenant-settings.repository.ts",
+    "infra/database/repositories/operational/feature-flag.repository.ts",
+    "infra/database/repositories/operational/system-config.repository.ts",
+    "infra/database/repositories/process-mining/case.repository.ts",
+    "infra/database/repositories/process-mining/data-model.repository.ts",
+    "infra/database/repositories/process-mining/data-pool.repository.ts",
+    "infra/database/repositories/process-mining/process-model.repository.ts",
+    "infra/database/repositories/process-mining/table.repository.ts",
+    "infra/database/repositories/process-mining/variant.repository.ts",
+    "infra/database/repositories/studio/component.repository.ts",
+    "infra/database/repositories/studio/package.repository.ts",
+    "infra/database/repositories/studio/space.repository.ts",
+    "infra/database/repositories/studio/view.repository.ts",
+    "infra/database/repositories/temporal/audit-log.repository.ts",
+    "infra/database/repositories/temporal/entity-history.repository.ts",
+    "infra/database/repositories/temporal/scheduled-job.repository.ts",
+    "infra/database/repository-factory.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/analytics/filter.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/analytics/knowledge-model.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/analytics/kpi.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/analytics/record.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/analytics/variable.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/automation/action-flow.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/automation/execution.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/automation/sensor.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/automation/signal.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/automation/skill.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/automation/task.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/commercial/coupon.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/commercial/invoice.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/commercial/payment-method.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/commercial/plan.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/commercial/subscription.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/commercial/usage-record.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/existence/environment.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/existence/organization.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/existence/tenant.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/identity/identity-provider.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/identity/mfa-device.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/identity/role.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/identity/session.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/identity/team.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/identity/user.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/integration/api-key.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/integration/integration.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/integration/oauth-token.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/integration/webhook.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/operational/extended-tenant-settings.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/operational/feature-flag.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/operational/system-config.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/process-mining/case.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/process-mining/data-model.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/process-mining/data-pool.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/process-mining/process-model.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/process-mining/table.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/process-mining/variant.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/studio/component.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/studio/package.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/studio/space.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/studio/view.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/temporal/audit-log.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/temporal/entity-history.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repositories/temporal/scheduled-job.repository.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts",
+    "infra/database/error-mapper.ts",
+    "infra/database/types.ts"
+  ],
+  "infra/database/repository-factory.ts": [
+    "infra/database/repositories/analytics/filter.repository.ts",
+    "infra/database/repositories/analytics/knowledge-model.repository.ts",
+    "infra/database/repositories/analytics/kpi.repository.ts",
+    "infra/database/repositories/analytics/record.repository.ts",
+    "infra/database/repositories/analytics/variable.repository.ts",
+    "infra/database/repositories/automation/action-flow.repository.ts",
+    "infra/database/repositories/automation/execution.repository.ts",
+    "infra/database/repositories/automation/sensor.repository.ts",
+    "infra/database/repositories/automation/signal.repository.ts",
+    "infra/database/repositories/automation/skill.repository.ts",
+    "infra/database/repositories/automation/task.repository.ts",
+    "infra/database/repositories/commercial/coupon.repository.ts",
+    "infra/database/repositories/commercial/invoice.repository.ts",
+    "infra/database/repositories/commercial/payment-method.repository.ts",
+    "infra/database/repositories/commercial/plan.repository.ts",
+    "infra/database/repositories/commercial/subscription.repository.ts",
+    "infra/database/repositories/commercial/usage-record.repository.ts",
+    "infra/database/repositories/existence/environment.repository.ts",
+    "infra/database/repositories/existence/organization.repository.ts",
+    "infra/database/repositories/existence/tenant.repository.ts",
+    "infra/database/repositories/identity/identity-provider.repository.ts",
+    "infra/database/repositories/identity/mfa-device.repository.ts",
+    "infra/database/repositories/identity/role.repository.ts",
+    "infra/database/repositories/identity/session.repository.ts",
+    "infra/database/repositories/identity/team.repository.ts",
+    "infra/database/repositories/identity/user.repository.ts",
+    "infra/database/repositories/integration/api-key.repository.ts",
+    "infra/database/repositories/integration/integration.repository.ts",
+    "infra/database/repositories/integration/oauth-token.repository.ts",
+    "infra/database/repositories/integration/webhook.repository.ts",
+    "infra/database/repositories/operational/extended-tenant-settings.repository.ts",
+    "infra/database/repositories/operational/feature-flag.repository.ts",
+    "infra/database/repositories/operational/system-config.repository.ts",
+    "infra/database/repositories/process-mining/case.repository.ts",
+    "infra/database/repositories/process-mining/data-model.repository.ts",
+    "infra/database/repositories/process-mining/data-pool.repository.ts",
+    "infra/database/repositories/process-mining/process-model.repository.ts",
+    "infra/database/repositories/process-mining/table.repository.ts",
+    "infra/database/repositories/process-mining/variant.repository.ts",
+    "infra/database/repositories/studio/component.repository.ts",
+    "infra/database/repositories/studio/package.repository.ts",
+    "infra/database/repositories/studio/space.repository.ts",
+    "infra/database/repositories/studio/view.repository.ts",
+    "infra/database/repositories/temporal/audit-log.repository.ts",
+    "infra/database/repositories/temporal/entity-history.repository.ts",
+    "infra/database/repositories/temporal/scheduled-job.repository.ts"
+  ],
+  "infra/database/types.ts": [
+    "core-contracts/index.ts"
+  ],
+  "infra/external/index.ts": [
+    "infra/external/pm4py/index.ts"
+  ],
+  "infra/external/pm4py/adapter.ts": [
+    "core-contracts/index.ts",
+    "domain/index.ts"
+  ],
+  "infra/external/pm4py/index.ts": [
+    "infra/external/pm4py/adapter.ts",
+    "infra/external/pm4py/types.ts"
+  ],
+  "infra/external/pm4py/types.ts": [],
+  "infra/index.ts": [
+    "infra/database/index.ts",
+    "infra/external/index.ts",
+    "infra/queue/index.ts",
+    "infra/storage/index.ts"
+  ],
+  "infra/queue/index.ts": [],
+  "infra/storage/index.ts": [],
+  "services/index.ts": [
+    "services/use-cases/index.ts"
+  ],
+  "services/use-cases/index.ts": []
+}

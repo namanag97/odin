@@ -13,14 +13,14 @@ import type {
   PageResponse
 } from '@odin/core-contracts';
 
-import type { 
+import type {
   ScheduledJob,
   ScheduledJobStatus,
   JobTargetType,
   JobExecution,
   CreateJobData,
   UpdateJobData,
-  CreateExecutionData
+  CreateJobExecutionData
 } from '../../entities/temporal/scheduled-job';
 
 // ============================================================================
@@ -92,7 +92,7 @@ export interface IScheduledJobRepository {
   /**
    * Record a job execution
    */
-  recordExecution(execution: CreateExecutionData): AsyncResult<JobExecution>;
+  recordExecution(execution: CreateJobExecutionData): AsyncResult<JobExecution>;
   
   /**
    * Get executions for a job

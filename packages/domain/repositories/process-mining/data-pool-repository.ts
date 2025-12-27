@@ -8,7 +8,8 @@ import type {
   DataPoolId,
   TenantId,
   AsyncResult,
-  QueryOptions,
+  PageRequest,
+  PageResponse,
 } from '@odin/core-contracts';
 
 import type {
@@ -37,7 +38,7 @@ export interface IDataPoolRepository {
   /**
    * Find data pools by tenant ID
    */
-  findByTenantId(tenantId: TenantId, options?: QueryOptions): AsyncResult<readonly DataPool[]>;
+  findByTenantId(tenantId: TenantId, options?: PageRequest): AsyncResult<PageResponse<DataPool>>;
 
   /**
    * Find a data pool by name within a tenant

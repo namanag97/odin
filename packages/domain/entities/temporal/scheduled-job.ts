@@ -143,7 +143,7 @@ export interface UpdateJobData {
 /**
  * Data for recording a job execution
  */
-export interface CreateExecutionData {
+export interface CreateJobExecutionData {
   readonly jobId: UUID;
   readonly triggeredBy: TriggerSource;
 }
