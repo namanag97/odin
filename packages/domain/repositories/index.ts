@@ -2,10 +2,29 @@
  * Repository Interfaces
  * 
  * Repository contracts for the domain layer.
- * Add repository exports here as they are created.
  */
 
-// Placeholder - add repository exports as they are implemented
-// export * from './user-repository';
-// export * from './tenant-repository';
-// export * from './event-log-repository';
+// ============================================================================
+// Existence Layer
+// ============================================================================
+
+export * from './existence';
+
+// ============================================================================
+// Identity Layer
+// ============================================================================
+
+export * from './identity';
+
+// ============================================================================
+// Commercial Layer
+// ============================================================================
+
+export * from './commercial';
+
+// ============================================================================
+// Operational Layer
+// ============================================================================
+
+export * from './operational';
+

@@ -3,20 +3,30 @@
  * L0 Core Contract - Factory functions for creating typed errors
  */
 
-import { type AppError, ErrorCode } from './base';
+import type { AppError } from './base';
+import type { ISODateTime, TraceId } from '../types/common';
+
+// ============================================================================
+// Helper to generate error metadata
+// ============================================================================
+
+const errorMeta = (): { timestamp: ISODateTime; traceId: TraceId } => ({
+  timestamp: new Date().toISOString() as ISODateTime,
+  traceId: crypto.randomUUID() as TraceId,
+});
 
 // ============================================================================
 // Validation Error
 // ============================================================================
 
 export interface ValidationErrorDetail {
-  field: string;
-  message: string;
-  value?: unknown;
+  readonly field: string;
+  readonly message: string;
+  readonly value?: unknown;
 }
 
 export interface ValidationError extends AppError {
-  code: ErrorCode.VALIDATION;
+  code: 'VALIDATION_FAILED';
   details: {
     errors: ValidationErrorDetail[];
   };
@@ -26,9 +36,10 @@ export const createValidationError = (
   errors: ValidationErrorDetail[],
   message = 'Validation failed'
 ): ValidationError => ({
-  code: ErrorCode.VALIDATION,
+  code: 'VALIDATION_FAILED',
   message,
   details: { errors },
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -36,7 +47,7 @@ export const createValidationError = (
 // ============================================================================
 
 export interface NotFoundError extends AppError {
-  code: ErrorCode.NOT_FOUND;
+  code: 'ENTITY_NOT_FOUND';
   details: {
     resource: string;
     id?: string;
@@ -47,11 +58,12 @@ export const createNotFoundError = (
   resource: string,
   id?: string
 ): NotFoundError => ({
-  code: ErrorCode.NOT_FOUND,
+  code: 'ENTITY_NOT_FOUND',
   message: id 
     ? `${resource} with id '${id}' not found`
     : `${resource} not found`,
   details: { resource, id },
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -59,14 +71,15 @@ export const createNotFoundError = (
 // ============================================================================
 
 export interface UnauthorizedError extends AppError {
-  code: ErrorCode.UNAUTHORIZED;
+  code: 'UNAUTHENTICATED';
 }
 
 export const createUnauthorizedError = (
   message = 'Authentication required'
 ): UnauthorizedError => ({
-  code: ErrorCode.UNAUTHORIZED,
+  code: 'UNAUTHENTICATED',
   message,
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -74,7 +87,7 @@ export const createUnauthorizedError = (
 // ============================================================================
 
 export interface ForbiddenError extends AppError {
-  code: ErrorCode.FORBIDDEN;
+  code: 'UNAUTHORIZED' | 'INSUFFICIENT_PERMISSIONS';
   details?: {
     requiredPermission?: string;
     requiredRole?: string;
@@ -86,11 +99,12 @@ export const createForbiddenError = (
   requiredPermission?: string,
   requiredRole?: string
 ): ForbiddenError => ({
-  code: ErrorCode.FORBIDDEN,
+  code: 'INSUFFICIENT_PERMISSIONS',
   message,
   details: requiredPermission || requiredRole 
     ? { requiredPermission, requiredRole }
     : undefined,
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -98,7 +112,7 @@ export const createForbiddenError = (
 // ============================================================================
 
 export interface ConflictError extends AppError {
-  code: ErrorCode.CONFLICT;
+  code: 'ENTITY_ALREADY_EXISTS' | 'ENTITY_CONFLICT';
   details: {
     resource: string;
     conflictingField?: string;
@@ -112,9 +126,10 @@ export const createConflictError = (
   conflictingField?: string,
   conflictingValue?: unknown
 ): ConflictError => ({
-  code: ErrorCode.CONFLICT,
+  code: 'ENTITY_ALREADY_EXISTS',
   message: message ?? `${resource} already exists`,
   details: { resource, conflictingField, conflictingValue },
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -122,16 +137,17 @@ export const createConflictError = (
 // ============================================================================
 
 export interface InternalError extends AppError {
-  code: ErrorCode.INTERNAL;
+  code: 'DATABASE_ERROR' | 'EXTERNAL_SERVICE_ERROR';
 }
 
 export const createInternalError = (
   message = 'An internal error occurred',
-  cause?: Error
+  cause?: AppError
 ): InternalError => ({
-  code: ErrorCode.INTERNAL,
+  code: 'DATABASE_ERROR',
   message,
   cause,
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -139,16 +155,17 @@ export const createInternalError = (
 // ============================================================================
 
 export interface BadRequestError extends AppError {
-  code: ErrorCode.BAD_REQUEST;
+  code: 'INVALID_INPUT';
 }
 
 export const createBadRequestError = (
   message: string,
   details?: Record<string, unknown>
 ): BadRequestError => ({
-  code: ErrorCode.BAD_REQUEST,
+  code: 'INVALID_INPUT',
   message,
   details,
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -156,7 +173,7 @@ export const createBadRequestError = (
 // ============================================================================
 
 export interface RateLimitedError extends AppError {
-  code: ErrorCode.RATE_LIMITED;
+  code: 'RATE_LIMITED';
   details: {
     retryAfterMs?: number;
     limit?: number;
@@ -169,9 +186,10 @@ export const createRateLimitedError = (
   limit?: number,
   remaining?: number
 ): RateLimitedError => ({
-  code: ErrorCode.RATE_LIMITED,
+  code: 'RATE_LIMITED',
   message: 'Rate limit exceeded',
   details: { retryAfterMs, limit, remaining },
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -179,7 +197,7 @@ export const createRateLimitedError = (
 // ============================================================================
 
 export interface ExternalServiceError extends AppError {
-  code: ErrorCode.EXTERNAL_SERVICE;
+  code: 'EXTERNAL_SERVICE_ERROR';
   details: {
     service: string;
     originalError?: string;
@@ -191,13 +209,13 @@ export const createExternalServiceError = (
   message?: string,
   originalError?: Error
 ): ExternalServiceError => ({
-  code: ErrorCode.EXTERNAL_SERVICE,
+  code: 'EXTERNAL_SERVICE_ERROR',
   message: message ?? `External service '${service}' failed`,
   details: {
     service,
     originalError: originalError?.message,
   },
-  cause: originalError,
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -205,7 +223,7 @@ export const createExternalServiceError = (
 // ============================================================================
 
 export interface DatabaseError extends AppError {
-  code: ErrorCode.INTERNAL;
+  code: 'DATABASE_ERROR';
   details: {
     operation: 'query' | 'insert' | 'update' | 'delete' | 'transaction';
     table?: string;
@@ -219,10 +237,10 @@ export const createDatabaseError = (
   options?: {
     table?: string;
     constraint?: string;
-    cause?: Error;
+    cause?: AppError;
   }
 ): DatabaseError => ({
-  code: ErrorCode.INTERNAL,
+  code: 'DATABASE_ERROR',
   message: message ?? `Database ${operation} operation failed`,
   details: {
     operation,
@@ -230,6 +248,7 @@ export const createDatabaseError = (
     constraint: options?.constraint,
   },
   cause: options?.cause,
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -237,7 +256,7 @@ export const createDatabaseError = (
 // ============================================================================
 
 export interface PQLError extends AppError {
-  code: ErrorCode.BAD_REQUEST;
+  code: 'INVALID_INPUT';
   details: {
     query: string;
     position?: number;
@@ -257,12 +276,13 @@ export const createPQLError = (
     expected?: string[];
   }
 ): PQLError => ({
-  code: ErrorCode.BAD_REQUEST,
+  code: 'INVALID_INPUT',
   message: `PQL Error: ${message}`,
   details: {
     query,
     ...position,
   },
+  ...errorMeta(),
 });
 
 // ============================================================================
@@ -281,17 +301,17 @@ export const isAppError = (error: unknown): error is AppError => {
 };
 
 export const isValidationError = (error: unknown): error is ValidationError => {
-  return isAppError(error) && error.code === ErrorCode.VALIDATION;
+  return isAppError(error) && error.code === 'VALIDATION_FAILED';
 };
 
 export const isNotFoundError = (error: unknown): error is NotFoundError => {
-  return isAppError(error) && error.code === ErrorCode.NOT_FOUND;
+  return isAppError(error) && error.code === 'ENTITY_NOT_FOUND';
 };
 
 export const isUnauthorizedError = (error: unknown): error is UnauthorizedError => {
-  return isAppError(error) && error.code === ErrorCode.UNAUTHORIZED;
+  return isAppError(error) && error.code === 'UNAUTHENTICATED';
 };
 
 export const isForbiddenError = (error: unknown): error is ForbiddenError => {
-  return isAppError(error) && error.code === ErrorCode.FORBIDDEN;
+  return isAppError(error) && (error.code === 'UNAUTHORIZED' || error.code === 'INSUFFICIENT_PERMISSIONS');
 };

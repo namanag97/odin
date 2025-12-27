@@ -1,6 +1,6 @@
 {
   "name": "@odin/core-contracts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "L0 Core Contracts - Shared types and interfaces for the Process Intelligence Platform",
   "type": "module",
   "main": "./index.ts",
@@ -31,6 +31,8 @@
   "peerDependencies": {},
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "@vitest/coverage-v8": "^4.0.16",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.16"
   }
 }

@@ -4,7 +4,7 @@
  */
 
 import type { PageRequest, SortDirection } from './pagination';
-import type { Timestamp } from './common';
+import type { ISODateTime } from './common';
 
 // ============================================================================
 // Filter Operator
@@ -97,13 +97,13 @@ export interface SortConfig {
  */
 export interface DateRange {
   /** Start datetime (ISO 8601 string) */
-  start: Timestamp;
+  readonly start: ISODateTime;
   /** End datetime (ISO 8601 string) */
-  end: Timestamp;
+  readonly end: ISODateTime;
   /** Whether start is inclusive (default: true) */
-  startInclusive?: boolean;
+  readonly startInclusive?: boolean;
   /** Whether end is inclusive (default: true) */
-  endInclusive?: boolean;
+  readonly endInclusive?: boolean;
 }
 
 // ============================================================================

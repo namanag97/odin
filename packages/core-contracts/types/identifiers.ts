@@ -158,6 +158,33 @@ export const asViewId = (id: string): ViewId => id as ViewId;
 /** Create a ComponentId from a string */
 export const asComponentId = (id: string): ComponentId => id as ComponentId;
 
+/** Create an OrganizationId from a string */
+export const asOrganizationId = (id: string): OrganizationId => id as OrganizationId;
+
+/** Create a DataPoolId from a string */
+export const asDataPoolId = (id: string): DataPoolId => id as DataPoolId;
+
+/** Create a DataModelId from a string */
+export const asDataModelId = (id: string): DataModelId => id as DataModelId;
+
+/** Create a ProcessModelId from a string */
+export const asProcessModelId = (id: string): ProcessModelId => id as ProcessModelId;
+
+/** Create an ObjectTypeId from a string */
+export const asObjectTypeId = (id: string): ObjectTypeId => id as ObjectTypeId;
+
+/** Create an ObjectId from a string */
+export const asObjectId = (id: string): ObjectId => id as ObjectId;
+
+/** Create an EventId from a string */
+export const asEventId = (id: string): EventId => id as EventId;
+
+/** Create a PackageId from a string */
+export const asPackageId = (id: string): PackageId => id as PackageId;
+
+/** Create a SpaceId from a string */
+export const asSpaceId = (id: string): SpaceId => id as SpaceId;
+
 // ============================================================================
 // Type Guards
 // ============================================================================

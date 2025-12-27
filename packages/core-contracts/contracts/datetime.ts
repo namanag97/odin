@@ -128,24 +128,24 @@ export const DurationMs = {
 /**
  * Convert seconds to milliseconds
  */
-export const seconds = (n: number): Duration => n * DurationMs.SECOND;
+export const seconds = (n: number): Duration => (n * DurationMs.SECOND) as Duration;
 
 /**
  * Convert minutes to milliseconds
  */
-export const minutes = (n: number): Duration => n * DurationMs.MINUTE;
+export const minutes = (n: number): Duration => (n * DurationMs.MINUTE) as Duration;
 
 /**
  * Convert hours to milliseconds
  */
-export const hours = (n: number): Duration => n * DurationMs.HOUR;
+export const hours = (n: number): Duration => (n * DurationMs.HOUR) as Duration;
 
 /**
  * Convert days to milliseconds
  */
-export const days = (n: number): Duration => n * DurationMs.DAY;
+export const days = (n: number): Duration => (n * DurationMs.DAY) as Duration;
 
 /**
  * Convert weeks to milliseconds
  */
-export const weeks = (n: number): Duration => n * DurationMs.WEEK;
+export const weeks = (n: number): Duration => (n * DurationMs.WEEK) as Duration;

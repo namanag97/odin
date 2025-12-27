@@ -102,7 +102,7 @@ export interface Storage {
    */
   upload(
     path: string,
-    content: Buffer | Blob | ReadableStream,
+    content: Uint8Array | Blob | ReadableStream,
     options?: UploadOptions
   ): Promise<FileMetadata>;
   
@@ -111,7 +111,7 @@ export interface Storage {
    * @param path File path
    * @param options Download options
    */
-  download(path: string, options?: DownloadOptions): Promise<Buffer>;
+  download(path: string, options?: DownloadOptions): Promise<Uint8Array>;
   
   /**
    * Get file as a readable stream

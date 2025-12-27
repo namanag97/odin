@@ -1,6 +1,6 @@
 {
   "name": "@odin/core-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "L0 Core Lib - Shared implementations and utilities for the Process Intelligence Platform",
   "type": "module",
   "main": "./index.ts",
@@ -26,7 +26,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@odin/core-contracts": "1.0.0"
+    "@odin/core-contracts": "1.0.1"
   },
   "dependencies": {},
   "devDependencies": {

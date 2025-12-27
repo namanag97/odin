@@ -84,6 +84,15 @@ export {
   asDashboardId,
   asViewId,
   asComponentId,
+  asOrganizationId,
+  asDataPoolId,
+  asDataModelId,
+  asProcessModelId,
+  asObjectTypeId,
+  asObjectId,
+  asEventId,
+  asPackageId,
+  asSpaceId,
   isValidId,
   isUUID,
 } from './types/identifiers';
@@ -163,6 +172,12 @@ export {
   // Studio
   LayoutType,
   ComponentType,
+  // Process Mining (PM4Py aligned)
+  type DiscoveryAlgorithm,
+  type ConformanceMethod,
+  type ProcessModelType,
+  type MetricType,
+  type PublishStatus,
   // Utilities
   isEnumValue,
 } from './enums';
@@ -172,7 +187,7 @@ export {
 // ============================================================================
 
 export {
-  ErrorCode,
+  type ErrorCode,
   ErrorCodeToHttpStatus,
   type AppError,
   type SerializedError,

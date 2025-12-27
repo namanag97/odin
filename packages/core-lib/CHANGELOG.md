@@ -2,6 +2,16 @@
 
 All notable changes to `@odin/core-lib` will be documented in this file.
 
+## [1.0.1] - 2025-12-27
+
+### 🔄 Updated
+
+- **Dependencies**: Updated `@odin/core-contracts` peer dependency to `1.0.1` for TypeScript type safety fixes
+
+### ✅ Verification
+
+- Package now passes TypeScript type checking with updated contracts
+
 ## [1.0.0] - 2025-12-27
 
 ### 🔒 Initial Locked Release

@@ -2,6 +2,32 @@
 
 All notable changes to `@odin/core-contracts` will be documented in this file.
 
+## [1.0.1] - 2025-12-27
+
+### 🐛 Fixed
+
+#### `errors/types.ts`
+
+- **ErrorCode Type Safety**: Changed `ErrorCode` from enum-like value usage to proper string literal types (`'VALIDATION_FAILED'`, `'ENTITY_NOT_FOUND'`, etc.) to fix runtime/type mismatch
+- **Error Metadata**: Added `errorMeta()` helper function to ensure all error factories include required `timestamp` and `traceId` fields
+- **Error Cause Types**: Fixed `cause` type in `createInternalError` - changed from generic `Error` to `AppError` for proper error chain typing
+
+#### `contracts/datetime.ts`
+
+- **Duration Branding**: Added explicit `as Duration` casts to all duration factory functions to ensure proper branded type returns
+
+#### `contracts/storage.ts`
+
+- **Cross-Platform Compatibility**: Replaced Node-specific `Buffer` type with `Uint8Array` for cross-platform compatibility (Node, Bun, browser)
+
+#### `index.ts`
+
+- **Export Fixes**: Changed `ErrorCode` export from value export to type-only export (`export type { ErrorCode }`) since it's a type alias, not a runtime value
+
+### ✅ Verification
+
+- Both `@odin/core-contracts` and dependent packages now pass TypeScript type checking without errors
+
 ## [1.0.0] - 2025-12-27
 
 ### 🔒 Initial Locked Release
