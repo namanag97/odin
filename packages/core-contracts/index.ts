@@ -59,6 +59,7 @@ export {
   type ObjectTypeId,
   type ObjectId,
   type EventId,
+  type VariantId,
   // Automation IDs
   type WorkflowId,
   type ActionFlowId,
@@ -79,6 +80,7 @@ export {
   asModelId,
   asCaseId,
   asActivityId,
+  asVariantId,
   asWorkflowId,
   asActionFlowId,
   asDashboardId,

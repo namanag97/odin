@@ -20,3 +20,9 @@ export * from './tenant-events';
 export * from './user-events';
 export * from './session-events';
 export * from './role-events';
+
+// ============================================================================
+// Process Mining Events
+// ============================================================================
+
+export * from './process-mining-events';

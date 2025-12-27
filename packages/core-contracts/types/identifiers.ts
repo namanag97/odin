@@ -80,6 +80,9 @@ export type ObjectId = Brand<string, 'ObjectId'>;
 /** Event identifier (OCEL) */
 export type EventId = Brand<string, 'EventId'>;
 
+/** Variant identifier (process variant hash) */
+export type VariantId = Brand<string, 'VariantId'>;
+
 // ============================================================================
 // Automation Identifiers
 // ============================================================================
@@ -142,6 +145,9 @@ export const asCaseId = (id: string): CaseId => id as CaseId;
 
 /** Create an ActivityId from a string */
 export const asActivityId = (id: string): ActivityId => id as ActivityId;
+
+/** Create a VariantId from a string */
+export const asVariantId = (id: string): VariantId => id as VariantId;
 
 /** Create a WorkflowId from a string */
 export const asWorkflowId = (id: string): WorkflowId => id as WorkflowId;

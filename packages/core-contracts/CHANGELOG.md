@@ -2,6 +2,58 @@
 
 All notable changes to `@odin/core-contracts` will be documented in this file.
 
+## [1.0.2] - 2025-12-27
+
+### ✅ Added
+
+#### ID Factory Functions
+
+- **Complete ID Factory Coverage**: Added 9 missing `asXxxId` factory functions:
+  - `asOrganizationId`, `asDataPoolId`, `asDataModelId`, `asProcessModelId`
+  - `asObjectTypeId`, `asObjectId`, `asEventId`, `asPackageId`, `asSpaceId`
+
+#### Unit Tests
+
+- **Full Test Suite**: Added 126 unit tests across 7 test files:
+  - `types/result.test.ts` - Result and Option type narrowing
+  - `types/identifiers.test.ts` - UUID validation and all factory functions
+  - `types/query.test.ts` - Filter operators, type guards, filter factories
+  - `errors/types.test.ts` - All error factories and type guards
+  - `auth/context.test.ts` - Auth and service context utilities
+  - `auth/permissions.test.ts` - Permission checks and utilities
+  - `auth/roles.test.ts` - Role resolution and system role permissions
+
+#### Development Infrastructure
+
+- **Vitest Setup**: Added Vitest for unit testing with v8 coverage
+- **Test Scripts**: Added `test`, `test:watch`, `test:coverage` npm scripts
+- **Vitest Config**: Created `vitest.config.ts` for test configuration
+
+### 🔧 Improved
+
+#### Type Safety
+
+- **Readonly Interfaces**: Made `ValidationErrorDetail` interface properties readonly for immutability
+- **DateRange Type Fix**: Replaced deprecated `Timestamp` with `ISODateTime` in `DateRange` interface
+- **DateRange Readonly**: Made `DateRange` interface properties readonly
+
+#### Documentation
+
+- **README Updates**:
+  - Added crypto API requirements section (Node.js v19+ or flag)
+  - Corrected Result type examples (uses `success`/`data`, not `ok`/`value`)
+  - Added complete list of ID factory functions
+  - Added testing section with commands
+  - Added API stability notice
+
+### ✅ Verification
+
+- All 126 tests pass
+- TypeScript compilation passes
+- All exports verified
+
+---
+
 ## [1.0.1] - 2025-12-27
 
 ### 🐛 Fixed
