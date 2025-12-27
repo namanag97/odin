@@ -1,9 +1,11 @@
-# L1 DOMAIN CONTRACTS — EXISTENCE & IDENTITY LAYERS
+# L1 DOMAIN CONTRACTS — EXISTENCE & IDENTITY LAYERS implemented
+
 > Root identity, multi-tenancy, authentication, and authorization
 
 ---
 
 ## EXISTENCE LAYER
+
 > The foundational truth of "who exists" in the system
 
 ### Entity: Tenant
@@ -15,7 +17,7 @@
  */
 interface Tenant {
   readonly id: TenantId;
-  readonly slug: string;                    // URL-safe identifier
+  readonly slug: string; // URL-safe identifier
   readonly name: string;
   readonly status: TenantStatus;
   readonly tier: TenantTier;
@@ -27,8 +29,8 @@ interface Tenant {
   readonly deletedAt?: ISODateTime;
 }
 
-type TenantStatus = 'pending' | 'active' | 'suspended' | 'deleted';
-type TenantTier = 'free' | 'starter' | 'professional' | 'enterprise';
+type TenantStatus = "pending" | "active" | "suspended" | "deleted";
+type TenantTier = "free" | "starter" | "professional" | "enterprise";
 
 interface TenantSettings {
   readonly locale: string;
@@ -66,12 +68,15 @@ interface ITenantRepository {
   findBySlug(slug: string): AsyncResult<Tenant | null>;
   findAll(options?: QueryOptions): AsyncResult<PaginatedResult<Tenant>>;
   exists(id: TenantId): AsyncResult<boolean>;
-  
+
   // Commands
   create(data: CreateTenantData): AsyncResult<Tenant>;
   update(id: TenantId, data: UpdateTenantData): AsyncResult<Tenant>;
   updateStatus(id: TenantId, status: TenantStatus): AsyncResult<Tenant>;
-  updateSettings(id: TenantId, settings: Partial<TenantSettings>): AsyncResult<Tenant>;
+  updateSettings(
+    id: TenantId,
+    settings: Partial<TenantSettings>
+  ): AsyncResult<Tenant>;
   softDelete(id: TenantId): AsyncResult<void>;
   hardDelete(id: TenantId): AsyncResult<void>;
 }
@@ -126,7 +131,7 @@ interface Organization {
   readonly tenantId: TenantId;
   readonly name: string;
   readonly slug: string;
-  readonly parentId?: OrganizationId;       // For hierarchies
+  readonly parentId?: OrganizationId; // For hierarchies
   readonly status: EntityStatus;
   readonly settings: OrganizationSettings;
   readonly createdAt: ISODateTime;
@@ -145,17 +150,30 @@ interface OrganizationSettings {
 ```typescript
 interface IOrganizationRepository {
   findById(id: OrganizationId): AsyncResult<Organization | null>;
-  findByTenantId(tenantId: TenantId, options?: QueryOptions): AsyncResult<PaginatedResult<Organization>>;
+  findByTenantId(
+    tenantId: TenantId,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<Organization>>;
   findChildren(parentId: OrganizationId): AsyncResult<readonly Organization[]>;
   findAncestors(id: OrganizationId): AsyncResult<readonly Organization[]>;
-  
+
   create(data: CreateOrganizationData): AsyncResult<Organization>;
-  update(id: OrganizationId, data: UpdateOrganizationData): AsyncResult<Organization>;
+  update(
+    id: OrganizationId,
+    data: UpdateOrganizationData
+  ): AsyncResult<Organization>;
   delete(id: OrganizationId): AsyncResult<void>;
-  
+
   // Membership
-  getMembers(id: OrganizationId, options?: QueryOptions): AsyncResult<PaginatedResult<User>>;
-  addMember(orgId: OrganizationId, userId: UserId, role: RoleId): AsyncResult<void>;
+  getMembers(
+    id: OrganizationId,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<User>>;
+  addMember(
+    orgId: OrganizationId,
+    userId: UserId,
+    role: RoleId
+  ): AsyncResult<void>;
   removeMember(orgId: OrganizationId, userId: UserId): AsyncResult<void>;
 }
 ```
@@ -175,11 +193,11 @@ interface Environment {
   readonly type: EnvironmentType;
   readonly status: EntityStatus;
   readonly configuration: EnvironmentConfig;
-  readonly promotedFrom?: UUID;             // Source environment
+  readonly promotedFrom?: UUID; // Source environment
   readonly createdAt: ISODateTime;
 }
 
-type EnvironmentType = 'development' | 'staging' | 'production';
+type EnvironmentType = "development" | "staging" | "production";
 
 interface EnvironmentConfig {
   readonly dataPoolIds: readonly DataPoolId[];
@@ -189,7 +207,7 @@ interface EnvironmentConfig {
 
 interface ResourceLimits {
   readonly maxConcurrentJobs: PositiveInt;
-  readonly maxEventLogSize: PositiveInt;    // in millions
+  readonly maxEventLogSize: PositiveInt; // in millions
   readonly maxStorageGB: PositiveInt;
 }
 ```
@@ -197,6 +215,7 @@ interface ResourceLimits {
 ---
 
 ## IDENTITY LAYER
+
 > Authentication, authorization, and access control
 
 ### Entity: User
@@ -218,8 +237,8 @@ interface User {
   readonly updatedAt: ISODateTime;
 }
 
-type UserStatus = 'pending' | 'active' | 'suspended' | 'deleted';
-type AuthMethod = 'password' | 'sso' | 'magic_link' | 'api_key';
+type UserStatus = "pending" | "active" | "suspended" | "deleted";
+type AuthMethod = "password" | "sso" | "magic_link" | "api_key";
 
 interface UserProfile {
   readonly userId: UserId;
@@ -232,7 +251,7 @@ interface UserProfile {
 }
 
 interface UserPreferences {
-  readonly theme: 'light' | 'dark' | 'system';
+  readonly theme: "light" | "dark" | "system";
   readonly defaultSpaceId?: SpaceId;
   readonly emailNotifications: boolean;
   readonly weeklyDigest: boolean;
@@ -246,9 +265,15 @@ interface IUserRepository {
   // Queries
   findById(id: UserId): AsyncResult<User | null>;
   findByEmail(tenantId: TenantId, email: Email): AsyncResult<User | null>;
-  findByTenantId(tenantId: TenantId, options?: QueryOptions): AsyncResult<PaginatedResult<User>>;
-  findByOrganization(orgId: OrganizationId, options?: QueryOptions): AsyncResult<PaginatedResult<User>>;
-  
+  findByTenantId(
+    tenantId: TenantId,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<User>>;
+  findByOrganization(
+    orgId: OrganizationId,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<User>>;
+
   // Commands
   create(data: CreateUserData): AsyncResult<User>;
   update(id: UserId, data: UpdateUserData): AsyncResult<User>;
@@ -256,11 +281,14 @@ interface IUserRepository {
   updatePassword(id: UserId, hashedPassword: string): AsyncResult<void>;
   updateLastLogin(id: UserId): AsyncResult<void>;
   delete(id: UserId): AsyncResult<void>;
-  
+
   // Profile
   getProfile(userId: UserId): AsyncResult<UserProfile | null>;
-  updateProfile(userId: UserId, data: Partial<UserProfile>): AsyncResult<UserProfile>;
-  
+  updateProfile(
+    userId: UserId,
+    data: Partial<UserProfile>
+  ): AsyncResult<UserProfile>;
+
   // Roles
   getRoles(userId: UserId): AsyncResult<readonly Role[]>;
   assignRole(userId: UserId, roleId: RoleId): AsyncResult<void>;
@@ -273,15 +301,15 @@ interface IUserRepository {
 ### Entity: Role & Permission
 
 ```typescript
-type RoleId = Brand<UUID, 'RoleId'>;
-type PermissionId = Brand<string, 'PermissionId'>;
+type RoleId = Brand<UUID, "RoleId">;
+type PermissionId = Brand<string, "PermissionId">;
 
 interface Role {
   readonly id: RoleId;
   readonly tenantId: TenantId;
   readonly name: string;
   readonly description?: string;
-  readonly isSystem: boolean;               // Built-in, non-deletable
+  readonly isSystem: boolean; // Built-in, non-deletable
   readonly permissions: readonly Permission[];
   readonly createdAt: ISODateTime;
 }
@@ -294,24 +322,44 @@ interface Permission {
   readonly conditions?: PermissionCondition[];
 }
 
-type ResourceType = 
-  | 'tenant' | 'organization' | 'user' | 'role'
-  | 'data_pool' | 'data_model' | 'event_log'
-  | 'knowledge_model' | 'view' | 'package' | 'space'
-  | 'action_flow' | 'skill' | 'task'
-  | 'api_key' | 'webhook' | 'integration'
-  | 'audit_log' | 'settings';
+type ResourceType =
+  | "tenant"
+  | "organization"
+  | "user"
+  | "role"
+  | "data_pool"
+  | "data_model"
+  | "event_log"
+  | "knowledge_model"
+  | "view"
+  | "package"
+  | "space"
+  | "action_flow"
+  | "skill"
+  | "task"
+  | "api_key"
+  | "webhook"
+  | "integration"
+  | "audit_log"
+  | "settings";
 
-type ActionType = 
-  | 'create' | 'read' | 'update' | 'delete'
-  | 'execute' | 'publish' | 'share' | 'export'
-  | 'manage' | 'admin';
+type ActionType =
+  | "create"
+  | "read"
+  | "update"
+  | "delete"
+  | "execute"
+  | "publish"
+  | "share"
+  | "export"
+  | "manage"
+  | "admin";
 
-type PermissionScope = 
-  | 'own'           // Only own resources
-  | 'organization'  // Organization resources
-  | 'tenant'        // All tenant resources
-  | 'global';       // System-wide (super admin)
+type PermissionScope =
+  | "own" // Only own resources
+  | "organization" // Organization resources
+  | "tenant" // All tenant resources
+  | "global"; // System-wide (super admin)
 
 interface PermissionCondition {
   readonly field: string;
@@ -327,14 +375,17 @@ interface IRoleRepository {
   findById(id: RoleId): AsyncResult<Role | null>;
   findByTenantId(tenantId: TenantId): AsyncResult<readonly Role[]>;
   findSystemRoles(): AsyncResult<readonly Role[]>;
-  
+
   create(data: CreateRoleData): AsyncResult<Role>;
   update(id: RoleId, data: UpdateRoleData): AsyncResult<Role>;
   delete(id: RoleId): AsyncResult<void>;
-  
+
   addPermission(roleId: RoleId, permission: Permission): AsyncResult<void>;
-  removePermission(roleId: RoleId, permissionId: PermissionId): AsyncResult<void>;
-  
+  removePermission(
+    roleId: RoleId,
+    permissionId: PermissionId
+  ): AsyncResult<void>;
+
   getUsersWithRole(roleId: RoleId): AsyncResult<readonly User[]>;
 }
 ```
@@ -348,8 +399,8 @@ interface Session {
   readonly id: UUID;
   readonly userId: UserId;
   readonly tenantId: TenantId;
-  readonly token: string;                   // Hashed
-  readonly refreshToken?: string;           // Hashed
+  readonly token: string; // Hashed
+  readonly refreshToken?: string; // Hashed
   readonly expiresAt: ISODateTime;
   readonly lastActivityAt: ISODateTime;
   readonly ipAddress: string;
@@ -363,7 +414,7 @@ interface SessionRepository {
   findById(id: UUID): AsyncResult<Session | null>;
   findByToken(token: string): AsyncResult<Session | null>;
   findActiveByUser(userId: UserId): AsyncResult<readonly Session[]>;
-  
+
   create(data: CreateSessionData): AsyncResult<Session>;
   updateActivity(id: UUID): AsyncResult<void>;
   revoke(id: UUID): AsyncResult<void>;
@@ -391,7 +442,7 @@ interface IdentityProvider {
   readonly createdAt: ISODateTime;
 }
 
-type IdPType = 'saml' | 'oidc' | 'google' | 'microsoft' | 'okta';
+type IdPType = "saml" | "oidc" | "google" | "microsoft" | "okta";
 
 interface IdPConfig {
   readonly clientId: string;
@@ -436,12 +487,12 @@ interface MfaDevice {
   readonly createdAt: ISODateTime;
 }
 
-type MfaType = 'totp' | 'sms' | 'email' | 'webauthn' | 'recovery_codes';
+type MfaType = "totp" | "sms" | "email" | "webauthn" | "recovery_codes";
 
 interface IMfaDeviceRepository {
   findByUserId(userId: UserId): AsyncResult<readonly MfaDevice[]>;
   findById(id: UUID): AsyncResult<MfaDevice | null>;
-  
+
   create(data: CreateMfaDeviceData): AsyncResult<MfaDevice>;
   setDefault(userId: UserId, deviceId: UUID): AsyncResult<void>;
   delete(id: UUID): AsyncResult<void>;
@@ -476,21 +527,31 @@ interface TeamMembership {
   readonly joinedAt: ISODateTime;
 }
 
-type TeamRole = 'member' | 'maintainer' | 'owner';
+type TeamRole = "member" | "maintainer" | "owner";
 
 interface ITeamRepository {
   findById(id: UUID): AsyncResult<Team | null>;
-  findByTenantId(tenantId: TenantId, options?: QueryOptions): AsyncResult<PaginatedResult<Team>>;
+  findByTenantId(
+    tenantId: TenantId,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<Team>>;
   findByUser(userId: UserId): AsyncResult<readonly Team[]>;
-  
+
   create(data: CreateTeamData): AsyncResult<Team>;
   update(id: UUID, data: UpdateTeamData): AsyncResult<Team>;
   delete(id: UUID): AsyncResult<void>;
-  
-  getMembers(teamId: UUID, options?: QueryOptions): AsyncResult<PaginatedResult<TeamMembership>>;
+
+  getMembers(
+    teamId: UUID,
+    options?: QueryOptions
+  ): AsyncResult<PaginatedResult<TeamMembership>>;
   addMember(teamId: UUID, userId: UserId, role: TeamRole): AsyncResult<void>;
   removeMember(teamId: UUID, userId: UserId): AsyncResult<void>;
-  updateMemberRole(teamId: UUID, userId: UserId, role: TeamRole): AsyncResult<void>;
+  updateMemberRole(
+    teamId: UUID,
+    userId: UserId,
+    role: TeamRole
+  ): AsyncResult<void>;
 }
 ```
 
@@ -520,7 +581,7 @@ type UserPasswordChangedEvent = DomainEvent<{
 type SessionRevokedEvent = DomainEvent<{
   sessionId: UUID;
   userId: UserId;
-  reason: 'logout' | 'security' | 'expired' | 'admin';
+  reason: "logout" | "security" | "expired" | "admin";
 }>;
 
 type RoleAssignedEvent = DomainEvent<{

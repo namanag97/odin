@@ -1,0 +1,9 @@
+
+> @odin/domain@0.2.0 typecheck /Users/namanagarwal/coding/odin/packages/domain
+> tsc --noEmit
+
+external/pm4py/adapter.ts(7,10): error TS2305: Module '"@odin/core-contracts"' has no exported member 'createOperationalError'.
+external/pm4py/adapter.ts(55,9): error TS2322: Type 'number' is not assignable to type 'Duration'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "DurationMs"; }'.
+external/pm4py/types.ts(8,3): error TS2305: Module '"@odin/core-contracts"' has no exported member 'Brand'.
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

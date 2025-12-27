@@ -1,0 +1,3982 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.3.3",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/js",
+      "version": "^22.3.3",
+      "options": {
+        "analyzeSourceFiles": true
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "database/generated/repos/base-repository.ts",
+        "hash": "4690005462350121154"
+      },
+      {
+        "file": "database/generated/schemas/prediction-features.ts",
+        "hash": "12910477826279855537"
+      },
+      {
+        "file": "database/generated/schemas/tenant-settings.ts",
+        "hash": "3501717268433261850"
+      },
+      {
+        "file": "database/generated/schemas/user-profiles.ts",
+        "hash": "7150249345195694300"
+      },
+      {
+        "file": "database/generated/types/action-flows.ts",
+        "hash": "580184164946101693"
+      },
+      {
+        "file": "database/generated/repos/audit-logs.repository.ts",
+        "hash": "10536065017719858075"
+      },
+      {
+        "file": "database/generated/types/plan-features.ts",
+        "hash": "12816935509210275132"
+      },
+      {
+        "file": "database/generated/schemas/system-configs.ts",
+        "hash": "8168392249465698579"
+      },
+      {
+        "file": "database/generated/schemas/data-job-tasks.ts",
+        "hash": "7015954020106363258"
+      },
+      {
+        "file": "database/generated/repos/simulation-results.repository.ts",
+        "hash": "18067606299200001082"
+      },
+      {
+        "file": "database/generated/repos/plan-limits.repository.ts",
+        "hash": "18362841319549228264"
+      },
+      {
+        "file": "database/generated/types/audit-logs.ts",
+        "hash": "5808217692070049140"
+      },
+      {
+        "file": "docs/patterns/event-patterns.md",
+        "hash": "2401623397897722799"
+      },
+      {
+        "file": "database/generated/types/data-job-tasks.ts",
+        "hash": "1908897940674276972"
+      },
+      {
+        "file": "database/generated/repos/simulation-parameters.repository.ts",
+        "hash": "1214741147775571996"
+      },
+      {
+        "file": "database/generated/types/prediction-models.ts",
+        "hash": "17451778619781126495"
+      },
+      {
+        "file": "database/generated/types/roles.ts",
+        "hash": "9139329622774375000"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "11327631227503079408"
+      },
+      {
+        "file": "database/generated/types/invoices.ts",
+        "hash": "6638793464251140978"
+      },
+      {
+        "file": "database/generated/schemas/import-jobs.ts",
+        "hash": "1291567704049484869"
+      },
+      {
+        "file": "database/schema/05_discovery.sql",
+        "hash": "637473088564123022"
+      },
+      {
+        "file": "database/generated/repos/predictions.repository.ts",
+        "hash": "16182145028320437655"
+      },
+      {
+        "file": "database/generated/schemas/webhook-deliveries.ts",
+        "hash": "15605554709823445868"
+      },
+      {
+        "file": "database/generated/types/incomplete-executions.ts",
+        "hash": "8332023137546752815"
+      },
+      {
+        "file": "database/generated/types/records.ts",
+        "hash": "7725237529090563517"
+      },
+      {
+        "file": "database/generated/types/ocel-objects.ts",
+        "hash": "1065261694694433523"
+      },
+      {
+        "file": "database/generated/schemas/action-executions.ts",
+        "hash": "13485878724096416956"
+      },
+      {
+        "file": "database/generated/schemas/data-retention-policies.ts",
+        "hash": "8116797377854171533"
+      },
+      {
+        "file": "database/generated/repos/workflow-history.repository.ts",
+        "hash": "6517560819687344153"
+      },
+      {
+        "file": "database/generated/repos/schedules.repository.ts",
+        "hash": "11006809795971080785"
+      },
+      {
+        "file": "database/generated/schemas/conformance-results.ts",
+        "hash": "18245617586048086878"
+      },
+      {
+        "file": "database/generated/schemas/copilot-sessions.ts",
+        "hash": "2331386925921236910"
+      },
+      {
+        "file": "database/generated/schemas/workflow-signals.ts",
+        "hash": "1443629385064804581"
+      },
+      {
+        "file": "database/generated/schemas/task-types.ts",
+        "hash": "12618729923516311211"
+      },
+      {
+        "file": "database/generated/repos/ocel-events.repository.ts",
+        "hash": "16053956283596510992"
+      },
+      {
+        "file": "database/generated/repos/conformance-jobs.repository.ts",
+        "hash": "18422395577697994010"
+      },
+      {
+        "file": "database/generated/schemas/ocel-o2o.ts",
+        "hash": "1269039893954399038"
+      },
+      {
+        "file": "database/generated/repos/system-configs.repository.ts",
+        "hash": "5830218281170858309"
+      },
+      {
+        "file": "database/generated/repos/dashboards.repository.ts",
+        "hash": "4074251943626044736"
+      },
+      {
+        "file": "database/generated/repos/ocel-event-types.repository.ts",
+        "hash": "12260164813925071529"
+      },
+      {
+        "file": "database/generated/repos/teams.repository.ts",
+        "hash": "17619652178710501460"
+      },
+      {
+        "file": "database/generated/repos/copilot-messages.repository.ts",
+        "hash": "3842339022176363112"
+      },
+      {
+        "file": "files/Process_Intelligence_Platform_ERD.pdf",
+        "hash": "7895856777795158955"
+      },
+      {
+        "file": "database/generated/repos/workflows.repository.ts",
+        "hash": "4633490896144611254"
+      },
+      {
+        "file": "database/generated/repos/mfa-devices.repository.ts",
+        "hash": "17797450725989867168"
+      },
+      {
+        "file": "database/generated/schemas/action-flow-executions.ts",
+        "hash": "16963436503946484387"
+      },
+      {
+        "file": "database/generated/repos/import-jobs.repository.ts",
+        "hash": "14719165649986543533"
+      },
+      {
+        "file": "database/generated/schemas/api-keys.ts",
+        "hash": "15504810612639696802"
+      },
+      {
+        "file": "database/generated/schemas/predictions.ts",
+        "hash": "13327923137339363953"
+      },
+      {
+        "file": "database/generated/repos/ocel-object-changes.repository.ts",
+        "hash": "10910851584183825339"
+      },
+      {
+        "file": "database/generated/schemas/spaces.ts",
+        "hash": "10001777474923308889"
+      },
+      {
+        "file": "database/generated/types/graph-projections.ts",
+        "hash": "13836702127371809344"
+      },
+      {
+        "file": "database/generated/repos/plans.repository.ts",
+        "hash": "16060799860756662993"
+      },
+      {
+        "file": "database/generated/schemas/skills.ts",
+        "hash": "14165106776383478277"
+      },
+      {
+        "file": "database/generated/repos/ocel-o2o.repository.ts",
+        "hash": "17679957562759912074"
+      },
+      {
+        "file": "database/generated/schemas/integrations.ts",
+        "hash": "2991716068426982026"
+      },
+      {
+        "file": "database/seed.sql",
+        "hash": "10302006699902868555"
+      },
+      {
+        "file": "database/generated/repos/ocel-object-types.repository.ts",
+        "hash": "17168895692426883415"
+      },
+      {
+        "file": "files/Domain models/domain-contracts-process-mining.md",
+        "hash": "15593954206811946056"
+      },
+      {
+        "file": "database/generated/repos/conformance-results.repository.ts",
+        "hash": "13992020412330749939"
+      },
+      {
+        "file": "database/generated/types/workflow-history.ts",
+        "hash": "5071732211063160760"
+      },
+      {
+        "file": "database/generated/types/webhook-queues.ts",
+        "hash": "6681771177776696221"
+      },
+      {
+        "file": "files/Domain models/implementation-guide.md",
+        "hash": "13313701126394751403"
+      },
+      {
+        "file": "database/codegen/introspect-schema.ts",
+        "hash": "392603054125020052"
+      },
+      {
+        "file": "database/generated/types/data-connections.ts",
+        "hash": "15247751321426236146"
+      },
+      {
+        "file": "database/generated/schemas/oauth-tokens.ts",
+        "hash": "7673161067250290563"
+      },
+      {
+        "file": "DDD_IMPLEMENTATION_CHECKPOINT.md",
+        "hash": "7011342223150777245"
+      },
+      {
+        "file": "files/Domain models/api-contracts.md",
+        "hash": "13485071702677024883"
+      },
+      {
+        "file": "database/generated/schemas/copilot-messages.ts",
+        "hash": "12014575115722218149"
+      },
+      {
+        "file": "database/generated/types/knowledge-models.ts",
+        "hash": "15689832384449247517"
+      },
+      {
+        "file": "database/generated/schemas/columns.ts",
+        "hash": "16807976501407245904"
+      },
+      {
+        "file": "database/schema/09_simulation.sql",
+        "hash": "5204071590776977219"
+      },
+      {
+        "file": "database/generated/schemas/event-types.ts",
+        "hash": "16001444142772992856"
+      },
+      {
+        "file": "database/generated/schemas/coupons.ts",
+        "hash": "7499215948166485350"
+      },
+      {
+        "file": "database/generated/schemas/ocel-events.ts",
+        "hash": "8719241498775948818"
+      },
+      {
+        "file": "database/generated/types/organizations.ts",
+        "hash": "6399874162700630541"
+      },
+      {
+        "file": "database/generated/schemas/workflow-executions.ts",
+        "hash": "14437470958344097251"
+      },
+      {
+        "file": "files/process_mining_api_spec.md",
+        "hash": "1988418242934746657"
+      },
+      {
+        "file": "database/generated/repos/data-retention-policies.repository.ts",
+        "hash": "16431292595118469109"
+      },
+      {
+        "file": "database/schema/14_workflow_eventsource.sql",
+        "hash": "9430685360960783394"
+      },
+      {
+        "file": "files/files/process-intel-schema.sql",
+        "hash": "5302181576301361703"
+      },
+      {
+        "file": "database/generated/repos/petri-nets.repository.ts",
+        "hash": "14979128744940406077"
+      },
+      {
+        "file": "database/generated/repos/ontologies.repository.ts",
+        "hash": "13027528246440797717"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "6298645299475835362"
+      },
+      {
+        "file": "database/schema/23_operational_layer.sql",
+        "hash": "4616111981397814132"
+      },
+      {
+        "file": "database/generated/types/workflow-executions.ts",
+        "hash": "7105368682992362063"
+      },
+      {
+        "file": "database/generated/repos/payment-methods.repository.ts",
+        "hash": "484798218308080523"
+      },
+      {
+        "file": "database/generated/schemas/tasks.ts",
+        "hash": "13377202428393437539"
+      },
+      {
+        "file": "database/generated/types/signals.ts",
+        "hash": "8061530808941662570"
+      },
+      {
+        "file": "database/generated/types/sessions.ts",
+        "hash": "6407603428955322923"
+      },
+      {
+        "file": "database/generated/types/entity-history.ts",
+        "hash": "3690238973281944007"
+      },
+      {
+        "file": "database/generated/schemas/graph-sync-log.ts",
+        "hash": "7639236624037887753"
+      },
+      {
+        "file": "database/generated/schemas/copilot-tool-calls.ts",
+        "hash": "17534224471733039188"
+      },
+      {
+        "file": "database/generated/types/schedules.ts",
+        "hash": "11856120493413700530"
+      },
+      {
+        "file": "database/generated/types/workflows.ts",
+        "hash": "11355529577791717018"
+      },
+      {
+        "file": "database/generated/schemas/job-executions.ts",
+        "hash": "35229073285666870"
+      },
+      {
+        "file": "database/generated/types/email-messages.ts",
+        "hash": "14170610699215175536"
+      },
+      {
+        "file": "database/generated/schemas/users.ts",
+        "hash": "2028908595850594636"
+      },
+      {
+        "file": "database/generated/repos/model-evaluations.repository.ts",
+        "hash": "15003106497138705242"
+      },
+      {
+        "file": "database/generated/repos/discovered-models.repository.ts",
+        "hash": "17605935050756576447"
+      },
+      {
+        "file": "CLAUDE.md",
+        "hash": "1566185418230510025"
+      },
+      {
+        "file": "database/generated/repos/annotations.repository.ts",
+        "hash": "2103281915242688414"
+      },
+      {
+        "file": "database/codegen/generate-types.ts",
+        "hash": "937104872355420821"
+      },
+      {
+        "file": "database/generated/repos/webhooks.repository.ts",
+        "hash": "12721211085414041464"
+      },
+      {
+        "file": "database/generated/schemas/mfa-devices.ts",
+        "hash": "9215803958157488886"
+      },
+      {
+        "file": "database/generated/schemas/role-assignments.ts",
+        "hash": "11489230352205716846"
+      },
+      {
+        "file": "database/generated/repos/event-log-configs.repository.ts",
+        "hash": "12034298425629438493"
+      },
+      {
+        "file": "database/generated/repos/quality-metrics.repository.ts",
+        "hash": "17085935512896843481"
+      },
+      {
+        "file": "files/process-intel-integration.md",
+        "hash": "14848653730063692598"
+      },
+      {
+        "file": "database/generated/repos/environments.repository.ts",
+        "hash": "15773822905105726336"
+      },
+      {
+        "file": "database/generated/schemas/perspectives.ts",
+        "hash": "13763270057144583836"
+      },
+      {
+        "file": "database/generated/schemas/augmented-attributes.ts",
+        "hash": "11110676715550668864"
+      },
+      {
+        "file": "database/schema/19_ocpm_extended.sql",
+        "hash": "9521776001119373339"
+      },
+      {
+        "file": "files/Domain models/service-contracts-core.md",
+        "hash": "16295627328617737808"
+      },
+      {
+        "file": "database/generated/schemas/custom-event-logs.ts",
+        "hash": "4575565186388446474"
+      },
+      {
+        "file": "database/generated/repos/sensors.repository.ts",
+        "hash": "5729690818888510977"
+      },
+      {
+        "file": "database/generated/types/import-job-runs.ts",
+        "hash": "9601561194191142589"
+      },
+      {
+        "file": "database/generated/types/copilot-sessions.ts",
+        "hash": "15133646214930133520"
+      },
+      {
+        "file": "database/generated/repos/api-keys.repository.ts",
+        "hash": "5079983224458799677"
+      },
+      {
+        "file": "database/generated/types/copilot-tool-calls.ts",
+        "hash": "9938150455030939383"
+      },
+      {
+        "file": "database/generated/repos/graph-sync-log.repository.ts",
+        "hash": "9594382162519369835"
+      },
+      {
+        "file": "database/generated/schemas/activities.ts",
+        "hash": "11910314419827935051"
+      },
+      {
+        "file": "files/files.zip",
+        "hash": "10418168134389705590"
+      },
+      {
+        "file": "database/generated/types/variants.ts",
+        "hash": "6335788326229992648"
+      },
+      {
+        "file": "database/generated/types/bottleneck-analyses.ts",
+        "hash": "5341504992804054541"
+      },
+      {
+        "file": "database/generated/repos/coupons.repository.ts",
+        "hash": "12301449647653690927"
+      },
+      {
+        "file": "database/generated/types/augmented-attribute-values.ts",
+        "hash": "2753615874859070649"
+      },
+      {
+        "file": "database/generated/repos/notification-templates.repository.ts",
+        "hash": "11291993903688115600"
+      },
+      {
+        "file": "odin.db-shm",
+        "hash": "7351423327269687778"
+      },
+      {
+        "file": ".claude/settings.local.json",
+        "hash": "16883639253406283941"
+      },
+      {
+        "file": "database/generated/repos/users.repository.ts",
+        "hash": "6212643513003880640"
+      },
+      {
+        "file": "database/generated/types/workflow-signals.ts",
+        "hash": "3038370909875306644"
+      },
+      {
+        "file": "database/generated/schemas/discovered-models.ts",
+        "hash": "6839263397619487143"
+      },
+      {
+        "file": "database/generated/types/copilot-knowledge-base.ts",
+        "hash": "1414773685447045765"
+      },
+      {
+        "file": "database/generated/types/team-memberships.ts",
+        "hash": "8415339955957889593"
+      },
+      {
+        "file": "database/generated/types/integrations.ts",
+        "hash": "8638891742809561359"
+      },
+      {
+        "file": "database/generated/schemas/augmented-attribute-values.ts",
+        "hash": "4137022914499411034"
+      },
+      {
+        "file": "files/schema to code.md",
+        "hash": "9859355807683301982"
+      },
+      {
+        "file": "database/generated/schemas/feature-flag-overrides.ts",
+        "hash": "7380937856682225063"
+      },
+      {
+        "file": "database/generated/schemas/feature-flags.ts",
+        "hash": "454796425011211391"
+      },
+      {
+        "file": "database/generated/schemas/ocel-object-changes.ts",
+        "hash": "10376409393556208969"
+      },
+      {
+        "file": "database/schema/20_existence_layer.sql",
+        "hash": "16472065732898253626"
+      },
+      {
+        "file": "database/generated/schemas/petri-net-places.ts",
+        "hash": "4594632358838562953"
+      },
+      {
+        "file": "database/generated/repos/data-job-tasks.repository.ts",
+        "hash": "4725137619558252351"
+      },
+      {
+        "file": "files/Domain models/domain-contracts-commercial.md",
+        "hash": "4300741029711854452"
+      },
+      {
+        "file": "database/generated/schemas/cases.ts",
+        "hash": "12847239877118483809"
+      },
+      {
+        "file": "database/generated/repos/signals.repository.ts",
+        "hash": "1426850600510000988"
+      },
+      {
+        "file": "database/generated/types/petri-net-arcs.ts",
+        "hash": "10477355179902500163"
+      },
+      {
+        "file": "database/generated/schemas/connections.ts",
+        "hash": "17984170580870679906"
+      },
+      {
+        "file": "database/generated/schemas/email-messages.ts",
+        "hash": "6202536457493941172"
+      },
+      {
+        "file": "database/generated/types/copilot-feedback.ts",
+        "hash": "15356497182180025927"
+      },
+      {
+        "file": "database/schema/17_studio.sql",
+        "hash": "5789856953843707560"
+      },
+      {
+        "file": "docs/architecture/domain-entities.svg",
+        "hash": "11993725682317046156"
+      },
+      {
+        "file": "database/generated/repos/records.repository.ts",
+        "hash": "12914698650601213774"
+      },
+      {
+        "file": "database/generated/schemas/notifications.ts",
+        "hash": "943563392305961048"
+      },
+      {
+        "file": "database/generated/repos/user-preferences.repository.ts",
+        "hash": "10350943928840271046"
+      },
+      {
+        "file": "database/generated/types/notification-templates.ts",
+        "hash": "8312451917842858366"
+      },
+      {
+        "file": "database/generated/schemas/dashboards.ts",
+        "hash": "7637052110680568674"
+      },
+      {
+        "file": "database/generated/repos/variants.repository.ts",
+        "hash": "6820984142285603319"
+      },
+      {
+        "file": "database/generated/repos/webhook-queues.repository.ts",
+        "hash": "15749463097704003243"
+      },
+      {
+        "file": "database/generated/schemas/tenants.ts",
+        "hash": "11688429271034244963"
+      },
+      {
+        "file": "database/generated/schemas/prediction-models.ts",
+        "hash": "4134250229652430302"
+      },
+      {
+        "file": "database/generated/schemas/tables.ts",
+        "hash": "14340674585408159481"
+      },
+      {
+        "file": "database/generated/types/model-evaluations.ts",
+        "hash": "7380461380884656749"
+      },
+      {
+        "file": "database/generated/schemas/data-connections.ts",
+        "hash": "17848471574811946963"
+      },
+      {
+        "file": "database/generated/repos/scheduled-jobs.repository.ts",
+        "hash": "5170830356491480989"
+      },
+      {
+        "file": "database/generated/schemas/invoices.ts",
+        "hash": "16683974118930339899"
+      },
+      {
+        "file": "database/generated/repos/resources.repository.ts",
+        "hash": "6108912368852879539"
+      },
+      {
+        "file": "database/generated/repos/view-tabs.repository.ts",
+        "hash": "13280592777401996482"
+      },
+      {
+        "file": "database/generated/types/role-assignments.ts",
+        "hash": "2633035476986200505"
+      },
+      {
+        "file": "database/generated/types/workflow-timers.ts",
+        "hash": "10125892736675015781"
+      },
+      {
+        "file": "database/generated/repos/skills.repository.ts",
+        "hash": "14971024827838314997"
+      },
+      {
+        "file": "database/generated/types/sensors.ts",
+        "hash": "191699015282424220"
+      },
+      {
+        "file": "database/generated/repos/filters.repository.ts",
+        "hash": "8306226353709137998"
+      },
+      {
+        "file": "docs/architecture/full-deps.json",
+        "hash": "9312107984604431618"
+      },
+      {
+        "file": "database/generated/schemas/workflows.ts",
+        "hash": "2981160540636137676"
+      },
+      {
+        "file": "files/files/process-intel-integration.md",
+        "hash": "14848653730063692598"
+      },
+      {
+        "file": "database/generated/schemas/incomplete-executions.ts",
+        "hash": "12693793043879319810"
+      },
+      {
+        "file": "database/generated/repos/webhook-deliveries.repository.ts",
+        "hash": "10440059921332802792"
+      },
+      {
+        "file": "files/files/process-intel-erd.md",
+        "hash": "4547659065506474366"
+      },
+      {
+        "file": "database/generated/repos/bottleneck-analyses.repository.ts",
+        "hash": "3700877040333915997"
+      },
+      {
+        "file": "database/generated/schemas/concepts.ts",
+        "hash": "4562148611497012780"
+      },
+      {
+        "file": "database/generated/schemas/compliance-records.ts",
+        "hash": "2824759951554494592"
+      },
+      {
+        "file": "database/generated/repos/ocel-objects.repository.ts",
+        "hash": "7601453222441191953"
+      },
+      {
+        "file": "database/generated/repos/copilot-embeddings.repository.ts",
+        "hash": "7279502199914933222"
+      },
+      {
+        "file": "database/generated/types/simulation-results.ts",
+        "hash": "10883846623629562325"
+      },
+      {
+        "file": "database/generated/schemas/plan-limits.ts",
+        "hash": "18001229528938879061"
+      },
+      {
+        "file": "database/generated/types/workflow-steps.ts",
+        "hash": "4617556713250737799"
+      },
+      {
+        "file": "database/generated/repos/components.repository.ts",
+        "hash": "9522828725479665887"
+      },
+      {
+        "file": "database/generated/schemas/actions.ts",
+        "hash": "9957761801498600287"
+      },
+      {
+        "file": "database/generated/schemas/permissions.ts",
+        "hash": "10489293369477742266"
+      },
+      {
+        "file": "database/generated/repos/deviations.repository.ts",
+        "hash": "4493354997904119201"
+      },
+      {
+        "file": "database/generated/types/filters.ts",
+        "hash": "10667820965725068866"
+      },
+      {
+        "file": "database/generated/types/tables.ts",
+        "hash": "5189591960762698284"
+      },
+      {
+        "file": "database/generated/types/event-logs.ts",
+        "hash": "14297791153572242785"
+      },
+      {
+        "file": "database/generated/types/compliance-records.ts",
+        "hash": "16627251346397370340"
+      },
+      {
+        "file": "database/generated/types/import-jobs.ts",
+        "hash": "13866650917162213698"
+      },
+      {
+        "file": "database/generated/schemas/plans.ts",
+        "hash": "15869062188657342674"
+      },
+      {
+        "file": "database/generated/types/webhooks.ts",
+        "hash": "12440550919329206280"
+      },
+      {
+        "file": "ts_errors_report",
+        "hash": "1174814946504895974"
+      },
+      {
+        "file": "database/generated/repos/tenants.repository.ts",
+        "hash": "9549947133324072776"
+      },
+      {
+        "file": "database/generated/schemas/foreign-keys.ts",
+        "hash": "12596860627718314759"
+      },
+      {
+        "file": "database/generated/schemas/role-permissions.ts",
+        "hash": "15272467409223972956"
+      },
+      {
+        "file": "database/generated/repos/bpmn-models.repository.ts",
+        "hash": "3128267782852930716"
+      },
+      {
+        "file": "database/generated/types/teams.ts",
+        "hash": "4030509373083962940"
+      },
+      {
+        "file": "database/generated/schemas/simulation-parameters.ts",
+        "hash": "17512120088597600290"
+      },
+      {
+        "file": "database/generated/repos/cases.repository.ts",
+        "hash": "8698384317602711793"
+      },
+      {
+        "file": "database/generated/schemas/subscriptions.ts",
+        "hash": "4814405680848293275"
+      },
+      {
+        "file": "database/generated/repos/uploads.repository.ts",
+        "hash": "16646488897183693812"
+      },
+      {
+        "file": "database/generated/repos/entity-history.repository.ts",
+        "hash": "8652616046130977344"
+      },
+      {
+        "file": "database/generated/repos/compliance-records.repository.ts",
+        "hash": "14240540024482614343"
+      },
+      {
+        "file": "database/schema/13_copilot.sql",
+        "hash": "5407933093232350034"
+      },
+      {
+        "file": "database/generated/types/ocel-object-types.ts",
+        "hash": "5362597687978355757"
+      },
+      {
+        "file": "files/Domain models/domain-contracts-temporal.md",
+        "hash": "35162396118716628"
+      },
+      {
+        "file": "database/generated/schemas/event-log-configs.ts",
+        "hash": "8044408173985515695"
+      },
+      {
+        "file": "database/generated/types/coupons.ts",
+        "hash": "10740237496238956539"
+      },
+      {
+        "file": "database/generated/types/job-executions.ts",
+        "hash": "11536845725285849678"
+      },
+      {
+        "file": "database/generated/repos/action-executions.repository.ts",
+        "hash": "13086269161817417418"
+      },
+      {
+        "file": "files/Domain models/service-contracts-infrastructure.md",
+        "hash": "8838940613016696232"
+      },
+      {
+        "file": "database/generated/schemas/schedules.ts",
+        "hash": "3696257063643493281"
+      },
+      {
+        "file": "database/generated/types/object-types.ts",
+        "hash": "15543605264375214804"
+      },
+      {
+        "file": "database/generated/types/ocel-e2o.ts",
+        "hash": "16887070869606327124"
+      },
+      {
+        "file": "database/generated/schemas/organizations.ts",
+        "hash": "7715528564495132400"
+      },
+      {
+        "file": "database/generated/schemas/plan-features.ts",
+        "hash": "7670136594038569612"
+      },
+      {
+        "file": "files/process-intel-erd.md",
+        "hash": "4547659065506474366"
+      },
+      {
+        "file": "database/generated/repos/identity-providers.repository.ts",
+        "hash": "17048595690475680072"
+      },
+      {
+        "file": "database/generated/schemas/copilot-embeddings.ts",
+        "hash": "16327558468677393380"
+      },
+      {
+        "file": "database/generated/repos/sna-results.repository.ts",
+        "hash": "2714217273865176462"
+      },
+      {
+        "file": "database/generated/types/bpmn-models.ts",
+        "hash": "11277435529129816355"
+      },
+      {
+        "file": "database/generated/repos/knowledge-models.repository.ts",
+        "hash": "6704070621486972553"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "2320187736902498180"
+      },
+      {
+        "file": "database/generated/repos/data-connections.repository.ts",
+        "hash": "864492066207315412"
+      },
+      {
+        "file": "files/Domain models/core-contracts.md",
+        "hash": "15766785970579902309"
+      },
+      {
+        "file": "database/generated/schemas/quality-metrics.ts",
+        "hash": "15814631263231517329"
+      },
+      {
+        "file": "database/generated/types/feature-flag-overrides.ts",
+        "hash": "13194434140138083346"
+      },
+      {
+        "file": "database/generated/schemas/ocel-objects.ts",
+        "hash": "2792628475252923373"
+      },
+      {
+        "file": "files/api_db_verification_checklist_1.md",
+        "hash": "11404729029491858576"
+      },
+      {
+        "file": "database/generated/types/discovered-models.ts",
+        "hash": "11541970463986427978"
+      },
+      {
+        "file": "database/generated/types/simulation-runs.ts",
+        "hash": "12479563523918439010"
+      },
+      {
+        "file": "database/generated/schemas/workflow-timers.ts",
+        "hash": "5920990511809188415"
+      },
+      {
+        "file": "database/generated/types/oauth-tokens.ts",
+        "hash": "17364665453250837580"
+      },
+      {
+        "file": "database/generated/types/identity-providers.ts",
+        "hash": "9141624067256320701"
+      },
+      {
+        "file": "database/generated/schemas/webhooks.ts",
+        "hash": "4290760038855607911"
+      },
+      {
+        "file": "database/generated/schemas/performance-metrics.ts",
+        "hash": "13334761634620507284"
+      },
+      {
+        "file": "database/generated/types/ocel-event-types.ts",
+        "hash": "6504905220834256854"
+      },
+      {
+        "file": "database/schema/01_core.sql",
+        "hash": "17892694357946767342"
+      },
+      {
+        "file": "docs/patterns/type-patterns.md",
+        "hash": "14061304801068224609"
+      },
+      {
+        "file": "files/Domain models/domain-contracts-analytics.md",
+        "hash": "6191894023990036239"
+      },
+      {
+        "file": "database/generated/schemas/simulation-results.ts",
+        "hash": "4356888539906320535"
+      },
+      {
+        "file": "database/generated/repos/simulation-runs.repository.ts",
+        "hash": "5103077590821880915"
+      },
+      {
+        "file": "database/generated/types/performance-metrics.ts",
+        "hash": "4655639237686874395"
+      },
+      {
+        "file": "database/generated/repos/oauth-tokens.repository.ts",
+        "hash": "10457743297710159868"
+      },
+      {
+        "file": "database/generated/types/deviations.ts",
+        "hash": "307577773245155353"
+      },
+      {
+        "file": "database/generated/types/petri-nets.ts",
+        "hash": "14260821597686932339"
+      },
+      {
+        "file": "database/generated/types/data-models.ts",
+        "hash": "13674186540923368202"
+      },
+      {
+        "file": "database/generated/repos/incomplete-executions.repository.ts",
+        "hash": "14176142579424968896"
+      },
+      {
+        "file": "files/Domain models/domain-contracts-existence.md",
+        "hash": "5372751928029051126"
+      },
+      {
+        "file": "database/generated/repos/spaces.repository.ts",
+        "hash": "2690665504592335565"
+      },
+      {
+        "file": "database/generated/repos/user-credentials.repository.ts",
+        "hash": "11182145394215401099"
+      },
+      {
+        "file": "database/generated/repos/notifications.repository.ts",
+        "hash": "11148373420451759429"
+      },
+      {
+        "file": "database/generated/schemas/invoice-line-items.ts",
+        "hash": "3993084864078255080"
+      },
+      {
+        "file": "database/generated/types/prediction-features.ts",
+        "hash": "12457018257091063201"
+      },
+      {
+        "file": "database/generated/schemas/sna-results.ts",
+        "hash": "2795405913152230547"
+      },
+      {
+        "file": "database/generated/types/ocel-o2o.ts",
+        "hash": "9251158407630926616"
+      },
+      {
+        "file": "database/schema/10_automation.sql",
+        "hash": "10904150620860041351"
+      },
+      {
+        "file": "database/generated/types/connections.ts",
+        "hash": "2370500465338276135"
+      },
+      {
+        "file": "database/generated/repos/simulation-models.repository.ts",
+        "hash": "3434413576667197313"
+      },
+      {
+        "file": "database/generated/types/system-configs.ts",
+        "hash": "2717421103943221688"
+      },
+      {
+        "file": "versions.json",
+        "hash": "10799197065392123608"
+      },
+      {
+        "file": "database/generated/schemas/event-logs.ts",
+        "hash": "13259806982980178210"
+      },
+      {
+        "file": "database/generated/types/packages.ts",
+        "hash": "4470014172458666384"
+      },
+      {
+        "file": "database/generated/types/sna-results.ts",
+        "hash": "4231300177209234221"
+      },
+      {
+        "file": "database/generated/types/concepts.ts",
+        "hash": "11465261680632001267"
+      },
+      {
+        "file": "database/generated/types/spaces.ts",
+        "hash": "6153786749901948892"
+      },
+      {
+        "file": "database/generated/repos/perspectives.repository.ts",
+        "hash": "14355767369608154602"
+      },
+      {
+        "file": "database/schema/24_temporal_layer.sql",
+        "hash": "7957818812449104186"
+      },
+      {
+        "file": "database/generated/repos/views.repository.ts",
+        "hash": "9139415500638829751"
+      },
+      {
+        "file": "database/generated/repos/workflow-executions.repository.ts",
+        "hash": "18161135317040380836"
+      },
+      {
+        "file": "database/generated/repos/tenant-settings.repository.ts",
+        "hash": "16251600403733542602"
+      },
+      {
+        "file": "database/generated/schemas/graph-projections.ts",
+        "hash": "4258793353723487319"
+      },
+      {
+        "file": "database/codegen/generate-zod.ts",
+        "hash": "6821205963843867152"
+      },
+      {
+        "file": "database/generated/repos/workflow-steps.repository.ts",
+        "hash": "17362799234428254894"
+      },
+      {
+        "file": "database/generated/repos/concept-relations.repository.ts",
+        "hash": "7165140764051627976"
+      },
+      {
+        "file": "docs/architecture/core-contracts-deps.svg",
+        "hash": "18086727095435811828"
+      },
+      {
+        "file": "files/ERD-EXTRACTION-GUIDE.md",
+        "hash": "13395130547608961393"
+      },
+      {
+        "file": "database/generated/repos/permissions.repository.ts",
+        "hash": "3451929431848324520"
+      },
+      {
+        "file": "database/generated/repos/tables.repository.ts",
+        "hash": "17401430864790218316"
+      },
+      {
+        "file": "database/generated/repos/prediction-features.repository.ts",
+        "hash": "1532943219711892284"
+      },
+      {
+        "file": "database/schema.sql",
+        "hash": "8371578216173393242"
+      },
+      {
+        "file": "database/generated/repos/kpis.repository.ts",
+        "hash": "6319477643611312810"
+      },
+      {
+        "file": "database/generated/schemas/concept-relations.ts",
+        "hash": "6125965602040375830"
+      },
+      {
+        "file": "database/generated/types/role-permissions.ts",
+        "hash": "7165865139390300868"
+      },
+      {
+        "file": "database/codegen/generate-repos.ts",
+        "hash": "4680897536871826596"
+      },
+      {
+        "file": "database/generated/types/cases.ts",
+        "hash": "10510863812215275532"
+      },
+      {
+        "file": "database/generated/repos/integrations.repository.ts",
+        "hash": "11876170666164330935"
+      },
+      {
+        "file": "database/generated/schemas/copilot-feedback.ts",
+        "hash": "12585689613287246518"
+      },
+      {
+        "file": "database/generated/types/petri-net-transitions.ts",
+        "hash": "16972555508419601755"
+      },
+      {
+        "file": "database/generated/repos/workflow-activities.repository.ts",
+        "hash": "13441599287998994635"
+      },
+      {
+        "file": "database/generated/types/variables.ts",
+        "hash": "12471344387379078474"
+      },
+      {
+        "file": "database/generated/types/user-preferences.ts",
+        "hash": "14193169819056950766"
+      },
+      {
+        "file": "database/generated/repos/custom-event-logs.repository.ts",
+        "hash": "3148535639860654544"
+      },
+      {
+        "file": "database/generated/types/task-types.ts",
+        "hash": "1147254212322498098"
+      },
+      {
+        "file": "database/generated/schemas/knowledge-models.ts",
+        "hash": "3857807258523283802"
+      },
+      {
+        "file": "database/generated/repos/concepts.repository.ts",
+        "hash": "14018711909332488534"
+      },
+      {
+        "file": "database/generated/repos/action-flow-executions.repository.ts",
+        "hash": "17092858691544617162"
+      },
+      {
+        "file": "database/generated/schemas/filters.ts",
+        "hash": "384536731690789177"
+      },
+      {
+        "file": "database/generated/schemas/annotations.ts",
+        "hash": "8234742317758867065"
+      },
+      {
+        "file": "database/generated/schemas/ocel-e2o.ts",
+        "hash": "9984396577240869793"
+      },
+      {
+        "file": "database/generated/schemas/metric-values.ts",
+        "hash": "6984765618656812986"
+      },
+      {
+        "file": "database/generated/schemas/scheduled-jobs.ts",
+        "hash": "11701725533974644530"
+      },
+      {
+        "file": "database/generated/schemas/events.ts",
+        "hash": "15968466929536223469"
+      },
+      {
+        "file": "database/generated/repos/prediction-models.repository.ts",
+        "hash": "9107057059746643404"
+      },
+      {
+        "file": "database/generated/types/augmented-attributes.ts",
+        "hash": "13659107730406361929"
+      },
+      {
+        "file": "database/generated/schemas/views.ts",
+        "hash": "18198555718890557065"
+      },
+      {
+        "file": "database/generated/types/graph-queries.ts",
+        "hash": "1777279636287822910"
+      },
+      {
+        "file": "database/generated/schemas/petri-net-transitions.ts",
+        "hash": "14627115218500487452"
+      },
+      {
+        "file": "database/generated/schemas/bpmn-models.ts",
+        "hash": "10640582402813805845"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "8276384610465993859"
+      },
+      {
+        "file": "database/generated/schemas/sessions.ts",
+        "hash": "13101669163847162858"
+      },
+      {
+        "file": "database/schema/00_uploads.sql",
+        "hash": "11229082812150204421"
+      },
+      {
+        "file": "database/generated/schemas/records.ts",
+        "hash": "16837774842882208128"
+      },
+      {
+        "file": "database/generated/types/ocel-object-changes.ts",
+        "hash": "4838477018895396736"
+      },
+      {
+        "file": "database/generated/types/environments.ts",
+        "hash": "12868318307555139946"
+      },
+      {
+        "file": "VERSION_UPDATE_1.0.1.md",
+        "hash": "7182851190739058132"
+      },
+      {
+        "file": "database/generated/types/action-executions.ts",
+        "hash": "10225416120328322433"
+      },
+      {
+        "file": "database/generated/types/notifications.ts",
+        "hash": "11332249684725545566"
+      },
+      {
+        "file": "database/generated/repos/petri-net-arcs.repository.ts",
+        "hash": "13740807447092057967"
+      },
+      {
+        "file": "database/codegen/generate-all.ts",
+        "hash": "6536044104454943200"
+      },
+      {
+        "file": "database/generated/schemas/teams.ts",
+        "hash": "14957283160643921624"
+      },
+      {
+        "file": "database/generated/repos/action-flow-modules.repository.ts",
+        "hash": "11826043571844713140"
+      },
+      {
+        "file": "database/generated/schemas/simulation-runs.ts",
+        "hash": "9067324271619788810"
+      },
+      {
+        "file": "database/generated/schemas/user-credentials.ts",
+        "hash": "11445816086939389078"
+      },
+      {
+        "file": "database/generated/types/ocel-events.ts",
+        "hash": "10176780070410916075"
+      },
+      {
+        "file": "database/generated/schemas/workflow-history.ts",
+        "hash": "947792159394163809"
+      },
+      {
+        "file": "files/Domain models/contracts-index.md",
+        "hash": "4295938671522532871"
+      },
+      {
+        "file": "database/init.ts",
+        "hash": "11454467396174455861"
+      },
+      {
+        "file": "database/schema/26_communication_layer.sql",
+        "hash": "5829182692617274346"
+      },
+      {
+        "file": "database/generated/repos/subscriptions.repository.ts",
+        "hash": "11370860306842860457"
+      },
+      {
+        "file": "database/generated/types/skills.ts",
+        "hash": "5233116945077725585"
+      },
+      {
+        "file": "database/generated/types/dashboards.ts",
+        "hash": "4258441629079373922"
+      },
+      {
+        "file": "database/generated/repos/copilot-tool-calls.repository.ts",
+        "hash": "3411458537456717249"
+      },
+      {
+        "file": "database/generated/repos/job-executions.repository.ts",
+        "hash": "7113470496905536765"
+      },
+      {
+        "file": "database/generated/schemas/ocel-event-types.ts",
+        "hash": "11648636070219455254"
+      },
+      {
+        "file": "database/generated/types/alignments.ts",
+        "hash": "7986501952071163118"
+      },
+      {
+        "file": "database/generated/repos/record-attributes.repository.ts",
+        "hash": "745257059181368173"
+      },
+      {
+        "file": "database/generated/schemas/audit-logs.ts",
+        "hash": "7530251950619711379"
+      },
+      {
+        "file": "database/generated/repos/alignments.repository.ts",
+        "hash": "6520417698462676490"
+      },
+      {
+        "file": "database/generated/types/usage-records.ts",
+        "hash": "761420917816700"
+      },
+      {
+        "file": "database/generated/types/reasoning-rules.ts",
+        "hash": "15823392108962783094"
+      },
+      {
+        "file": "database/generated/types/graph-sync-log.ts",
+        "hash": "1024159797386415905"
+      },
+      {
+        "file": "database/generated/schemas/workflow-steps.ts",
+        "hash": "8888910929523199208"
+      },
+      {
+        "file": "database/generated/types/simulation-parameters.ts",
+        "hash": "10010200279947415076"
+      },
+      {
+        "file": "database/generated/schemas/object-relationships.ts",
+        "hash": "5472486107206234950"
+      },
+      {
+        "file": "database/generated/repos/object-relationships.repository.ts",
+        "hash": "13958979385128410117"
+      },
+      {
+        "file": "database/generated/types/tenants.ts",
+        "hash": "4681249856236137490"
+      },
+      {
+        "file": "database/generated/types/predictions.ts",
+        "hash": "16902038714145403189"
+      },
+      {
+        "file": "database/generated/types/resources.ts",
+        "hash": "4756840667969010736"
+      },
+      {
+        "file": "database/generated/repos/workflow-timers.repository.ts",
+        "hash": "5530279197962295231"
+      },
+      {
+        "file": "database/generated/types/action-flow-modules.ts",
+        "hash": "12068037761624061210"
+      },
+      {
+        "file": "database/generated/schemas/action-flow-modules.ts",
+        "hash": "4534400500002769422"
+      },
+      {
+        "file": "database/generated/types/tasks.ts",
+        "hash": "4636750403419586478"
+      },
+      {
+        "file": "database/generated/types/object-relationships.ts",
+        "hash": "2785963193874280839"
+      },
+      {
+        "file": "database/schema/16_semantic.sql",
+        "hash": "7406964904670801638"
+      },
+      {
+        "file": "database/generated/types/copilot-messages.ts",
+        "hash": "4153665452914817921"
+      },
+      {
+        "file": "database/generated/types/kpis.ts",
+        "hash": "13449804761385486329"
+      },
+      {
+        "file": "database/generated/types/permissions.ts",
+        "hash": "4812029923991361395"
+      },
+      {
+        "file": "database/schema/18_automation_enhanced.sql",
+        "hash": "13089891395492435658"
+      },
+      {
+        "file": "package.json",
+        "hash": "15614298432364325221"
+      },
+      {
+        "file": "database/generated/repos/copilot-knowledge-base.repository.ts",
+        "hash": "2447119014046259207"
+      },
+      {
+        "file": "database/generated/repos/graph-projections.repository.ts",
+        "hash": "9294972716707320433"
+      },
+      {
+        "file": "database/generated/types/mfa-devices.ts",
+        "hash": "18297883377748235054"
+      },
+      {
+        "file": "database/generated/repos/data-models.repository.ts",
+        "hash": "12328245002977351316"
+      },
+      {
+        "file": "database/generated/schemas/alignments.ts",
+        "hash": "7070162843198222683"
+      },
+      {
+        "file": "database/generated/types/conformance-results.ts",
+        "hash": "1507930647719776312"
+      },
+      {
+        "file": "database/generated/repos/tasks.repository.ts",
+        "hash": "2691977482735110467"
+      },
+      {
+        "file": "database/generated/types/data-pools.ts",
+        "hash": "2603723082317255846"
+      },
+      {
+        "file": "database/generated/repos/action-flow-webhooks.repository.ts",
+        "hash": "2487647144921988193"
+      },
+      {
+        "file": "database/generated/types/workflow-activities.ts",
+        "hash": "11685004133002090931"
+      },
+      {
+        "file": "database/schema/03_ocel.sql",
+        "hash": "1914388053773589485"
+      },
+      {
+        "file": "database/generated/repos/roles.repository.ts",
+        "hash": "8988076962311849450"
+      },
+      {
+        "file": "database/generated/repos/task-types.repository.ts",
+        "hash": "872057216607515566"
+      },
+      {
+        "file": "database/generated/types/events.ts",
+        "hash": "4090111593689337260"
+      },
+      {
+        "file": "database/generated/schemas/index.ts",
+        "hash": "8693175905033600925"
+      },
+      {
+        "file": "database/generated/types/user-credentials.ts",
+        "hash": "14146433155683438245"
+      },
+      {
+        "file": "database/generated/schemas/petri-net-arcs.ts",
+        "hash": "13225433357235035275"
+      },
+      {
+        "file": "database/generated/schemas/bottleneck-analyses.ts",
+        "hash": "10635824760368414645"
+      },
+      {
+        "file": "files/process_mining_test_checklist.md",
+        "hash": "6675965190670352915"
+      },
+      {
+        "file": "database/generated/schemas/data-pools.ts",
+        "hash": "10179829503619861247"
+      },
+      {
+        "file": "database/generated/schemas/uploads.ts",
+        "hash": "6745249401721250553"
+      },
+      {
+        "file": "database/generated/repos/graph-queries.repository.ts",
+        "hash": "10224325793580127678"
+      },
+      {
+        "file": "database/generated/schemas/identity-providers.ts",
+        "hash": "1106604228558269740"
+      },
+      {
+        "file": "database/index.ts",
+        "hash": "9311904792004470385"
+      },
+      {
+        "file": "database/generated/schemas/data-models.ts",
+        "hash": "15681654594812584004"
+      },
+      {
+        "file": "SESSION_3_SUMMARY.md",
+        "hash": "240103500298174258"
+      },
+      {
+        "file": "database/generated/schemas/variables.ts",
+        "hash": "3246649326814074852"
+      },
+      {
+        "file": "files/process_mining_schema.md",
+        "hash": "15720620742251319526"
+      },
+      {
+        "file": "database/generated/repos/usage-records.repository.ts",
+        "hash": "969752715882634128"
+      },
+      {
+        "file": "database/generated/repos/action-flows.repository.ts",
+        "hash": "16892157291942546054"
+      },
+      {
+        "file": "database/generated/schemas/notification-templates.ts",
+        "hash": "6965082425285922875"
+      },
+      {
+        "file": "docs/patterns/entity-patterns.md",
+        "hash": "15545217648505459712"
+      },
+      {
+        "file": "database/generated/types/view-tabs.ts",
+        "hash": "12209324510127490540"
+      },
+      {
+        "file": "database/generated/schemas/sensors.ts",
+        "hash": "6701094134357900783"
+      },
+      {
+        "file": "database/generated/schemas/object-relationship-instances.ts",
+        "hash": "4826448349542710125"
+      },
+      {
+        "file": "docs/patterns/repository-patterns.md",
+        "hash": "3639409627711717372"
+      },
+      {
+        "file": "database/generated/schemas/payment-methods.ts",
+        "hash": "6592825699692740813"
+      },
+      {
+        "file": "database/generated/types/uploads.ts",
+        "hash": "5707259708617887227"
+      },
+      {
+        "file": "database/generated/schemas/variants.ts",
+        "hash": "5319203348103598960"
+      },
+      {
+        "file": "database/generated/repos/metric-values.repository.ts",
+        "hash": "8320629455066845442"
+      },
+      {
+        "file": "database/generated/repos/role-permissions.repository.ts",
+        "hash": "15234832698387349379"
+      },
+      {
+        "file": "database/generated/schemas/team-memberships.ts",
+        "hash": "16674665793946722132"
+      },
+      {
+        "file": "database/generated/types/object-relationship-instances.ts",
+        "hash": "12949796914415758924"
+      },
+      {
+        "file": "database/generated/repos/user-profiles.repository.ts",
+        "hash": "17469700770254233780"
+      },
+      {
+        "file": "database/generated/schemas/petri-nets.ts",
+        "hash": "1587374857477443676"
+      },
+      {
+        "file": "database/generated/schemas/conformance-jobs.ts",
+        "hash": "8357402140078682006"
+      },
+      {
+        "file": "database/generated/schemas/deviations.ts",
+        "hash": "15517619156349201520"
+      },
+      {
+        "file": "database/generated/types/subscriptions.ts",
+        "hash": "4377950362658652607"
+      },
+      {
+        "file": "database/generated/schemas/ocel-object-types.ts",
+        "hash": "6758349710923902391"
+      },
+      {
+        "file": "database/generated/schemas/webhook-queues.ts",
+        "hash": "1137827831292639054"
+      },
+      {
+        "file": "files/Domain models/service-contracts-studio-automation.md",
+        "hash": "5473233126043269307"
+      },
+      {
+        "file": "docs/architecture/CALL_GRAPH.md",
+        "hash": "6831384641718036350"
+      },
+      {
+        "file": "database/generated/schemas/entity-history.ts",
+        "hash": "7305140397854954063"
+      },
+      {
+        "file": "database/generated/repos/columns.repository.ts",
+        "hash": "1740412798212734157"
+      },
+      {
+        "file": "database/generated/repos/announcements.repository.ts",
+        "hash": "14533806565927970578"
+      },
+      {
+        "file": "database/generated/repos/petri-net-transitions.repository.ts",
+        "hash": "790611046253337909"
+      },
+      {
+        "file": "database/generated/schemas/view-tabs.ts",
+        "hash": "1098683623874774070"
+      },
+      {
+        "file": "database/generated/types/data-retention-policies.ts",
+        "hash": "1694828739245990733"
+      },
+      {
+        "file": "database/generated/types/event-types.ts",
+        "hash": "8648239092189403462"
+      },
+      {
+        "file": "database/generated/repos/augmented-attribute-values.repository.ts",
+        "hash": "17933002428394458589"
+      },
+      {
+        "file": "database/generated/schemas/usage-records.ts",
+        "hash": "11573092336948836418"
+      },
+      {
+        "file": "database/generated/types/simulation-models.ts",
+        "hash": "6487411044118587727"
+      },
+      {
+        "file": "database/generated/types/plan-limits.ts",
+        "hash": "8467483844408500873"
+      },
+      {
+        "file": "database/generated/schemas/kpis.ts",
+        "hash": "6431404973495446534"
+      },
+      {
+        "file": "database/generated/repos/email-messages.repository.ts",
+        "hash": "2353179437014477284"
+      },
+      {
+        "file": "database/generated/repos/feature-flags.repository.ts",
+        "hash": "15891617333122525975"
+      },
+      {
+        "file": "database/generated/types/action-rules.ts",
+        "hash": "15833705046907984656"
+      },
+      {
+        "file": "files/Domain models/pm4py-adapter-contracts.md",
+        "hash": "7754558237575037544"
+      },
+      {
+        "file": "database/generated/schemas/environments.ts",
+        "hash": "10898133142260554769"
+      },
+      {
+        "file": "database/generated/repos/workflow-signals.repository.ts",
+        "hash": "16719753474394642760"
+      },
+      {
+        "file": "database/generated/types/ontologies.ts",
+        "hash": "3286941850876126564"
+      },
+      {
+        "file": "database/generated/schemas/packages.ts",
+        "hash": "5513613195308728678"
+      },
+      {
+        "file": "database/generated/repos/performance-metrics.repository.ts",
+        "hash": "397651321386231066"
+      },
+      {
+        "file": "database/generated/types/webhook-deliveries.ts",
+        "hash": "3598553227698041065"
+      },
+      {
+        "file": "database/generated/types/perspectives.ts",
+        "hash": "3585196956830840270"
+      },
+      {
+        "file": "database/generated/types/action-flow-webhooks.ts",
+        "hash": "17372077901877285133"
+      },
+      {
+        "file": "database/schema/15_data_model.sql",
+        "hash": "5990581004161283077"
+      },
+      {
+        "file": "database/generated/repos/ocel-e2o.repository.ts",
+        "hash": "5456361387435994534"
+      },
+      {
+        "file": "odin.db-wal",
+        "hash": "18233814210554123070"
+      },
+      {
+        "file": "files/Domain models/ddd-architecture.md",
+        "hash": "12461383020768586713"
+      },
+      {
+        "file": "database/generated/repos/invoices.repository.ts",
+        "hash": "14165279784921885900"
+      },
+      {
+        "file": "database/generated/repos/team-memberships.repository.ts",
+        "hash": "9725112630312821851"
+      },
+      {
+        "file": "database/generated/repos/foreign-keys.repository.ts",
+        "hash": "14861847817728464582"
+      },
+      {
+        "file": "database/generated/repos/petri-net-places.repository.ts",
+        "hash": "13526252132833093252"
+      },
+      {
+        "file": "database/generated/types/actions.ts",
+        "hash": "17610250979530398429"
+      },
+      {
+        "file": "database/generated/types/columns.ts",
+        "hash": "6402292729757681455"
+      },
+      {
+        "file": "database/repository-factory.ts",
+        "hash": "14183159332028737343"
+      },
+      {
+        "file": "database/generated/schemas/simulation-models.ts",
+        "hash": "12747106213945280800"
+      },
+      {
+        "file": "database/generated/repos/sessions.repository.ts",
+        "hash": "4047887565743074151"
+      },
+      {
+        "file": "database/schema/08_prediction.sql",
+        "hash": "16117846143704630525"
+      },
+      {
+        "file": "database/generated/types/index.ts",
+        "hash": "7196654848361073404"
+      },
+      {
+        "file": "database/generated/types/activities.ts",
+        "hash": "13891710704164592715"
+      },
+      {
+        "file": "database/generated/types/foreign-keys.ts",
+        "hash": "9719650432618645005"
+      },
+      {
+        "file": "database/generated/types/annotations.ts",
+        "hash": "9531588021257141504"
+      },
+      {
+        "file": "database/generated/repos/role-assignments.repository.ts",
+        "hash": "1044814448351232596"
+      },
+      {
+        "file": "database/generated/schemas/signals.ts",
+        "hash": "738209899258139920"
+      },
+      {
+        "file": "database/generated/repos/reasoning-rules.repository.ts",
+        "hash": "14811915103477434124"
+      },
+      {
+        "file": "database/generated/schemas/record-attributes.ts",
+        "hash": "8911099799941258234"
+      },
+      {
+        "file": "database/generated/schemas/action-flows.ts",
+        "hash": "8913676640725946906"
+      },
+      {
+        "file": "database/generated/types/copilot-embeddings.ts",
+        "hash": "913440819780396373"
+      },
+      {
+        "file": "database/generated/repos/event-types.repository.ts",
+        "hash": "7642449595665944966"
+      },
+      {
+        "file": "database/generated/schemas/action-flow-webhooks.ts",
+        "hash": "8239527444763771703"
+      },
+      {
+        "file": "database/generated/repos/augmented-attributes.repository.ts",
+        "hash": "6255862960505186530"
+      },
+      {
+        "file": "database/generated/types/views.ts",
+        "hash": "15963775738845532087"
+      },
+      {
+        "file": "database/generated/types/components.ts",
+        "hash": "2448089120305435209"
+      },
+      {
+        "file": "database/generated/types/announcements.ts",
+        "hash": "3989587932299368362"
+      },
+      {
+        "file": "database/generated/repos/plan-features.repository.ts",
+        "hash": "17550468766166626809"
+      },
+      {
+        "file": "database/generated/repos/copilot-sessions.repository.ts",
+        "hash": "7463419404715827684"
+      },
+      {
+        "file": "database/generated/schemas/announcements.ts",
+        "hash": "7048282931688993572"
+      },
+      {
+        "file": "database/generated/schemas/action-rules.ts",
+        "hash": "6849083909465403409"
+      },
+      {
+        "file": "files/enterprise-saas-erd.jsx",
+        "hash": "138452186493204690"
+      },
+      {
+        "file": "database/generated/repos/activities.repository.ts",
+        "hash": "12664839418138902858"
+      },
+      {
+        "file": "database/generated/schemas/roles.ts",
+        "hash": "2575980937310432069"
+      },
+      {
+        "file": "database/generated/types/payment-methods.ts",
+        "hash": "2622312978785079602"
+      },
+      {
+        "file": "database/generated/repos/invoice-line-items.repository.ts",
+        "hash": "13873077784235498977"
+      },
+      {
+        "file": "database/generated/repos/data-pools.repository.ts",
+        "hash": "7515278485525126264"
+      },
+      {
+        "file": "database/generated/types/conformance-jobs.ts",
+        "hash": "18233059868891918316"
+      },
+      {
+        "file": "database/generated/repos/object-relationship-instances.repository.ts",
+        "hash": "9209026763118763160"
+      },
+      {
+        "file": "database/generated/repos/copilot-feedback.repository.ts",
+        "hash": "10454390677795400664"
+      },
+      {
+        "file": "database/generated/repos/connections.repository.ts",
+        "hash": "8304363121072081486"
+      },
+      {
+        "file": "database/generated/repos/events.repository.ts",
+        "hash": "1454796187272512663"
+      },
+      {
+        "file": "database/schema/07_analytics.sql",
+        "hash": "4190860454410616009"
+      },
+      {
+        "file": "database/generated/types/scheduled-jobs.ts",
+        "hash": "12829721480558338263"
+      },
+      {
+        "file": "database/generated/types/petri-net-places.ts",
+        "hash": "14377690855186726204"
+      },
+      {
+        "file": "database/schema/25_integration_layer.sql",
+        "hash": "1401318944613859454"
+      },
+      {
+        "file": "database/generated/repos/action-rules.repository.ts",
+        "hash": "18334082444331808244"
+      },
+      {
+        "file": "database/generated/repos/event-logs.repository.ts",
+        "hash": "3524650564936612819"
+      },
+      {
+        "file": "database/generated/types/api-keys.ts",
+        "hash": "6056056600227164425"
+      },
+      {
+        "file": "database/generated/types/event-log-configs.ts",
+        "hash": "2360477505760851106"
+      },
+      {
+        "file": "database/generated/schemas/model-evaluations.ts",
+        "hash": "1869574916340197618"
+      },
+      {
+        "file": "database/generated/repos/feature-flag-overrides.repository.ts",
+        "hash": "1214570716791683428"
+      },
+      {
+        "file": "database/generated/repos/import-job-runs.repository.ts",
+        "hash": "11218277326397305683"
+      },
+      {
+        "file": "database/generated/types/feature-flags.ts",
+        "hash": "3792905199703499111"
+      },
+      {
+        "file": "database/generated/schemas/workflow-activities.ts",
+        "hash": "15986819359891231236"
+      },
+      {
+        "file": "database/schema/02_case_centric.sql",
+        "hash": "12577190883267348725"
+      },
+      {
+        "file": "database/generated/types/record-attributes.ts",
+        "hash": "3452896645808564237"
+      },
+      {
+        "file": "database/generated/schemas/resources.ts",
+        "hash": "4932275590983515106"
+      },
+      {
+        "file": "database/generated/types/custom-event-logs.ts",
+        "hash": "13886505454918286948"
+      },
+      {
+        "file": "database/generated/repos/actions.repository.ts",
+        "hash": "12604639050436763406"
+      },
+      {
+        "file": "database/schema/21_identity_layer.sql",
+        "hash": "358750177144626973"
+      },
+      {
+        "file": "database/generated/repos/organizations.repository.ts",
+        "hash": "9207994671337378761"
+      },
+      {
+        "file": "database/generated/schemas/object-types.ts",
+        "hash": "9387775087711378053"
+      },
+      {
+        "file": "database/generated/repos/object-types.repository.ts",
+        "hash": "11364002901366539687"
+      },
+      {
+        "file": "database/generated/types/users.ts",
+        "hash": "9870758040168489344"
+      },
+      {
+        "file": "database/generated/schemas/user-preferences.ts",
+        "hash": "4672419555424044461"
+      },
+      {
+        "file": "database/generated/types/concept-relations.ts",
+        "hash": "15925152026075687609"
+      },
+      {
+        "file": "database/generated/schemas/graph-queries.ts",
+        "hash": "14517954013793570335"
+      },
+      {
+        "file": "database/schema/12_pm4py_compat.sql",
+        "hash": "621459237872763016"
+      },
+      {
+        "file": "database/generated/repos/variables.repository.ts",
+        "hash": "8652001131536261112"
+      },
+      {
+        "file": "database/generated/repos/index.ts",
+        "hash": "1747004574830516797"
+      },
+      {
+        "file": "database/generated/schemas/ontologies.ts",
+        "hash": "9116671508455273916"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15222267412605819573"
+      },
+      {
+        "file": "database/schema/04_ontology.sql",
+        "hash": "12656394623387581573"
+      },
+      {
+        "file": "docs/architecture/domain-repositories.svg",
+        "hash": "5726144138071704384"
+      },
+      {
+        "file": "database/schema/22_commercial_layer.sql",
+        "hash": "1528112178068914052"
+      },
+      {
+        "file": "database/generated/schemas/import-job-runs.ts",
+        "hash": "7502381081592950151"
+      },
+      {
+        "file": "database/generated/schemas/reasoning-rules.ts",
+        "hash": "6495984173843008124"
+      },
+      {
+        "file": "database/generated/types/invoice-line-items.ts",
+        "hash": "3560793278483830948"
+      },
+      {
+        "file": "database/generated/repos/packages.repository.ts",
+        "hash": "13334485447769213227"
+      },
+      {
+        "file": "database/generated/schemas/copilot-knowledge-base.ts",
+        "hash": "12165954922536972306"
+      },
+      {
+        "file": "database/generated/schemas/components.ts",
+        "hash": "7595506531866609409"
+      },
+      {
+        "file": "database/schema/11_graph.sql",
+        "hash": "9569458063143049371"
+      },
+      {
+        "file": "database/generated/types/tenant-settings.ts",
+        "hash": "1161831819135871233"
+      },
+      {
+        "file": "database/generated/types/action-flow-executions.ts",
+        "hash": "16221238313828537617"
+      },
+      {
+        "file": "database/generated/types/metric-values.ts",
+        "hash": "2253964790535065123"
+      },
+      {
+        "file": "docs/patterns/architecture-overview.md",
+        "hash": "2379483999393133785"
+      },
+      {
+        "file": "database/generated/types/quality-metrics.ts",
+        "hash": "4152729369188801665"
+      },
+      {
+        "file": "database/generated/types/user-profiles.ts",
+        "hash": "6578833407719125568"
+      },
+      {
+        "file": "database/schema/06_conformance.sql",
+        "hash": "6574540511877925578"
+      },
+      {
+        "file": "database/generated/types/plans.ts",
+        "hash": "3752568824096097025"
+      },
+      {
+        "file": "files/Domain models/service-contracts-process-mining.md",
+        "hash": "10046051466985329111"
+      }
+    ],
+    "projectFileMap": {
+      "@odin/infra": [
+        {
+          "file": "packages/infra/RCA_TYPE_ERRORS.md",
+          "hash": "16413798693498756675"
+        },
+        {
+          "file": "packages/infra/add-ts-nocheck.cjs",
+          "hash": "12702852492423732396"
+        },
+        {
+          "file": "packages/infra/bulk-fix-all-errors.cjs",
+          "hash": "13438872317181585515"
+        },
+        {
+          "file": "packages/infra/database/bun-sqlite.d.ts",
+          "hash": "10253314367762670654"
+        },
+        {
+          "file": "packages/infra/database/connection.ts",
+          "hash": "8682064786327657478",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/infra/database/error-mapper.ts",
+          "hash": "14299670753335621799",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/infra/database/index.ts",
+          "hash": "6491885609022817647"
+        },
+        {
+          "file": "packages/infra/database/repositories/analytics/filter.repository.ts",
+          "hash": "9288322254415165858",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/analytics/knowledge-model.repository.ts",
+          "hash": "7543045289602577167",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/analytics/kpi.repository.ts",
+          "hash": "1598075467410895279",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/analytics/record.repository.ts",
+          "hash": "13667005363960479659",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/analytics/variable.repository.ts",
+          "hash": "667013768468711492",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/automation/action-flow.repository.ts",
+          "hash": "2268211307794094979",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/automation/execution.repository.ts",
+          "hash": "7799839290737308119",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/automation/sensor.repository.ts",
+          "hash": "8464600580309000338",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/automation/signal.repository.ts",
+          "hash": "5877812531764589427",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/automation/skill.repository.ts",
+          "hash": "13647777427924372377",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/automation/task.repository.ts",
+          "hash": "11619941667066099984",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/commercial/coupon-repository.ts",
+          "hash": "14550746867002676206",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/commercial/invoice-repository.ts",
+          "hash": "14136353436543638297",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/commercial/payment-method-repository.ts",
+          "hash": "1710001556351605778",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/commercial/plan-repository.ts",
+          "hash": "15673288844753893300",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/commercial/subscription-repository.ts",
+          "hash": "16291552464863592201",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/commercial/usage-repository.ts",
+          "hash": "16999889555985110817",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/existence/environment.repository.ts",
+          "hash": "13356911738758226664",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/existence/organization.repository.ts",
+          "hash": "5737289966245964502",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/existence/tenant.repository.ts",
+          "hash": "4500428287238341558",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/identity/identity-provider.repository.ts",
+          "hash": "2838283815215413789",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/identity/mfa-device.repository.ts",
+          "hash": "1582889999495044592",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/identity/role.repository.ts",
+          "hash": "17210385857145832092",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/identity/session.repository.ts",
+          "hash": "14914582210717529464",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/identity/team.repository.ts",
+          "hash": "14740591795138175695",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/identity/user.repository.ts",
+          "hash": "11551815063279714421",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/integration/api-key-repository.ts",
+          "hash": "8624545168144368087",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/integration/integration-repository.ts",
+          "hash": "12224482218896518373",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/integration/o-auth-token-repository.ts",
+          "hash": "9837585950049047557",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/integration/webhook-repository.ts",
+          "hash": "13178153610535366252",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/operational/feature-flag-repository.ts",
+          "hash": "7565434910442029754",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/operational/system-config-repository.ts",
+          "hash": "3278949477496311941",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/operational/tenant-settings-repository.ts",
+          "hash": "18020140128301128054",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/process-mining/case-repository.ts",
+          "hash": "13818912477328877222",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/process-mining/data-model-repository.ts",
+          "hash": "17756180495750308057",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/process-mining/data-pool-repository.ts",
+          "hash": "12028132650387845955",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/process-mining/process-model-repository.ts",
+          "hash": "10573238372460434352",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/process-mining/table-repository.ts",
+          "hash": "14336726625953741981",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/process-mining/variant-repository.ts",
+          "hash": "1177883737388788447",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/studio/component.repository.ts",
+          "hash": "13927121627769042773",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/studio/package.repository.ts",
+          "hash": "8240158384871824559",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/studio/space.repository.ts",
+          "hash": "6492311083356356863",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/studio/view.repository.ts",
+          "hash": "2167683693114148323",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/temporal/audit-log-repository.ts",
+          "hash": "5408122072148536051",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/temporal/entity-history-repository.ts",
+          "hash": "4658599653565235301",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repositories/temporal/scheduled-job-repository.ts",
+          "hash": "14970113304477740057",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/database/repository-factory.ts",
+          "hash": "8414677463969546156"
+        },
+        {
+          "file": "packages/infra/database/types.ts",
+          "hash": "15763663184161545589",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/infra/external/index.ts",
+          "hash": "10017729362420592126"
+        },
+        {
+          "file": "packages/infra/external/pm4py/adapter.ts",
+          "hash": "16130693481581228180",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/external/pm4py/index.ts",
+          "hash": "8431979695815845059"
+        },
+        {
+          "file": "packages/infra/external/pm4py/types.ts",
+          "hash": "5709522955114923628"
+        },
+        {
+          "file": "packages/infra/fix-all-errors.cjs",
+          "hash": "11912255717469789218"
+        },
+        {
+          "file": "packages/infra/fix-all-new-repos.cjs",
+          "hash": "7302087140265354443"
+        },
+        {
+          "file": "packages/infra/fix-all-repos.js",
+          "hash": "13609965897232889894"
+        },
+        {
+          "file": "packages/infra/fix-all-type-errors.cjs",
+          "hash": "15607175517079068703"
+        },
+        {
+          "file": "packages/infra/fix-all-types.cjs",
+          "hash": "17378854432597356070"
+        },
+        {
+          "file": "packages/infra/fix-branded-types.cjs",
+          "hash": "8764375033335947173"
+        },
+        {
+          "file": "packages/infra/fix-imports.cjs",
+          "hash": "10633369306631646770"
+        },
+        {
+          "file": "packages/infra/fix-pagination.cjs",
+          "hash": "8434855984257166886"
+        },
+        {
+          "file": "packages/infra/fix-remaining-errors.cjs",
+          "hash": "16969556216542449630"
+        },
+        {
+          "file": "packages/infra/fix-repo-errors.cjs",
+          "hash": "16872880518169187650"
+        },
+        {
+          "file": "packages/infra/fix-repos.sh",
+          "hash": "11387508280950351958"
+        },
+        {
+          "file": "packages/infra/fix-result-types.cjs",
+          "hash": "1789935787301397785"
+        },
+        {
+          "file": "packages/infra/generate-repos.cjs",
+          "hash": "3497815472208031869"
+        },
+        {
+          "file": "packages/infra/implement-all-repos.cjs",
+          "hash": "16431437522460586119"
+        },
+        {
+          "file": "packages/infra/implement-remaining-repos.cjs",
+          "hash": "6217951148515455716"
+        },
+        {
+          "file": "packages/infra/index.ts",
+          "hash": "16018967257080958518"
+        },
+        {
+          "file": "packages/infra/package.json",
+          "hash": "6328701683067512203",
+          "deps": [
+            "npm:typescript",
+            "@odin/core-contracts",
+            "@odin/core-lib",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/infra/queue/index.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "packages/infra/remove-commas.cjs",
+          "hash": "10091592991110384984"
+        },
+        {
+          "file": "packages/infra/storage/index.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "packages/infra/suppress-stub-errors.cjs",
+          "hash": "12436024628244179155"
+        },
+        {
+          "file": "packages/infra/tsconfig.json",
+          "hash": "14627635712699205842"
+        },
+        {
+          "file": "packages/infra/update-factory.cjs",
+          "hash": "13532378496421903766"
+        }
+      ],
+      "@odin/domain": [
+        {
+          "file": "packages/domain/CHANGELOG.md",
+          "hash": "9531350617192199022"
+        },
+        {
+          "file": "packages/domain/README.md",
+          "hash": "1105860110220347614"
+        },
+        {
+          "file": "packages/domain/entities/analytics/filter.ts",
+          "hash": "17434196181773680356",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/analytics/index.ts",
+          "hash": "9339743423064935837"
+        },
+        {
+          "file": "packages/domain/entities/analytics/knowledge-model.ts",
+          "hash": "1764247438908213762",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/analytics/kpi.ts",
+          "hash": "11480202977476675513",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/analytics/record.ts",
+          "hash": "15600689625441294025",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/analytics/variable.ts",
+          "hash": "17750144736488736315",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/automation/action-flow.ts",
+          "hash": "16735297223434478595",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/automation/execution.ts",
+          "hash": "11154741463549441688",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/automation/index.ts",
+          "hash": "428496097416629936"
+        },
+        {
+          "file": "packages/domain/entities/automation/sensor.ts",
+          "hash": "3256616901988770411",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/automation/signal.ts",
+          "hash": "10528688462650589707",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/automation/skill.ts",
+          "hash": "17700053119200029500",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/automation/task.ts",
+          "hash": "732230086813925695",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/commercial/coupon.ts",
+          "hash": "15855728973110703729",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/commercial/index.ts",
+          "hash": "17278253468635616093"
+        },
+        {
+          "file": "packages/domain/entities/commercial/invoice.ts",
+          "hash": "14190864073440305229",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/commercial/payment-method.ts",
+          "hash": "4847583196106509244",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/commercial/plan.ts",
+          "hash": "4540365446592583617",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/commercial/subscription.ts",
+          "hash": "887070318926146843",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/commercial/usage-record.ts",
+          "hash": "3545450650081731995",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/existence/environment.ts",
+          "hash": "3589788687188947208",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/existence/index.ts",
+          "hash": "10819246056904956126"
+        },
+        {
+          "file": "packages/domain/entities/existence/organization.ts",
+          "hash": "4401585101073129772",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/existence/tenant.ts",
+          "hash": "7450746150794845479",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/identity/identity-provider.ts",
+          "hash": "18006983690889412481",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/identity/index.ts",
+          "hash": "8056529404456593889"
+        },
+        {
+          "file": "packages/domain/entities/identity/mfa-device.ts",
+          "hash": "18270620602276100912",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/identity/role.ts",
+          "hash": "10038904527628782340",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/identity/session.ts",
+          "hash": "14319799606293333331",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/identity/team.ts",
+          "hash": "4134874470040386731",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/identity/user.ts",
+          "hash": "17067148457570212059",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/index.ts",
+          "hash": "13238942522466639909"
+        },
+        {
+          "file": "packages/domain/entities/integration/api-key.ts",
+          "hash": "16549400732395136760",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/integration/index.ts",
+          "hash": "6573482180815068864"
+        },
+        {
+          "file": "packages/domain/entities/integration/integration.ts",
+          "hash": "5973732232916358201",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/integration/oauth-token.ts",
+          "hash": "553938242225509400",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/integration/webhook.ts",
+          "hash": "18121093503081807366",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/operational/feature-flag.ts",
+          "hash": "15219046774252006613",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/operational/index.ts",
+          "hash": "12811375222871253460"
+        },
+        {
+          "file": "packages/domain/entities/operational/system-config.ts",
+          "hash": "10152114339107740870",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/operational/tenant-settings.ts",
+          "hash": "12313385948928469316",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/bpmn.ts",
+          "hash": "8360940659158132931"
+        },
+        {
+          "file": "packages/domain/entities/process-mining/case.ts",
+          "hash": "6846349127290518314",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/data-model.ts",
+          "hash": "10232281648803827330",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/data-pool.ts",
+          "hash": "7845001741798240829",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/dfg.ts",
+          "hash": "16693047750135141567",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/index.ts",
+          "hash": "15991828124937086112"
+        },
+        {
+          "file": "packages/domain/entities/process-mining/ocel-event.ts",
+          "hash": "13466396085206164969",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/ocel-object.ts",
+          "hash": "1580287312341173551",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/ocel-petri-net.ts",
+          "hash": "5039949158685164372"
+        },
+        {
+          "file": "packages/domain/entities/process-mining/petri-net.ts",
+          "hash": "7345377523296448396",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/process-model.ts",
+          "hash": "10860483891259565116",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/process-tree.ts",
+          "hash": "242164140468331380"
+        },
+        {
+          "file": "packages/domain/entities/process-mining/table.ts",
+          "hash": "2301704377730007279",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/process-mining/variant.ts",
+          "hash": "1353230520589319721",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/studio/component.ts",
+          "hash": "10488991996524594484",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/studio/index.ts",
+          "hash": "1173116044323691138"
+        },
+        {
+          "file": "packages/domain/entities/studio/package.ts",
+          "hash": "17034721776667550916",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/studio/space.ts",
+          "hash": "6620759079267794318",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/studio/view.ts",
+          "hash": "289592969998991235",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/temporal/audit-log.ts",
+          "hash": "14999124022704157606",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/temporal/compliance-record.ts",
+          "hash": "10622867095370700359",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/temporal/entity-history.ts",
+          "hash": "12961212422183651750",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/entities/temporal/index.ts",
+          "hash": "8700690352226423728"
+        },
+        {
+          "file": "packages/domain/entities/temporal/scheduled-job.ts",
+          "hash": "425187214959580532",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/events/commercial-events.ts",
+          "hash": "3602183771590567657",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/events/index.ts",
+          "hash": "10851073081706143662"
+        },
+        {
+          "file": "packages/domain/events/operational-events.ts",
+          "hash": "8126288783280082314",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/events/process-mining-events.ts",
+          "hash": "18090130712725838321",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/events/role-events.ts",
+          "hash": "6075909198914707214",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/events/session-events.ts",
+          "hash": "2591653518854254800",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/events/tenant-events.ts",
+          "hash": "11972392724366774816",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/events/user-events.ts",
+          "hash": "20994327957477123",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/external/pm4py/adapter.ts",
+          "hash": "6148830144176560422",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/external/pm4py/index.ts",
+          "hash": "12891269297754026104"
+        },
+        {
+          "file": "packages/domain/external/pm4py/types.ts",
+          "hash": "4921680112426924008",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/index.ts",
+          "hash": "8935592126088498287"
+        },
+        {
+          "file": "packages/domain/package.json",
+          "hash": "685948156612542363",
+          "deps": [
+            "npm:@types/node",
+            "npm:typescript",
+            "@odin/core-contracts",
+            "@odin/core-lib"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/analytics/filter-repository.ts",
+          "hash": "14396875684747884354",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/analytics/index.ts",
+          "hash": "2795044966089326338"
+        },
+        {
+          "file": "packages/domain/repositories/analytics/knowledge-model-repository.ts",
+          "hash": "13874418603831360171",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/analytics/kpi-repository.ts",
+          "hash": "10423711716473816879",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/analytics/record-repository.ts",
+          "hash": "4103381587568016168",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/analytics/variable-repository.ts",
+          "hash": "14611019576141122697",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/automation/action-flow-repository.ts",
+          "hash": "10487171669600685658",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/automation/execution-repository.ts",
+          "hash": "5024999705090541161",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/automation/index.ts",
+          "hash": "13003012093927239586"
+        },
+        {
+          "file": "packages/domain/repositories/automation/sensor-repository.ts",
+          "hash": "9141079293909550708",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/automation/signal-repository.ts",
+          "hash": "14450315457551062114",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/automation/skill-repository.ts",
+          "hash": "8005000432129190872",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/automation/task-repository.ts",
+          "hash": "8154028382541133305",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/commercial/coupon-repository.ts",
+          "hash": "13617312434653922034",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/commercial/index.ts",
+          "hash": "1385713051135251657"
+        },
+        {
+          "file": "packages/domain/repositories/commercial/invoice-repository.ts",
+          "hash": "9359485338487684672",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/commercial/payment-method-repository.ts",
+          "hash": "1568336589462279030",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/commercial/plan-repository.ts",
+          "hash": "9619602697104727459",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/commercial/subscription-repository.ts",
+          "hash": "5322962361502509120",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/commercial/usage-repository.ts",
+          "hash": "8881808357707873334",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/existence/environment-repository.ts",
+          "hash": "2994280756402077259",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/existence/index.ts",
+          "hash": "15610306373975185283"
+        },
+        {
+          "file": "packages/domain/repositories/existence/organization-repository.ts",
+          "hash": "17032959450681321275",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/existence/tenant-repository.ts",
+          "hash": "7445493522627607543",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/identity/identity-provider-repository.ts",
+          "hash": "8771817201971478519",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/identity/index.ts",
+          "hash": "1131176666785497380"
+        },
+        {
+          "file": "packages/domain/repositories/identity/mfa-device-repository.ts",
+          "hash": "147272081386993677",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/identity/role-repository.ts",
+          "hash": "2175844960325848663",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/identity/session-repository.ts",
+          "hash": "9703780708463519006",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/identity/team-repository.ts",
+          "hash": "4787293871223593607",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/identity/user-repository.ts",
+          "hash": "10514449937483182016",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/index.ts",
+          "hash": "14264605266637873681"
+        },
+        {
+          "file": "packages/domain/repositories/integration/api-key-repository.ts",
+          "hash": "4478369571560473889",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/integration/index.ts",
+          "hash": "5388173036454502940"
+        },
+        {
+          "file": "packages/domain/repositories/integration/integration-repository.ts",
+          "hash": "18200900399818410510",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/integration/oauth-token-repository.ts",
+          "hash": "8823194346767717499",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/integration/webhook-repository.ts",
+          "hash": "13406926424886334570",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/operational/feature-flag-repository.ts",
+          "hash": "6187764825035429843",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/operational/index.ts",
+          "hash": "11228914098909815026"
+        },
+        {
+          "file": "packages/domain/repositories/operational/system-config-repository.ts",
+          "hash": "8187757671578028540",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/operational/tenant-settings-repository.ts",
+          "hash": "3996706857161404654",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/process-mining/case-repository.ts",
+          "hash": "14765061169559354219",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/process-mining/data-model-repository.ts",
+          "hash": "12846013805211842077",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/process-mining/data-pool-repository.ts",
+          "hash": "17368330511726455274",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/process-mining/index.ts",
+          "hash": "10520094903394142760"
+        },
+        {
+          "file": "packages/domain/repositories/process-mining/ocel-repository.ts",
+          "hash": "2916701193564762056",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/process-mining/process-model-repository.ts",
+          "hash": "8219085510522352404",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/process-mining/table-repository.ts",
+          "hash": "619633871471948020",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/studio/component-repository.ts",
+          "hash": "17091664734800679380",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/studio/index.ts",
+          "hash": "9399469429978810652"
+        },
+        {
+          "file": "packages/domain/repositories/studio/package-repository.ts",
+          "hash": "9201957554114330057",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/studio/space-repository.ts",
+          "hash": "16227103688966286836",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/studio/view-repository.ts",
+          "hash": "4735114234665123825",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/temporal/audit-log-repository.ts",
+          "hash": "12557225092861044367",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/temporal/entity-history-repository.ts",
+          "hash": "14520863010342667833",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/repositories/temporal/index.ts",
+          "hash": "18114801053666103695"
+        },
+        {
+          "file": "packages/domain/repositories/temporal/scheduled-job-repository.ts",
+          "hash": "7501836418418653313",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/domain/scripts/add-missing-ids.cjs",
+          "hash": "14125209039955867361"
+        },
+        {
+          "file": "packages/domain/scripts/fix-corrupted.cjs",
+          "hash": "12656325464204933733"
+        },
+        {
+          "file": "packages/domain/scripts/generate-missing-entities.cjs",
+          "hash": "17562106471156698399"
+        },
+        {
+          "file": "packages/domain/tsconfig.json",
+          "hash": "10541886995467447483"
+        }
+      ],
+      "@odin/web": [
+        {
+          "file": "apps/web/package.json",
+          "hash": "444858247906866328",
+          "deps": [
+            "npm:@types/node",
+            "npm:typescript",
+            "@odin/core-contracts",
+            "@odin/core-lib"
+          ]
+        },
+        {
+          "file": "apps/web/src/index.ts",
+          "hash": "12585634509229001897"
+        },
+        {
+          "file": "apps/web/tsconfig.json",
+          "hash": "3943955651380434253"
+        }
+      ],
+      "@odin/core-contracts": [
+        {
+          "file": "packages/core-contracts/CHANGELOG.md",
+          "hash": "13459341708727695749"
+        },
+        {
+          "file": "packages/core-contracts/README.md",
+          "hash": "15332972241247086306"
+        },
+        {
+          "file": "packages/core-contracts/auth/context.test.ts",
+          "hash": "16596392762062949631",
+          "deps": [
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "packages/core-contracts/auth/context.ts",
+          "hash": "12743913934745610973"
+        },
+        {
+          "file": "packages/core-contracts/auth/index.ts",
+          "hash": "16017915339908176640"
+        },
+        {
+          "file": "packages/core-contracts/auth/permissions.test.ts",
+          "hash": "7816022713535951848",
+          "deps": [
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "packages/core-contracts/auth/permissions.ts",
+          "hash": "9544087238037938535"
+        },
+        {
+          "file": "packages/core-contracts/auth/roles.test.ts",
+          "hash": "8429389639529326888",
+          "deps": [
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "packages/core-contracts/auth/roles.ts",
+          "hash": "685220533545443172"
+        },
+        {
+          "file": "packages/core-contracts/bun.lock",
+          "hash": "12154961282833651900"
+        },
+        {
+          "file": "packages/core-contracts/contracts/cache.ts",
+          "hash": "10895477373804008925"
+        },
+        {
+          "file": "packages/core-contracts/contracts/datetime.ts",
+          "hash": "7982583743115916975"
+        },
+        {
+          "file": "packages/core-contracts/contracts/events.ts",
+          "hash": "10082067130501743243"
+        },
+        {
+          "file": "packages/core-contracts/contracts/id-generator.ts",
+          "hash": "9988879343544566163"
+        },
+        {
+          "file": "packages/core-contracts/contracts/index.ts",
+          "hash": "206764299616284718"
+        },
+        {
+          "file": "packages/core-contracts/contracts/logger.ts",
+          "hash": "7152362865034335645"
+        },
+        {
+          "file": "packages/core-contracts/contracts/storage.ts",
+          "hash": "1039357371945084107"
+        },
+        {
+          "file": "packages/core-contracts/enums/index.ts",
+          "hash": "12812161434519498730"
+        },
+        {
+          "file": "packages/core-contracts/errors/base.ts",
+          "hash": "11051444275753975798"
+        },
+        {
+          "file": "packages/core-contracts/errors/index.ts",
+          "hash": "16187564499984540373"
+        },
+        {
+          "file": "packages/core-contracts/errors/types.test.ts",
+          "hash": "11721121564737757550",
+          "deps": [
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "packages/core-contracts/errors/types.ts",
+          "hash": "2991836082156746318"
+        },
+        {
+          "file": "packages/core-contracts/index.ts",
+          "hash": "12098121582464579708"
+        },
+        {
+          "file": "packages/core-contracts/package.json",
+          "hash": "2166001295830000750",
+          "deps": [
+            "npm:@vitest/coverage-v8",
+            "npm:typescript",
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "packages/core-contracts/tsconfig.json",
+          "hash": "8456952652023110931"
+        },
+        {
+          "file": "packages/core-contracts/types/common.ts",
+          "hash": "7923812303154998125"
+        },
+        {
+          "file": "packages/core-contracts/types/identifiers.test.ts",
+          "hash": "3727943595205227318",
+          "deps": [
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "packages/core-contracts/types/identifiers.ts",
+          "hash": "12062453733032998223"
+        },
+        {
+          "file": "packages/core-contracts/types/index.ts",
+          "hash": "15381897686478659163"
+        },
+        {
+          "file": "packages/core-contracts/types/pagination.ts",
+          "hash": "3514080517094259845"
+        },
+        {
+          "file": "packages/core-contracts/types/query.test.ts",
+          "hash": "883863150827088542",
+          "deps": [
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "packages/core-contracts/types/query.ts",
+          "hash": "384836011329754660"
+        },
+        {
+          "file": "packages/core-contracts/types/result.test.ts",
+          "hash": "7301746988791061942",
+          "deps": [
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "packages/core-contracts/types/result.ts",
+          "hash": "9910507636468976210"
+        },
+        {
+          "file": "packages/core-contracts/vitest.config.ts",
+          "hash": "13001322811090222671",
+          "deps": [
+            "npm:vitest"
+          ]
+        }
+      ],
+      "@odin/core-lib": [
+        {
+          "file": "packages/core-lib/CHANGELOG.md",
+          "hash": "15771394460164135184"
+        },
+        {
+          "file": "packages/core-lib/README.md",
+          "hash": "3103808644832640564"
+        },
+        {
+          "file": "packages/core-lib/fix-types.cjs",
+          "hash": "8292568476901190483"
+        },
+        {
+          "file": "packages/core-lib/implementations/index.ts",
+          "hash": "3120407484503105036"
+        },
+        {
+          "file": "packages/core-lib/implementations/logger.ts",
+          "hash": "17940356306827407282",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/core-lib/implementations/result.ts",
+          "hash": "8946347659759856592",
+          "deps": [
+            "@odin/core-contracts"
+          ]
+        },
+        {
+          "file": "packages/core-lib/index.ts",
+          "hash": "15517780411541912459"
+        },
+        {
+          "file": "packages/core-lib/package.json",
+          "hash": "4769580535997850112",
+          "deps": [
+            "@odin/core-contracts",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "packages/core-lib/tsconfig.json",
+          "hash": "1723147073961873265"
+        },
+        {
+          "file": "packages/core-lib/utils/date.ts",
+          "hash": "8991033340960242462"
+        },
+        {
+          "file": "packages/core-lib/utils/guards.ts",
+          "hash": "17227034540218297055"
+        },
+        {
+          "file": "packages/core-lib/utils/index.ts",
+          "hash": "10946023058461674245"
+        },
+        {
+          "file": "packages/core-lib/utils/string.ts",
+          "hash": "3070039370412010901"
+        },
+        {
+          "file": "packages/core-lib/utils/validation.ts",
+          "hash": "17332543094379532941"
+        }
+      ],
+      "@odin/worker": [
+        {
+          "file": "apps/worker/package.json",
+          "hash": "3196044767748613499",
+          "deps": [
+            "npm:@types/node",
+            "npm:typescript",
+            "@odin/core-contracts",
+            "@odin/core-lib",
+            "@odin/infra",
+            "@odin/services"
+          ]
+        },
+        {
+          "file": "apps/worker/src/index.ts",
+          "hash": "2701210095442096294"
+        },
+        {
+          "file": "apps/worker/tsconfig.json",
+          "hash": "14280407991865252492"
+        }
+      ],
+      "@odin/services": [
+        {
+          "file": "packages/services/generate-services.cjs",
+          "hash": "8476261921071081871"
+        },
+        {
+          "file": "packages/services/index.ts",
+          "hash": "4730980626669579042"
+        },
+        {
+          "file": "packages/services/package.json",
+          "hash": "4911607829319971398",
+          "deps": [
+            "npm:typescript",
+            "@odin/core-contracts",
+            "@odin/core-lib",
+            "@odin/domain",
+            "@odin/infra"
+          ]
+        },
+        {
+          "file": "packages/services/services/authservice.ts",
+          "hash": "11838695164322287938",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain",
+            "@odin/infra"
+          ]
+        },
+        {
+          "file": "packages/services/services/datapoolservice.ts",
+          "hash": "14862100700986227684",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain",
+            "@odin/infra"
+          ]
+        },
+        {
+          "file": "packages/services/services/tenant-service.ts",
+          "hash": "12210146763434166810",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain"
+          ]
+        },
+        {
+          "file": "packages/services/services/tenantservice.ts",
+          "hash": "16960784046684653962",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain",
+            "@odin/infra"
+          ]
+        },
+        {
+          "file": "packages/services/services/userservice.ts",
+          "hash": "3267456306384651862",
+          "deps": [
+            "@odin/core-contracts",
+            "@odin/domain",
+            "@odin/infra"
+          ]
+        },
+        {
+          "file": "packages/services/tsconfig.json",
+          "hash": "513098584629912904"
+        },
+        {
+          "file": "packages/services/use-cases/index.ts",
+          "hash": "11800272940267183772"
+        }
+      ],
+      "@odin/api": [
+        {
+          "file": "packages/api/index.ts",
+          "hash": "6524167464371329210"
+        },
+        {
+          "file": "packages/api/middleware/index.ts",
+          "hash": "12113546768878642261"
+        },
+        {
+          "file": "packages/api/package.json",
+          "hash": "15350771715682103452",
+          "deps": [
+            "npm:typescript",
+            "@odin/core-contracts",
+            "@odin/core-lib",
+            "@odin/services"
+          ]
+        },
+        {
+          "file": "packages/api/routes/index.ts",
+          "hash": "16096163883657584097"
+        },
+        {
+          "file": "packages/api/tsconfig.json",
+          "hash": "12766141301169166520"
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "8841486934988945294"
+}

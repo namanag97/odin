@@ -433,13 +433,13 @@ export class SqliteOrganizationRepository implements IOrganizationRepository {
 
     return {
       id: asOrganizationId(row.id),
-      tenantId: row.tenant_id as TenantId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       slug: row.code,
-      parentId: row.parent_org_id ? asOrganizationId(row.parent_org_id) : undefined,
+      parentId: row.parent_org_id as UUID ? asOrganizationId(row.parent_org_id) : undefined,
       status: row.is_active === 1 ? "active" : "inactive",
       settings,
-      createdAt: row.created_at,
+      createdAt: row.created_at as ISODateTime,
       updatedAt: row.created_at, // No updated_at in schema, use created_at
     };
   }
@@ -447,7 +447,7 @@ export class SqliteOrganizationRepository implements IOrganizationRepository {
   private mapUserRowToEntity(row: UserRow): User {
     return {
       id: asUserId(row.id),
-      tenantId: row.tenant_id as TenantId,
+      tenantId: row.tenant_id as UUID as TenantId,
       email: row.email,
       emailVerifiedAt: row.email_verified_at || undefined,
       phone: row.phone || undefined,
@@ -458,8 +458,8 @@ export class SqliteOrganizationRepository implements IOrganizationRepository {
       failedLoginAttempts: row.failed_login_attempts,
       lockedUntil: row.locked_until || undefined,
       mfaEnabled: row.mfa_enabled === 1,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

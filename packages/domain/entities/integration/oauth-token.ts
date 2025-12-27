@@ -4,10 +4,21 @@
  * OAuth token management for integrations.
  */
 
-import type { 
-  UUID, 
-  ISODateTime
+import type {
+  UUID,
+  ISODateTime,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded OAuthToken ID */
+export type OAuthTokenId = Brand<UUID, 'OAuthTokenId'>;
+
+/** Cast function for OAuthTokenId */
+export const asOAuthTokenId = (id: string): OAuthTokenId => id as unknown as OAuthTokenId;
 
 // ============================================================================
 // Entity
@@ -53,4 +64,14 @@ export interface RefreshTokenData {
   readonly accessTokenEncrypted: string;
   readonly refreshTokenEncrypted?: string;
   readonly expiresAt: ISODateTime;
+}
+
+/**
+ * Data for updating an OAuth token
+ */
+export interface UpdateOAuthTokenData {
+  readonly accessTokenEncrypted?: string;
+  readonly refreshTokenEncrypted?: string;
+  readonly expiresAt?: ISODateTime;
+  readonly scopes?: readonly string[];
 }

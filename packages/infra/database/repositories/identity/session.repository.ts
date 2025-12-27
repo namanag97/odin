@@ -234,17 +234,17 @@ export class SqliteSessionRepository implements ISessionRepository {
     const tenantId = userRow?.tenant_id || ("" as TenantId);
 
     return {
-      id: row.id,
-      userId: row.user_id as UserId,
+      id: row.id as UUID,
+      userId: row.user_id as UUID as UserId,
       tenantId,
       token: row.token_hash,
       refreshToken: undefined, // Not in schema
-      expiresAt: row.expires_at,
+      expiresAt: row.expires_at as ISODateTime,
       lastActivityAt: row.last_active_at,
       ipAddress: row.ip_address || "",
       userAgent: row.user_agent || "",
       mfaVerified: false, // Not in schema, default to false
-      createdAt: row.created_at,
+      createdAt: row.created_at as ISODateTime,
       revokedAt: row.revoked_at || undefined,
     };
   }

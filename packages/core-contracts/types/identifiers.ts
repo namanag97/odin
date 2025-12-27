@@ -29,6 +29,12 @@ export type OrganizationId = Brand<UUID, 'OrganizationId'>;
 /** Session identifier */
 export type SessionId = Brand<UUID, 'SessionId'>;
 
+/** Role identifier */
+export type RoleId = Brand<UUID, 'RoleId'>;
+
+/** Environment identifier */
+export type EnvironmentId = Brand<UUID, 'EnvironmentId'>;
+
 // ============================================================================
 // Data Domain Identifiers
 // ============================================================================
@@ -124,6 +130,12 @@ export const asUserId = (id: string): UserId => id as UserId;
 
 /** Create a SessionId from a string */
 export const asSessionId = (id: string): SessionId => id as SessionId;
+
+/** Create a RoleId from a string */
+export const asRoleId = (id: string): RoleId => id as RoleId;
+
+/** Create an EnvironmentId from a string */
+export const asEnvironmentId = (id: string): EnvironmentId => id as EnvironmentId;
 
 /** Create a PoolId from a string */
 export const asPoolId = (id: string): PoolId => id as PoolId;

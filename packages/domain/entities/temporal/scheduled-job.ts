@@ -9,8 +9,19 @@ import type {
   TenantId, 
   ISODateTime,
   Duration,
-  ExecutionStatus
+  ExecutionStatus,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded ScheduledJob ID */
+export type ScheduledJobId = Brand<UUID, 'ScheduledJobId'>;
+
+/** Cast function for ScheduledJobId */
+export const asScheduledJobId = (id: string): ScheduledJobId => id as unknown as ScheduledJobId;
 
 // ============================================================================
 // Job Types
@@ -24,6 +35,9 @@ export type JobType =
   | 'cleanup' 
   | 'report' 
   | 'action_flow';
+
+/** Alias for JobType used in repositories */
+export type ScheduledJobType = JobType;
 
 /** Type of target the job operates on */
 export type JobTargetType = 'data_pool' | 'data_model' | 'action_flow' | 'export';
@@ -97,7 +111,7 @@ export interface JobExecution {
  * ScheduledJob - Defines a scheduled or recurring job
  */
 export interface ScheduledJob {
-  readonly id: UUID;
+  readonly id: ScheduledJobId;
   readonly tenantId: TenantId;
   readonly name: string;
   readonly type: JobType;
@@ -132,13 +146,24 @@ export interface CreateJobData {
 }
 
 /**
+ * Alias for CreateJobData for repository compatibility
+ */
+export type CreateScheduledJobData = CreateJobData;
+
+/**
  * Data for updating a scheduled job
  */
 export interface UpdateJobData {
   readonly name?: string;
   readonly schedule?: JobSchedule;
   readonly configuration?: Record<string, unknown>;
+  readonly status?: ScheduledJobStatus;
 }
+
+/**
+ * Alias for UpdateJobData for repository compatibility
+ */
+export type UpdateScheduledJobData = UpdateJobData;
 
 /**
  * Data for recording a job execution
@@ -147,3 +172,4 @@ export interface CreateJobExecutionData {
   readonly jobId: UUID;
   readonly triggeredBy: TriggerSource;
 }
+

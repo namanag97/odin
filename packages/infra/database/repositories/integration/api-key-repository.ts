@@ -185,15 +185,15 @@ export class SqliteApiKeyRepository implements IApiKeyRepository {
 
   private mapRowToEntity(row: ApiKeyRow): ApiKey {
     return {
-      id: row.id as ApiKeyId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as ApiKeyId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       keyPrefix: row.key_prefix,
       keyHash: row.key_hash,
       createdBy: row.created_by,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

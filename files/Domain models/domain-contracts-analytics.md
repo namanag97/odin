@@ -1,4 +1,5 @@
-# L1 DOMAIN CONTRACTS — ANALYTICS, STUDIO & AUTOMATION
+# L1 DOMAIN CONTRACTS — ANALYTICS, STUDIO & AUTOMATION - implemented
+
 > Knowledge models, views, dashboards, and workflows
 
 ---
@@ -17,11 +18,11 @@ interface KnowledgeModel {
   readonly tenantId: TenantId;
   readonly packageId: PackageId;
   readonly dataModelId: DataModelId;
-  readonly key: string;                        // Unique identifier
+  readonly key: string; // Unique identifier
   readonly name: string;
   readonly description?: string;
   readonly type: KnowledgeModelType;
-  readonly baseKnowledgeModelId?: UUID;        // For extensions
+  readonly baseKnowledgeModelId?: UUID; // For extensions
   readonly status: PublishStatus;
   readonly version: PositiveInt;
   readonly createdAt: ISODateTime;
@@ -30,7 +31,7 @@ interface KnowledgeModel {
   readonly createdBy: UserId;
 }
 
-type KnowledgeModelType = 'base' | 'extension';
+type KnowledgeModelType = "base" | "extension";
 
 interface FullKnowledgeModel extends KnowledgeModel {
   readonly kpis: readonly KPI[];
@@ -48,19 +49,21 @@ interface IKnowledgeModelRepository {
   findById(id: UUID): AsyncResult<KnowledgeModel | null>;
   findByKey(key: string): AsyncResult<KnowledgeModel | null>;
   findByPackageId(packageId: PackageId): AsyncResult<readonly KnowledgeModel[]>;
-  findByDataModelId(dataModelId: DataModelId): AsyncResult<readonly KnowledgeModel[]>;
+  findByDataModelId(
+    dataModelId: DataModelId
+  ): AsyncResult<readonly KnowledgeModel[]>;
   findExtensions(baseId: UUID): AsyncResult<readonly KnowledgeModel[]>;
-  
+
   create(data: CreateKnowledgeModelData): AsyncResult<KnowledgeModel>;
   update(id: UUID, data: UpdateKnowledgeModelData): AsyncResult<KnowledgeModel>;
   delete(id: UUID): AsyncResult<void>;
-  
+
   publish(id: UUID): AsyncResult<KnowledgeModel>;
   unpublish(id: UUID): AsyncResult<KnowledgeModel>;
   deprecate(id: UUID): AsyncResult<KnowledgeModel>;
-  
+
   getFullModel(id: UUID): AsyncResult<FullKnowledgeModel>;
-  getMergedModel(id: UUID): AsyncResult<FullKnowledgeModel>;  // With base model
+  getMergedModel(id: UUID): AsyncResult<FullKnowledgeModel>; // With base model
 }
 ```
 
@@ -94,43 +97,47 @@ interface KPIExpression {
   readonly config: KPIExpressionConfig;
 }
 
-type KPIExpressionType = 
-  | 'aggregate'          // Simple aggregation
-  | 'time_metric'        // Throughput, waiting time, etc.
-  | 'conformance'        // Fitness, precision
-  | 'custom_python'      // PM4Py custom expression
-  | 'ratio';             // Calculated ratio
+type KPIExpressionType =
+  | "aggregate" // Simple aggregation
+  | "time_metric" // Throughput, waiting time, etc.
+  | "conformance" // Fitness, precision
+  | "custom_python" // PM4Py custom expression
+  | "ratio"; // Calculated ratio
 
 interface KPIExpressionConfig {
   // For aggregate
   readonly aggregation?: AggregationType;
   readonly field?: string;
   readonly objectType?: string;
-  
+
   // For time_metric
   readonly timeMetric?: TimeMetricType;
   readonly startActivity?: string;
   readonly endActivity?: string;
   readonly unit?: TimeUnit;
-  
+
   // For conformance
   readonly processModelId?: ProcessModelId;
   readonly conformanceMethod?: ConformanceMethod;
   readonly metric?: MetricType;
-  
+
   // For ratio
-  readonly numerator?: string;              // KPI reference
+  readonly numerator?: string; // KPI reference
   readonly denominator?: string;
-  
+
   // For custom
   readonly pythonExpression?: string;
 }
 
-type TimeMetricType = 
-  | 'throughput_time' | 'waiting_time' | 'processing_time'
-  | 'lead_time' | 'cycle_time' | 'service_time';
+type TimeMetricType =
+  | "throughput_time"
+  | "waiting_time"
+  | "processing_time"
+  | "lead_time"
+  | "cycle_time"
+  | "service_time";
 
-type TimeUnit = 'seconds' | 'minutes' | 'hours' | 'days' | 'weeks';
+type TimeUnit = "seconds" | "minutes" | "hours" | "days" | "weeks";
 
 interface KPIFormat {
   readonly type: FormatType;
@@ -140,13 +147,13 @@ interface KPIFormat {
   readonly locale?: string;
 }
 
-type FormatType = 'number' | 'percentage' | 'currency' | 'duration' | 'date';
+type FormatType = "number" | "percentage" | "currency" | "duration" | "date";
 
 interface KPIThresholds {
   readonly warning?: number;
   readonly critical?: number;
   readonly target?: number;
-  readonly direction: 'higher_is_better' | 'lower_is_better';
+  readonly direction: "higher_is_better" | "lower_is_better";
 }
 ```
 
@@ -164,7 +171,7 @@ interface Record {
   readonly name: string;
   readonly displayName?: string;
   readonly description?: string;
-  readonly objectType: string;                 // OCEL object type reference
+  readonly objectType: string; // OCEL object type reference
   readonly identifierAttribute: string;
   readonly attributes: readonly RecordAttribute[];
   readonly sortOrder: number;
@@ -185,12 +192,12 @@ interface RecordAttribute {
   readonly sortOrder: number;
 }
 
-type AttributeSourceType = 'column' | 'computed' | 'augmented';
+type AttributeSourceType = "column" | "computed" | "augmented";
 
-type AttributeSource = 
-  | { type: 'column'; columnName: string }
-  | { type: 'computed'; expression: string }
-  | { type: 'augmented'; augmentedAttributeId: UUID };
+type AttributeSource =
+  | { type: "column"; columnName: string }
+  | { type: "computed"; expression: string }
+  | { type: "augmented"; augmentedAttributeId: UUID };
 ```
 
 ---
@@ -210,9 +217,13 @@ interface Filter {
   readonly isDefault: boolean;
 }
 
-type FilterType = 
-  | 'attribute' | 'time_range' | 'variant' 
-  | 'activity' | 'object_type' | 'custom';
+type FilterType =
+  | "attribute"
+  | "time_range"
+  | "variant"
+  | "activity"
+  | "object_type"
+  | "custom";
 
 interface FilterConfig {
   readonly objectType?: string;
@@ -229,7 +240,7 @@ interface FilterConfig {
 interface Variable {
   readonly id: UUID;
   readonly scopeType: VariableScopeType;
-  readonly scopeId: UUID;                      // KnowledgeModel or View ID
+  readonly scopeId: UUID; // KnowledgeModel or View ID
   readonly name: string;
   readonly displayName?: string;
   readonly type: VariableType;
@@ -238,11 +249,16 @@ interface Variable {
   readonly validation?: VariableValidation;
 }
 
-type VariableScopeType = 'knowledge_model' | 'view';
+type VariableScopeType = "knowledge_model" | "view";
 
-type VariableType = 
-  | 'string' | 'number' | 'boolean' | 'date'
-  | 'date_range' | 'selection' | 'multi_selection';
+type VariableType =
+  | "string"
+  | "number"
+  | "boolean"
+  | "date"
+  | "date_range"
+  | "selection"
+  | "multi_selection";
 
 interface VariableValidation {
   readonly required?: boolean;
@@ -276,16 +292,16 @@ interface EventLogConfig {
   readonly isDefault: boolean;
 }
 
-type EventLogType = 'case_centric' | 'object_centric';
+type EventLogType = "case_centric" | "object_centric";
 
 interface EventLogConfigDetails {
   // Case-centric
   readonly caseDefinition?: CaseDefinition;
-  
+
   // Object-centric (OCEL)
   readonly objectTypes?: readonly string[];
   readonly eventFilter?: FilterConfig;
-  
+
   // Common
   readonly activityMapping?: ActivityMapping;
   readonly timestampConfig?: TimestampConfig;
@@ -299,7 +315,7 @@ interface CaseDefinition {
 
 interface ActivityMapping {
   readonly sourceAttribute: string;
-  readonly mapping?: Record<string, string>;   // Original -> Display name
+  readonly mapping?: Record<string, string>; // Original -> Display name
 }
 
 interface TimestampConfig {
@@ -332,7 +348,7 @@ interface Space {
   readonly createdBy: UserId;
 }
 
-type SpaceVisibility = 'private' | 'team' | 'organization' | 'public';
+type SpaceVisibility = "private" | "team" | "organization" | "public";
 
 interface SpaceSettings {
   readonly defaultPermissions: readonly Permission[];
@@ -347,7 +363,7 @@ interface SpaceMembership {
   readonly joinedAt: ISODateTime;
 }
 
-type SpaceRole = 'viewer' | 'editor' | 'admin' | 'owner';
+type SpaceRole = "viewer" | "editor" | "admin" | "owner";
 ```
 
 ---
@@ -419,7 +435,7 @@ interface View {
   readonly createdBy: UserId;
 }
 
-type ViewType = 'analysis' | 'profile' | 'dashboard' | 'report';
+type ViewType = "analysis" | "profile" | "dashboard" | "report";
 
 interface ViewLayout {
   readonly type: LayoutType;
@@ -428,7 +444,7 @@ interface ViewLayout {
   readonly responsive: boolean;
 }
 
-type LayoutType = 'grid' | 'freeform' | 'flow';
+type LayoutType = "grid" | "freeform" | "flow";
 
 interface ViewSettings {
   readonly refreshInterval?: Duration;
@@ -465,25 +481,52 @@ interface Component {
   readonly updatedAt: ISODateTime;
 }
 
-type ComponentType = 
+type ComponentType =
   // Charts
-  | 'bar_chart' | 'line_chart' | 'pie_chart' | 'area_chart'
-  | 'scatter_chart' | 'histogram' | 'heatmap' | 'funnel'
+  | "bar_chart"
+  | "line_chart"
+  | "pie_chart"
+  | "area_chart"
+  | "scatter_chart"
+  | "histogram"
+  | "heatmap"
+  | "funnel"
   // Tables
-  | 'data_table' | 'pivot_table' | 'kpi_table'
+  | "data_table"
+  | "pivot_table"
+  | "kpi_table"
   // Process Mining Specific
-  | 'process_explorer' | 'variant_explorer' | 'case_explorer'
-  | 'dfg_view' | 'bpmn_view' | 'conformance_view'
-  | 'dotted_chart' | 'performance_spectrum'
+  | "process_explorer"
+  | "variant_explorer"
+  | "case_explorer"
+  | "dfg_view"
+  | "bpmn_view"
+  | "conformance_view"
+  | "dotted_chart"
+  | "performance_spectrum"
   // KPIs
-  | 'kpi_card' | 'kpi_list' | 'gauge' | 'sparkline'
+  | "kpi_card"
+  | "kpi_list"
+  | "gauge"
+  | "sparkline"
   // Controls
-  | 'filter_bar' | 'dropdown' | 'date_picker' | 'text_input'
-  | 'button' | 'slider' | 'toggle'
+  | "filter_bar"
+  | "dropdown"
+  | "date_picker"
+  | "text_input"
+  | "button"
+  | "slider"
+  | "toggle"
   // Layout
-  | 'container' | 'tab_container' | 'accordion' | 'card'
+  | "container"
+  | "tab_container"
+  | "accordion"
+  | "card"
   // Content
-  | 'text' | 'image' | 'markdown' | 'iframe';
+  | "text"
+  | "image"
+  | "markdown"
+  | "iframe";
 
 interface ComponentPosition {
   readonly x: number;
@@ -514,7 +557,7 @@ interface DataBinding {
   readonly limit?: number;
 }
 
-type BindingType = 'kpi' | 'record' | 'event_log' | 'process_model' | 'static';
+type BindingType = "kpi" | "record" | "event_log" | "process_model" | "static";
 
 interface InteractivityConfig {
   readonly clickAction?: ClickAction;
@@ -524,13 +567,13 @@ interface InteractivityConfig {
   readonly linkedComponentIds?: readonly UUID[];
 }
 
-type ClickAction = 
-  | { type: 'navigate'; viewId: ViewId; params?: Record<string, string> }
-  | { type: 'filter'; filterId: UUID }
-  | { type: 'drill_down'; dimension: string }
-  | { type: 'trigger_action_flow'; actionFlowId: ActionFlowId };
+type ClickAction =
+  | { type: "navigate"; viewId: ViewId; params?: Record<string, string> }
+  | { type: "filter"; filterId: UUID }
+  | { type: "drill_down"; dimension: string }
+  | { type: "trigger_action_flow"; actionFlowId: ActionFlowId };
 
-type SelectionMode = 'single' | 'multiple' | 'range';
+type SelectionMode = "single" | "multiple" | "range";
 ```
 
 ---
@@ -548,7 +591,7 @@ interface Tab {
 }
 
 interface VisibilityRule {
-  readonly type: 'always' | 'conditional' | 'permission';
+  readonly type: "always" | "conditional" | "permission";
   readonly condition?: string;
   readonly permissionRequired?: string;
 }
@@ -581,21 +624,21 @@ interface ActionFlow {
   readonly createdBy: UserId;
 }
 
-type ActionFlowStatus = 'draft' | 'active' | 'paused' | 'disabled' | 'error';
+type ActionFlowStatus = "draft" | "active" | "paused" | "disabled" | "error";
 
 interface ActionFlowTrigger {
   readonly type: TriggerType;
   readonly config: TriggerConfig;
 }
 
-type TriggerType = 'manual' | 'scheduled' | 'event' | 'sensor' | 'webhook';
+type TriggerType = "manual" | "scheduled" | "event" | "sensor" | "webhook";
 
-type TriggerConfig = 
-  | { type: 'manual' }
-  | { type: 'scheduled'; schedule: JobSchedule }
-  | { type: 'event'; eventTypes: readonly string[] }
-  | { type: 'sensor'; sensorId: UUID }
-  | { type: 'webhook'; secret: string };
+type TriggerConfig =
+  | { type: "manual" }
+  | { type: "scheduled"; schedule: JobSchedule }
+  | { type: "event"; eventTypes: readonly string[] }
+  | { type: "sensor"; sensorId: UUID }
+  | { type: "webhook"; secret: string };
 
 interface ActionFlowInput {
   readonly name: string;
@@ -608,14 +651,14 @@ interface ActionFlowInput {
 interface ActionFlowOutput {
   readonly name: string;
   readonly type: DataType;
-  readonly source: string;                     // Module output reference
+  readonly source: string; // Module output reference
 }
 
 interface ErrorHandlingConfig {
   readonly maxRetries: number;
   readonly retryDelay: Duration;
   readonly consecutiveErrorsLimit: number;
-  readonly errorNotification?: UUID;           // Notification template
+  readonly errorNotification?: UUID; // Notification template
   readonly fallbackActionFlowId?: ActionFlowId;
 }
 
@@ -652,19 +695,34 @@ interface Module {
   readonly condition?: ModuleCondition;
 }
 
-type ModuleType = 
+type ModuleType =
   // Data Operations
-  | 'query_data' | 'filter_data' | 'transform_data' | 'aggregate_data'
+  | "query_data"
+  | "filter_data"
+  | "transform_data"
+  | "aggregate_data"
   // Process Mining
-  | 'discover_process' | 'check_conformance' | 'calculate_kpi'
+  | "discover_process"
+  | "check_conformance"
+  | "calculate_kpi"
   // Integration
-  | 'http_request' | 'send_email' | 'send_slack' | 'webhook_call'
+  | "http_request"
+  | "send_email"
+  | "send_slack"
+  | "webhook_call"
   // Control Flow
-  | 'condition' | 'loop' | 'parallel' | 'delay' | 'error'
+  | "condition"
+  | "loop"
+  | "parallel"
+  | "delay"
+  | "error"
   // Task Management
-  | 'create_task' | 'update_task' | 'assign_task'
+  | "create_task"
+  | "update_task"
+  | "assign_task"
   // Custom
-  | 'python_script' | 'javascript';
+  | "python_script"
+  | "javascript";
 
 interface ModuleConfig {
   readonly [key: string]: unknown;
@@ -680,15 +738,15 @@ interface OutputMapping {
   readonly variableName: string;
 }
 
-type MappingSource = 
-  | { type: 'input'; inputName: string }
-  | { type: 'module_output'; moduleId: UUID; outputName: string }
-  | { type: 'variable'; variableName: string }
-  | { type: 'literal'; value: unknown }
-  | { type: 'expression'; expression: string };
+type MappingSource =
+  | { type: "input"; inputName: string }
+  | { type: "module_output"; moduleId: UUID; outputName: string }
+  | { type: "variable"; variableName: string }
+  | { type: "literal"; value: unknown }
+  | { type: "expression"; expression: string };
 
 interface ModuleErrorHandling {
-  readonly onError: 'fail' | 'continue' | 'retry';
+  readonly onError: "fail" | "continue" | "retry";
   readonly maxRetries?: number;
   readonly fallbackValue?: unknown;
 }
@@ -780,8 +838,7 @@ interface Sensor {
   readonly lastEvaluatedAt?: ISODateTime;
 }
 
-type SensorType = 
-  | 'threshold' | 'anomaly' | 'pattern' | 'deadline' | 'custom';
+type SensorType = "threshold" | "anomaly" | "pattern" | "deadline" | "custom";
 
 interface SensorConfig {
   readonly objectType?: string;
@@ -795,14 +852,14 @@ interface SensorConfig {
 
 interface ThresholdConfig {
   readonly kpiId: UUID;
-  readonly operator: 'gt' | 'gte' | 'lt' | 'lte' | 'eq' | 'neq';
+  readonly operator: "gt" | "gte" | "lt" | "lte" | "eq" | "neq";
   readonly value: number;
-  readonly duration?: Duration;               // Sustained threshold
+  readonly duration?: Duration; // Sustained threshold
 }
 
 interface AnomalyConfig {
   readonly kpiId: UUID;
-  readonly method: 'zscore' | 'iqr' | 'isolation_forest';
+  readonly method: "zscore" | "iqr" | "isolation_forest";
   readonly sensitivity: number;
 }
 
@@ -827,9 +884,12 @@ interface SkillAction {
   readonly order: number;
 }
 
-type SkillActionType = 
-  | 'create_task' | 'send_notification' | 'trigger_action_flow'
-  | 'call_webhook' | 'update_attribute';
+type SkillActionType =
+  | "create_task"
+  | "send_notification"
+  | "trigger_action_flow"
+  | "call_webhook"
+  | "update_attribute";
 
 interface SkillActionConfig {
   readonly [key: string]: unknown;
@@ -873,8 +933,13 @@ interface Signal {
   readonly resolutionNote?: string;
 }
 
-type SignalStatus = 'open' | 'acknowledged' | 'in_progress' | 'snoozed' | 'resolved';
-type SignalSeverity = 'low' | 'medium' | 'high' | 'critical';
+type SignalStatus =
+  | "open"
+  | "acknowledged"
+  | "in_progress"
+  | "snoozed"
+  | "resolved";
+type SignalSeverity = "low" | "medium" | "high" | "critical";
 
 interface AffectedObject {
   readonly objectType: string;
@@ -918,8 +983,13 @@ interface Task {
   readonly createdBy: UserId;
 }
 
-type TaskStatus = 'open' | 'in_progress' | 'blocked' | 'completed' | 'cancelled';
-type TaskPriority = 'low' | 'normal' | 'high' | 'urgent';
+type TaskStatus =
+  | "open"
+  | "in_progress"
+  | "blocked"
+  | "completed"
+  | "cancelled";
+type TaskPriority = "low" | "normal" | "high" | "urgent";
 
 interface TaskContext {
   readonly objectType?: string;

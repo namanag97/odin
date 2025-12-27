@@ -4,11 +4,22 @@
  * Global system-wide configuration (platform admin only).
  */
 
-import type { 
+import type {
   UserId,
   ISODateTime,
-  JSONString
+  JSONString,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded SystemConfig ID (config key) */
+export type SystemConfigId = Brand<string, 'SystemConfigId'>;
+
+/** Cast function for SystemConfigId */
+export const asSystemConfigId = (key: string): SystemConfigId => key as unknown as SystemConfigId;
 
 // ============================================================================
 // Types
@@ -16,6 +27,9 @@ import type {
 
 /** Configuration value type */
 export type ConfigValueType = 'string' | 'number' | 'boolean' | 'json' | 'secret';
+
+/** Alias for SystemConfigType */
+export type SystemConfigType = ConfigValueType;
 
 // ============================================================================
 // Entity
@@ -62,6 +76,27 @@ export interface ConfigChange {
 // ============================================================================
 // DTOs
 // ============================================================================
+
+/**
+ * Data for creating a new configuration entry
+ */
+export interface CreateSystemConfigData {
+  readonly key: string;
+  readonly value: unknown;
+  readonly type: ConfigValueType;
+  readonly description?: string;
+  readonly isSecret?: boolean;
+  readonly validationSchema?: JSONString;
+}
+
+/**
+ * Data for updating a configuration entry
+ */
+export interface UpdateSystemConfigData {
+  readonly value?: unknown;
+  readonly description?: string;
+  readonly validationSchema?: JSONString;
+}
 
 /**
  * Data for setting a configuration value

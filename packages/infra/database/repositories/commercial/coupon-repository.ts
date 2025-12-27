@@ -2,6 +2,7 @@ import type { Database } from "bun:sqlite";
 import {
   type AsyncResult,
   type UUID,
+  type ISODateTime,
 } from "@odin/core-contracts";
 import {
   type Coupon,
@@ -9,7 +10,7 @@ import {
   type CreateCouponData,
   type UpdateCouponData,
   type ICouponRepository,
-  DiscountType,
+  type DiscountType,
 } from "@odin/domain";
 import { mapDatabaseError } from "../../error-mapper";
 import { DbTimestamp, JsonColumn, Pagination } from "../../types";
@@ -183,15 +184,15 @@ export class SqliteCouponRepository implements ICouponRepository {
 
   private mapRowToEntity(row: CouponRow): Coupon {
     return {
-      id: row.id as CouponId,
+      id: row.id as UUID as CouponId,
       key: row.key,
       name: row.name,
       description: row.description || undefined,
       discountType: row.discount_type,
       discountValue: row.discount_value,
-      isActive: row.is_active,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      isActive: Boolean(row.is_active),
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

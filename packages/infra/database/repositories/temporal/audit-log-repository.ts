@@ -232,17 +232,17 @@ export class SqliteAuditLogRepository implements IAuditLogRepository {
 
   private mapRowToEntity(row: AuditLogRow): AuditLog {
     return {
-      id: row.id as AuditLogId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as AuditLogId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       actorType: row.actor_type,
-      actorId: row.actor_id,
+      actorId: row.actor_id as UUID,
       action: row.action,
       resourceType: row.resource_type,
-      resourceId: row.resource_id,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      resourceId: row.resource_id as UUID,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

@@ -4,14 +4,25 @@
  * Webhook configuration and delivery tracking.
  */
 
-import type { 
-  UUID, 
-  TenantId, 
+import type {
+  UUID,
+  TenantId,
   ISODateTime,
   Duration,
   URL,
-  EntityStatus
+  EntityStatus,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded Webhook ID */
+export type WebhookId = Brand<UUID, 'WebhookId'>;
+
+/** Cast function for WebhookId */
+export const asWebhookId = (id: string): WebhookId => id as unknown as WebhookId;
 
 // ============================================================================
 // Event Types

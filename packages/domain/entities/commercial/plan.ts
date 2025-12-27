@@ -4,15 +4,26 @@
  * Product tier definition with features and limits.
  */
 
-import type { 
-  UUID, 
-  ISODateTime, 
+import type {
+  UUID,
+  ISODateTime,
   NonNegativeInt,
-  Percentage
+  Percentage,
+  Brand,
 } from '@odin/core-contracts';
 
 import type { TenantTier } from '../existence/tenant';
 import type { DiscoveryAlgorithm } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded Plan ID */
+export type PlanId = Brand<UUID, 'PlanId'>;
+
+/** Cast function for PlanId */
+export const asPlanId = (id: string): PlanId => id as unknown as PlanId;
 
 // ============================================================================
 // Status & Visibility Types
@@ -164,3 +175,13 @@ export interface PlanComparison {
   readonly featureMatrix: Record<string, Record<UUID, boolean | string | number>>;
   readonly limitMatrix: Record<string, Record<UUID, number | 'unlimited'>>;
 }
+
+// ============================================================================
+// Additional Types
+// ============================================================================
+
+/** Plan tier (alias for TenantTier) */
+export type PlanTier = TenantTier;
+
+/** Billing interval */
+export type BillingInterval = 'monthly' | 'yearly' | 'one_time';

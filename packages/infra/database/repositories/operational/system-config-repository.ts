@@ -166,15 +166,15 @@ export class SqliteSystemConfigRepository implements ISystemConfigRepository {
 
   private mapRowToEntity(row: SystemConfigRow): SystemConfig {
     return {
-      id: row.id as SystemConfigId,
+      id: row.id as UUID as SystemConfigId,
       key: row.key,
       name: row.name,
       description: row.description || undefined,
       type: row.type as SystemConfigType,
       value: row.value,
       isSensitive: row.is_sensitive,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

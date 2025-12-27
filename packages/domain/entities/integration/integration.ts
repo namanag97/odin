@@ -4,11 +4,22 @@
  * Third-party service connections (data sources, exports, etc.)
  */
 
-import type { 
-  UUID, 
-  TenantId, 
-  ISODateTime
+import type {
+  UUID,
+  TenantId,
+  ISODateTime,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded Integration ID */
+export type IntegrationId = Brand<UUID, 'IntegrationId'>;
+
+/** Cast function for IntegrationId */
+export const asIntegrationId = (id: string): IntegrationId => id as unknown as IntegrationId;
 
 // ============================================================================
 // Integration Types

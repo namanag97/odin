@@ -3,6 +3,7 @@ import {
   type AsyncResult,
   type TenantId,
   type UUID,
+  type ISODateTime,
   type PageRequest,
   type PageResponse,
 } from "@odin/core-contracts";
@@ -35,7 +36,7 @@ interface InvoiceRow {
 export class SqliteInvoiceRepository implements IInvoiceRepository {
   constructor(private db: Database) {}
 
-  async findById(id: InvoiceId, tenantId: TenantId): AsyncResult<Invoice | null> {
+  async findById(id: InvoiceId): AsyncResult<Invoice | null> {
     try {
       const row = this.db
         .query<InvoiceRow, [string, string]>(
@@ -81,7 +82,7 @@ export class SqliteInvoiceRepository implements IInvoiceRepository {
     }
   }
 
-  async findByStatus(status: InvoiceStatus, tenantId: TenantId): AsyncResult<readonly Invoice[]> {
+  async findByStatus(status: InvoiceStatus): AsyncResult<readonly Invoice[]> {
     try {
       const rows = this.db
         .query<InvoiceRow>(
@@ -206,17 +207,17 @@ export class SqliteInvoiceRepository implements IInvoiceRepository {
 
   private mapRowToEntity(row: InvoiceRow): Invoice {
     return {
-      id: row.id as InvoiceId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as InvoiceId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       status: row.status as InvoiceStatus,
       number: row.number,
       total: row.total,
       amountDue: row.amount_due,
-      dueDate: row.due_date,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      dueDate: row.due_date as ISODateTime,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

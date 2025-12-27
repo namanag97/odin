@@ -187,16 +187,16 @@ export class SqliteUsageRepository implements IUsageRepository {
 
   private mapRowToEntity(row: UsageRecordRow): UsageRecord {
     return {
-      id: row.id as UsageRecordId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as UsageRecordId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
-      subscriptionId: row.subscription_id,
+      subscriptionId: row.subscription_id as UUID,
       resourceType: row.resource_type,
-      quantity: row.quantity,
-      timestamp: row.timestamp,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      quantity: row.quantity as PositiveInt,
+      timestamp: row.timestamp as ISODateTime,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

@@ -210,16 +210,16 @@ export class SqliteSubscriptionRepository implements ISubscriptionRepository {
 
   private mapRowToEntity(row: SubscriptionRow): Subscription {
     return {
-      id: row.id as SubscriptionId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as SubscriptionId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       status: row.status as SubscriptionStatus,
-      planId: row.plan_id,
-      currentPeriodStart: row.current_period_start,
-      currentPeriodEnd: row.current_period_end,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      planId: row.plan_id as UUID,
+      currentPeriodStart: row.current_period_start as ISODateTime,
+      currentPeriodEnd: row.current_period_end as ISODateTime,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

@@ -3,6 +3,7 @@ import {
   type AsyncResult,
   type TenantId,
   type UUID,
+  type ISODateTime,
 } from "@odin/core-contracts";
 import {
   type PaymentMethod,
@@ -11,7 +12,7 @@ import {
   type UpdatePaymentMethodData,
   type IPaymentMethodRepository,
   type PaymentMethodType,
-  PaymentProvider,
+  type PaymentProvider,
 } from "@odin/domain";
 import { mapDatabaseError } from "../../error-mapper";
 import { DbTimestamp, JsonColumn, Pagination } from "../../types";
@@ -32,7 +33,7 @@ interface PaymentMethodRow {
 export class SqlitePaymentMethodRepository implements IPaymentMethodRepository {
   constructor(private db: Database) {}
 
-  async findById(id: PaymentMethodId, tenantId: TenantId): AsyncResult<PaymentMethod | null> {
+  async findById(id: PaymentMethodId): AsyncResult<PaymentMethod | null> {
     try {
       const row = this.db
         .query<PaymentMethodRow, [string, string]>(
@@ -173,7 +174,7 @@ export class SqlitePaymentMethodRepository implements IPaymentMethodRepository {
     }
   }
 
-  async delete(id: PaymentMethodId, tenantId: TenantId): AsyncResult<void> {
+  async delete(id: PaymentMethodId): AsyncResult<void> {
     try {
       this.db
         .query("DELETE FROM payment_methods WHERE id = ? AND tenant_id = ?")
@@ -187,15 +188,15 @@ export class SqlitePaymentMethodRepository implements IPaymentMethodRepository {
 
   private mapRowToEntity(row: PaymentMethodRow): PaymentMethod {
     return {
-      id: row.id as PaymentMethodId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as PaymentMethodId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       type: row.type as PaymentMethodType,
       provider: row.provider,
-      isDefault: row.is_default,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      isDefault: Boolean(row.is_default),
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

@@ -560,7 +560,7 @@ export class SqliteUserRepository implements IUserRepository {
 
     return {
       id: asUserId(row.id),
-      tenantId: row.tenant_id as TenantId,
+      tenantId: row.tenant_id as UUID as TenantId,
       email: row.email as Email,
       emailVerified: !!row.email_verified_at,
       name: displayName,
@@ -570,8 +570,8 @@ export class SqliteUserRepository implements IUserRepository {
       mfaEnabled: row.mfa_enabled === 1,
       lastLoginAt: row.last_login_at || undefined,
       passwordChangedAt: undefined, // Not tracked in current schema
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 
@@ -596,8 +596,8 @@ export class SqliteUserRepository implements IUserRepository {
     const metadata = JsonColumn.parse<Record<string, any>>(row.metadata) || {};
 
     return {
-      id: row.id as RoleId,
-      tenantId: row.tenant_id ? (row.tenant_id as TenantId) : undefined,
+      id: row.id as UUID as RoleId,
+      tenantId: row.tenant_id as UUID ? (row.tenant_id as TenantId) : undefined,
       name: row.name,
       slug: row.slug,
       description: row.description || undefined,
@@ -605,7 +605,7 @@ export class SqliteUserRepository implements IUserRepository {
       scope: row.scope as any,
       permissions: [], // Permissions would require another join
       metadata,
-      createdAt: row.created_at,
+      createdAt: row.created_at as ISODateTime,
     };
   }
 }

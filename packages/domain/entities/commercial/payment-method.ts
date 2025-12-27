@@ -4,11 +4,22 @@
  * Payment methods for billing.
  */
 
-import type { 
-  UUID, 
+import type {
+  UUID,
   TenantId,
-  ISODateTime
+  ISODateTime,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded PaymentMethod ID */
+export type PaymentMethodId = Brand<UUID, 'PaymentMethodId'>;
+
+/** Cast function for PaymentMethodId */
+export const asPaymentMethodId = (id: string): PaymentMethodId => id as unknown as PaymentMethodId;
 
 // ============================================================================
 // Types
@@ -16,6 +27,9 @@ import type {
 
 /** Payment method type */
 export type PaymentMethodType = 'card' | 'bank_account' | 'invoice';
+
+/** Payment provider (Stripe, etc.) */
+export type PaymentProvider = 'stripe' | 'paypal' | 'manual';
 
 /**
  * Payment method details (card or bank)

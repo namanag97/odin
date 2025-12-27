@@ -1,0 +1,12 @@
+
+> @odin/domain@0.2.0 typecheck /Users/namanagarwal/coding/odin/packages/domain
+> tsc --noEmit
+
+external/pm4py/adapter.ts(7,10): error TS2305: Module '"@odin/core-contracts"' has no exported member 'createOperationalError'.
+external/pm4py/adapter.ts(55,9): error TS2322: Type 'number' is not assignable to type 'Duration'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "DurationMs"; }'.
+external/pm4py/adapter.ts(57,22): error TS2580: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+external/pm4py/types.ts(8,3): error TS2305: Module '"@odin/core-contracts"' has no exported member 'Brand'.
+external/pm4py/types.ts(68,33): error TS2580: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+external/pm4py/types.ts(72,30): error TS2580: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

@@ -272,14 +272,14 @@ export class SqliteIdentityProviderRepository implements IIdentityProviderReposi
     };
 
     return {
-      id: row.id,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       type: this.mapDbTypeToDomain(row.type),
       status: row.is_enabled === 1 ? "active" : "inactive",
       config,
       metadata,
-      createdAt: row.created_at,
+      createdAt: row.created_at as ISODateTime,
     };
   }
 

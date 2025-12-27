@@ -1,0 +1,9 @@
+> nx run @odin/web:build
+
+> pnpm run build --filter @odin/core-contracts --filter @odin/core-lib --filter @odin/domain
+
+
+> @odin/web@0.1.0 build /Users/namanagarwal/coding/odin/apps/web
+> echo 'Web app not configured yet' "--filter" "@odin/core-contracts" "--filter" "@odin/core-lib" "--filter" "@odin/domain"
+
+Web app not configured yet --filter @odin/core-contracts --filter @odin/core-lib --filter @odin/domain

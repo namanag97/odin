@@ -1,0 +1,681 @@
+
+> @odin/infra@0.1.0 typecheck /Users/namanagarwal/coding/odin/packages/infra
+> tsc --noEmit
+
+database/repositories/analytics/filter.repository.ts(16,14): error TS2420: Class 'SqliteFilterRepository' incorrectly implements interface 'IFilterRepository'.
+  Type 'SqliteFilterRepository' is missing the following properties from type 'IFilterRepository': findByKnowledgeModelId, findGlobal, findDefault, create, update
+database/repositories/analytics/knowledge-model.repository.ts(16,14): error TS2420: Class 'SqliteKnowledgeModelRepository' incorrectly implements interface 'IKnowledgeModelRepository'.
+  Type 'SqliteKnowledgeModelRepository' is missing the following properties from type 'IKnowledgeModelRepository': findByKey, findByPackageId, findByDataModelId, findByStatus, and 4 more.
+database/repositories/analytics/kpi.repository.ts(16,14): error TS2420: Class 'SqliteKpiRepository' incorrectly implements interface 'IKpiRepository'.
+  Type 'SqliteKpiRepository' is missing the following properties from type 'IKpiRepository': findByKnowledgeModelId, findGlobal, create, update
+database/repositories/analytics/record.repository.ts(16,14): error TS2420: Class 'SqliteRecordRepository' incorrectly implements interface 'IRecordRepository'.
+  Type 'SqliteRecordRepository' is missing the following properties from type 'IRecordRepository': findByKnowledgeModelId, create, update
+database/repositories/analytics/variable.repository.ts(16,14): error TS2420: Class 'SqliteVariableRepository' incorrectly implements interface 'IVariableRepository'.
+  Type 'SqliteVariableRepository' is missing the following properties from type 'IVariableRepository': findByScope, create, update
+database/repositories/automation/action-flow.repository.ts(16,14): error TS2420: Class 'SqliteActionFlowRepository' incorrectly implements interface 'IActionFlowRepository'.
+  Type 'SqliteActionFlowRepository' is missing the following properties from type 'IActionFlowRepository': findByTenantId, findByStatus, create, update
+database/repositories/automation/execution.repository.ts(16,14): error TS2420: Class 'SqliteExecutionRepository' incorrectly implements interface 'IExecutionRepository'.
+  Type 'SqliteExecutionRepository' is missing the following properties from type 'IExecutionRepository': findByActionFlowId, findByStatus, create, update
+database/repositories/automation/sensor.repository.ts(16,14): error TS2420: Class 'SqliteSensorRepository' incorrectly implements interface 'ISensorRepository'.
+  Type 'SqliteSensorRepository' is missing the following properties from type 'ISensorRepository': findByType, findActive, findByTenantId, create, update
+database/repositories/automation/signal.repository.ts(16,14): error TS2420: Class 'SqliteSignalRepository' incorrectly implements interface 'ISignalRepository'.
+  Type 'SqliteSignalRepository' is missing the following properties from type 'ISignalRepository': findBySensorId, findByStatus, create, update
+database/repositories/automation/skill.repository.ts(16,14): error TS2420: Class 'SqliteSkillRepository' incorrectly implements interface 'ISkillRepository'.
+  Type 'SqliteSkillRepository' is missing the following properties from type 'ISkillRepository': findByKey, findByType, findByTenantId, create, update
+database/repositories/automation/task.repository.ts(16,14): error TS2420: Class 'SqliteTaskRepository' incorrectly implements interface 'ITaskRepository'.
+  Type 'SqliteTaskRepository' is missing the following properties from type 'ITaskRepository': findByExecutionId, findByAssignee, findByStatus, findByPriority, and 2 more.
+database/repositories/commercial/coupon-repository.ts(58,10): error TS2554: Expected 2 arguments, but got 1.
+database/repositories/commercial/coupon-repository.ts(70,9): error TS2416: Property 'findActive' in type 'SqliteCouponRepository' is not assignable to the same property in base type 'ICouponRepository'.
+  Type '() => AsyncResult<readonly Coupon[]>' is not assignable to type '(options?: PageRequest | undefined) => AsyncResult<PageResponse<Coupon>>'.
+    Type 'AsyncResult<readonly Coupon[]>' is not assignable to type 'AsyncResult<PageResponse<Coupon>>'.
+      Type 'Result<readonly Coupon[], AppError>' is not assignable to type 'Result<PageResponse<Coupon>, AppError>'.
+        Type 'Success<readonly Coupon[]>' is not assignable to type 'Result<PageResponse<Coupon>, AppError>'.
+          Type 'Success<readonly Coupon[]>' is not assignable to type 'Success<PageResponse<Coupon>>'.
+            Type 'readonly Coupon[]' is missing the following properties from type 'PageResponse<Coupon>': data, page, limit, total, and 3 more.
+database/repositories/commercial/coupon-repository.ts(103,16): error TS2339: Property 'key' does not exist on type 'CreateCouponData'.
+database/repositories/commercial/coupon-repository.ts(105,16): error TS2339: Property 'description' does not exist on type 'CreateCouponData'.
+database/repositories/commercial/coupon-repository.ts(106,16): error TS2339: Property 'discountType' does not exist on type 'CreateCouponData'.
+database/repositories/commercial/coupon-repository.ts(107,16): error TS2339: Property 'discountValue' does not exist on type 'CreateCouponData'.
+database/repositories/commercial/coupon-repository.ts(108,16): error TS2339: Property 'isActive' does not exist on type 'CreateCouponData'.
+database/repositories/commercial/coupon-repository.ts(139,16): error TS2339: Property 'description' does not exist on type 'UpdateCouponData'.
+database/repositories/commercial/coupon-repository.ts(141,26): error TS2339: Property 'description' does not exist on type 'UpdateCouponData'.
+database/repositories/commercial/coupon-repository.ts(145,16): error TS2352: Conversion of type 'Result<Coupon | null, AppError>' to type 'AsyncResult<Coupon>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Coupon | null>' is missing the following properties from type 'Promise<Result<Coupon, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/commercial/coupon-repository.ts(188,7): error TS2353: Object literal may only specify known properties, and 'key' does not exist in type 'Coupon'.
+database/repositories/commercial/invoice-repository.ts(39,9): error TS2416: Property 'findById' in type 'SqliteInvoiceRepository' is not assignable to the same property in base type 'IInvoiceRepository'.
+  Type '(id: InvoiceId, tenantId: never) => AsyncResult<Invoice | null>' is not assignable to type '(id: UUID) => AsyncResult<Invoice | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/commercial/invoice-repository.ts(85,9): error TS2416: Property 'findByStatus' in type 'SqliteInvoiceRepository' is not assignable to the same property in base type 'IInvoiceRepository'.
+  Type '(status: InvoiceStatus, tenantId: never) => AsyncResult<readonly Invoice[]>' is not assignable to type '(status: InvoiceStatus) => AsyncResult<readonly Invoice[]>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/commercial/invoice-repository.ts(119,16): error TS2339: Property 'name' does not exist on type 'CreateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(120,16): error TS2339: Property 'description' does not exist on type 'CreateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(121,16): error TS2339: Property 'status' does not exist on type 'CreateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(122,16): error TS2339: Property 'number' does not exist on type 'CreateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(123,16): error TS2339: Property 'total' does not exist on type 'CreateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(124,16): error TS2339: Property 'amountDue' does not exist on type 'CreateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(144,9): error TS2416: Property 'update' in type 'SqliteInvoiceRepository' is not assignable to the same property in base type 'IInvoiceRepository'.
+  Type '(id: InvoiceId, data: UpdateInvoiceData, tenantId: never) => AsyncResult<Invoice>' is not assignable to type '(id: UUID, data: UpdateInvoiceData) => AsyncResult<Invoice>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/commercial/invoice-repository.ts(153,16): error TS2339: Property 'name' does not exist on type 'UpdateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(155,26): error TS2339: Property 'name' does not exist on type 'UpdateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(157,16): error TS2339: Property 'description' does not exist on type 'UpdateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(159,26): error TS2339: Property 'description' does not exist on type 'UpdateInvoiceData'.
+database/repositories/commercial/invoice-repository.ts(167,16): error TS2352: Conversion of type 'Result<Invoice | null, AppError>' to type 'AsyncResult<Invoice>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Invoice | null>' is missing the following properties from type 'Promise<Result<Invoice, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/commercial/invoice-repository.ts(212,7): error TS2353: Object literal may only specify known properties, and 'name' does not exist in type 'Invoice'.
+database/repositories/commercial/payment-method-repository.ts(36,9): error TS2416: Property 'findById' in type 'SqlitePaymentMethodRepository' is not assignable to the same property in base type 'IPaymentMethodRepository'.
+  Type '(id: PaymentMethodId, tenantId: never) => AsyncResult<PaymentMethod | null>' is not assignable to type '(id: UUID) => AsyncResult<PaymentMethod | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/commercial/payment-method-repository.ts(106,16): error TS2339: Property 'name' does not exist on type 'CreatePaymentMethodData'.
+database/repositories/commercial/payment-method-repository.ts(107,16): error TS2339: Property 'description' does not exist on type 'CreatePaymentMethodData'.
+database/repositories/commercial/payment-method-repository.ts(109,16): error TS2339: Property 'provider' does not exist on type 'CreatePaymentMethodData'.
+database/repositories/commercial/payment-method-repository.ts(129,9): error TS2416: Property 'update' in type 'SqlitePaymentMethodRepository' is not assignable to the same property in base type 'IPaymentMethodRepository'.
+  Type '(id: PaymentMethodId, data: UpdatePaymentMethodData, tenantId: never) => AsyncResult<PaymentMethod>' is not assignable to type '(id: UUID, data: UpdatePaymentMethodData) => AsyncResult<PaymentMethod>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/commercial/payment-method-repository.ts(138,16): error TS2339: Property 'name' does not exist on type 'UpdatePaymentMethodData'.
+database/repositories/commercial/payment-method-repository.ts(140,26): error TS2339: Property 'name' does not exist on type 'UpdatePaymentMethodData'.
+database/repositories/commercial/payment-method-repository.ts(142,16): error TS2339: Property 'description' does not exist on type 'UpdatePaymentMethodData'.
+database/repositories/commercial/payment-method-repository.ts(144,26): error TS2339: Property 'description' does not exist on type 'UpdatePaymentMethodData'.
+database/repositories/commercial/payment-method-repository.ts(148,16): error TS2352: Conversion of type 'Result<PaymentMethod | null, AppError>' to type 'AsyncResult<PaymentMethod>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<PaymentMethod | null>' is missing the following properties from type 'Promise<Result<PaymentMethod, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/commercial/payment-method-repository.ts(177,9): error TS2416: Property 'delete' in type 'SqlitePaymentMethodRepository' is not assignable to the same property in base type 'IPaymentMethodRepository'.
+  Type '(id: PaymentMethodId, tenantId: never) => AsyncResult<void>' is not assignable to type '(id: UUID) => AsyncResult<void>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/commercial/payment-method-repository.ts(193,7): error TS2353: Object literal may only specify known properties, and 'name' does not exist in type 'PaymentMethod'.
+database/repositories/commercial/plan-repository.ts(33,14): error TS2420: Class 'SqlitePlanRepository' incorrectly implements interface 'IPlanRepository'.
+  Type 'SqlitePlanRepository' is missing the following properties from type 'IPlanRepository': findBySlug, findPublic, deprecate, archive, comparePlans
+database/repositories/commercial/plan-repository.ts(59,10): error TS2554: Expected 2 arguments, but got 1.
+database/repositories/commercial/plan-repository.ts(122,16): error TS2339: Property 'key' does not exist on type 'CreatePlanData'.
+database/repositories/commercial/plan-repository.ts(126,16): error TS2339: Property 'billingInterval' does not exist on type 'CreatePlanData'.
+database/repositories/commercial/plan-repository.ts(127,16): error TS2339: Property 'basePrice' does not exist on type 'CreatePlanData'.
+database/repositories/commercial/plan-repository.ts(128,16): error TS2339: Property 'currency' does not exist on type 'CreatePlanData'.
+database/repositories/commercial/plan-repository.ts(165,16): error TS2352: Conversion of type 'Result<Plan | null, AppError>' to type 'AsyncResult<Plan>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Plan | null>' is missing the following properties from type 'Promise<Result<Plan, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/commercial/plan-repository.ts(211,7): error TS2322: Type 'string' is not assignable to type 'TenantTier'.
+database/repositories/commercial/plan-repository.ts(215,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/commercial/plan-repository.ts(216,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/commercial/subscription-repository.ts(35,9): error TS2416: Property 'findById' in type 'SqliteSubscriptionRepository' is not assignable to the same property in base type 'ISubscriptionRepository'.
+  Type '(id: SubscriptionId, tenantId: never) => AsyncResult<Subscription | null>' is not assignable to type '(id: UUID) => AsyncResult<Subscription | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/commercial/subscription-repository.ts(53,9): error TS2416: Property 'findByTenantId' in type 'SqliteSubscriptionRepository' is not assignable to the same property in base type 'ISubscriptionRepository'.
+  Type '(tenantId: never) => AsyncResult<readonly Subscription[]>' is not assignable to type '(tenantId: never) => AsyncResult<Subscription | null>'.
+    Type 'AsyncResult<readonly Subscription[]>' is not assignable to type 'AsyncResult<Subscription | null>'.
+      Type 'Result<readonly Subscription[], AppError>' is not assignable to type 'Result<Subscription | null, AppError>'.
+        Type 'Success<readonly Subscription[]>' is not assignable to type 'Result<Subscription | null, AppError>'.
+          Type 'Success<readonly Subscription[]>' is not assignable to type 'Success<Subscription | null>'.
+            Type 'readonly Subscription[]' is missing the following properties from type 'Subscription': id, tenantId, planId, status, and 6 more.
+database/repositories/commercial/subscription-repository.ts(123,16): error TS2339: Property 'name' does not exist on type 'CreateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(124,16): error TS2339: Property 'description' does not exist on type 'CreateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(125,16): error TS2339: Property 'status' does not exist on type 'CreateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(127,16): error TS2339: Property 'currentPeriodStart' does not exist on type 'CreateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(128,16): error TS2339: Property 'currentPeriodEnd' does not exist on type 'CreateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(147,9): error TS2416: Property 'update' in type 'SqliteSubscriptionRepository' is not assignable to the same property in base type 'ISubscriptionRepository'.
+  Type '(id: SubscriptionId, data: UpdateSubscriptionData, tenantId: never) => AsyncResult<Subscription>' is not assignable to type '(id: UUID, data: UpdateSubscriptionData) => AsyncResult<Subscription>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/commercial/subscription-repository.ts(156,16): error TS2339: Property 'name' does not exist on type 'UpdateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(158,26): error TS2339: Property 'name' does not exist on type 'UpdateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(160,16): error TS2339: Property 'description' does not exist on type 'UpdateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(162,26): error TS2339: Property 'description' does not exist on type 'UpdateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(164,16): error TS2339: Property 'status' does not exist on type 'UpdateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(166,26): error TS2339: Property 'status' does not exist on type 'UpdateSubscriptionData'.
+database/repositories/commercial/subscription-repository.ts(170,16): error TS2352: Conversion of type 'Result<Subscription | null, AppError>' to type 'AsyncResult<Subscription>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Subscription | null>' is missing the following properties from type 'Promise<Result<Subscription, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/commercial/subscription-repository.ts(215,7): error TS2353: Object literal may only specify known properties, and 'name' does not exist in type 'Subscription'.
+database/repositories/commercial/subscription-repository.ts(219,55): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/commercial/subscription-repository.ts(220,51): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/commercial/subscription-repository.ts(221,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/commercial/subscription-repository.ts(222,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/commercial/usage-repository.ts(31,14): error TS2420: Class 'SqliteUsageRepository' incorrectly implements interface 'IUsageRepository'.
+  Type 'SqliteUsageRepository' is missing the following properties from type 'IUsageRepository': record, recordBatch, getSummary, getAllSummaries, getTimeSeries
+database/repositories/commercial/usage-repository.ts(104,16): error TS2339: Property 'name' does not exist on type 'CreateUsageRecordData'.
+database/repositories/commercial/usage-repository.ts(105,16): error TS2339: Property 'description' does not exist on type 'CreateUsageRecordData'.
+database/repositories/commercial/usage-repository.ts(107,16): error TS2339: Property 'resourceType' does not exist on type 'CreateUsageRecordData'.
+database/repositories/commercial/usage-repository.ts(137,16): error TS2339: Property 'name' does not exist on type 'UpdateUsageRecordData'.
+database/repositories/commercial/usage-repository.ts(139,26): error TS2339: Property 'name' does not exist on type 'UpdateUsageRecordData'.
+database/repositories/commercial/usage-repository.ts(141,16): error TS2339: Property 'description' does not exist on type 'UpdateUsageRecordData'.
+database/repositories/commercial/usage-repository.ts(143,26): error TS2339: Property 'description' does not exist on type 'UpdateUsageRecordData'.
+database/repositories/commercial/usage-repository.ts(147,16): error TS2352: Conversion of type 'Result<UsageRecord | null, AppError>' to type 'AsyncResult<UsageRecord>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<UsageRecord | null>' is missing the following properties from type 'Promise<Result<UsageRecord, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/commercial/usage-repository.ts(192,7): error TS2353: Object literal may only specify known properties, and 'name' does not exist in type 'UsageRecord'.
+database/repositories/commercial/usage-repository.ts(196,33): error TS2304: Cannot find name 'PositiveInt'.
+database/repositories/commercial/usage-repository.ts(197,35): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/commercial/usage-repository.ts(198,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/commercial/usage-repository.ts(199,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/existence/environment.repository.ts(166,21): error TS2552: Cannot find name 'InternalEnvironmentConfig'. Did you mean 'EnvironmentConfig'?
+database/repositories/existence/organization.repository.ts(187,18): error TS2554: Expected 1 arguments, but got 2.
+database/repositories/existence/organization.repository.ts(286,11): error TS2322: Type 'Result<Organization | null, AppError>' is not assignable to type 'Result<Organization, AppError>'.
+  Type 'Success<Organization | null>' is not assignable to type 'Result<Organization, AppError>'.
+    Type 'Success<Organization | null>' is not assignable to type 'Success<Organization>'.
+      Type 'Organization | null' is not assignable to type 'Organization'.
+        Type 'null' is not assignable to type 'Organization'.
+database/repositories/existence/organization.repository.ts(300,9): error TS2322: Type 'Result<Organization | null, AppError>' is not assignable to type 'Result<Organization, AppError>'.
+  Type 'Success<Organization | null>' is not assignable to type 'Result<Organization, AppError>'.
+    Type 'Success<Organization | null>' is not assignable to type 'Success<Organization>'.
+      Type 'Organization | null' is not assignable to type 'Organization'.
+        Type 'null' is not assignable to type 'Organization'.
+database/repositories/existence/organization.repository.ts(309,7): error TS2322: Type 'Result<Organization | null, AppError>' is not assignable to type 'Result<Organization, AppError>'.
+  Type 'Success<Organization | null>' is not assignable to type 'Result<Organization, AppError>'.
+    Type 'Success<Organization | null>' is not assignable to type 'Success<Organization>'.
+      Type 'Organization | null' is not assignable to type 'Organization'.
+        Type 'null' is not assignable to type 'Organization'.
+database/repositories/existence/organization.repository.ts(436,34): error TS2304: Cannot find name 'UUID'.
+database/repositories/existence/organization.repository.ts(439,38): error TS2304: Cannot find name 'UUID'.
+database/repositories/existence/organization.repository.ts(439,62): error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+database/repositories/existence/organization.repository.ts(440,7): error TS2322: Type '"active" | "inactive"' is not assignable to type 'EntityStatus'.
+  Type '"active"' is not assignable to type 'EntityStatus'. Did you mean 'EntityStatus.Inactive'?
+database/repositories/existence/organization.repository.ts(442,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/existence/organization.repository.ts(443,7): error TS2322: Type 'string' is not assignable to type 'ISODateTime'.
+  Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/existence/organization.repository.ts(450,34): error TS2304: Cannot find name 'UUID'.
+database/repositories/existence/organization.repository.ts(451,7): error TS2322: Type 'string' is not assignable to type 'Email'.
+  Type 'string' is not assignable to type '{ readonly [__brand]: "Email"; }'.
+database/repositories/existence/organization.repository.ts(457,7): error TS2322: Type 'string | undefined' is not assignable to type 'ISODateTime | undefined'.
+  Type 'string' is not assignable to type 'ISODateTime'.
+    Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/existence/organization.repository.ts(461,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/existence/organization.repository.ts(462,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/existence/tenant.repository.ts(95,3): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(96,3): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(97,3): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(98,3): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(104,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(105,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(106,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(109,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(110,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(111,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(114,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(115,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(116,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(119,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(120,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(121,5): error TS2322: Type 'number' is not assignable to type 'PositiveInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "PositiveInt"; }'.
+database/repositories/existence/tenant.repository.ts(170,33): error TS2304: Cannot find name 'Pagination'.
+database/repositories/existence/tenant.repository.ts(191,22): error TS2304: Cannot find name 'Pagination'.
+database/repositories/existence/tenant.repository.ts(306,9): error TS2322: Type 'Result<Tenant | null, AppError>' is not assignable to type 'Result<Tenant, AppError>'.
+  Type 'Success<Tenant | null>' is not assignable to type 'Result<Tenant, AppError>'.
+    Type 'Success<Tenant | null>' is not assignable to type 'Success<Tenant>'.
+      Type 'Tenant | null' is not assignable to type 'Tenant'.
+        Type 'null' is not assignable to type 'Tenant'.
+database/repositories/existence/tenant.repository.ts(317,7): error TS2322: Type 'Result<Tenant | null, AppError>' is not assignable to type 'Result<Tenant, AppError>'.
+  Type 'Success<Tenant | null>' is not assignable to type 'Result<Tenant, AppError>'.
+    Type 'Success<Tenant | null>' is not assignable to type 'Success<Tenant>'.
+      Type 'Tenant | null' is not assignable to type 'Tenant'.
+        Type 'null' is not assignable to type 'Tenant'.
+database/repositories/existence/tenant.repository.ts(340,7): error TS2322: Type 'Result<Tenant | null, AppError>' is not assignable to type 'Result<Tenant, AppError>'.
+  Type 'Success<Tenant | null>' is not assignable to type 'Result<Tenant, AppError>'.
+    Type 'Success<Tenant | null>' is not assignable to type 'Success<Tenant>'.
+      Type 'Tenant | null' is not assignable to type 'Tenant'.
+        Type 'null' is not assignable to type 'Tenant'.
+database/repositories/existence/tenant.repository.ts(351,9): error TS2322: Type 'Result<Tenant | null, AppError>' is not assignable to type 'Result<Tenant, AppError>'.
+  Type 'Success<Tenant | null>' is not assignable to type 'Result<Tenant, AppError>'.
+    Type 'Success<Tenant | null>' is not assignable to type 'Success<Tenant>'.
+      Type 'Tenant | null' is not assignable to type 'Tenant'.
+        Type 'null' is not assignable to type 'Tenant'.
+database/repositories/existence/tenant.repository.ts(376,7): error TS2322: Type 'Result<Tenant | null, AppError>' is not assignable to type 'Result<Tenant, AppError>'.
+  Type 'Success<Tenant | null>' is not assignable to type 'Result<Tenant, AppError>'.
+    Type 'Success<Tenant | null>' is not assignable to type 'Success<Tenant>'.
+      Type 'Tenant | null' is not assignable to type 'Tenant'.
+        Type 'null' is not assignable to type 'Tenant'.
+database/repositories/existence/tenant.repository.ts(430,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/existence/tenant.repository.ts(431,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/existence/tenant.repository.ts(432,7): error TS2322: Type 'string | undefined' is not assignable to type 'ISODateTime | undefined'.
+  Type 'string' is not assignable to type 'ISODateTime'.
+    Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/existence/tenant.repository.ts(433,7): error TS2322: Type 'string | undefined' is not assignable to type 'ISODateTime | undefined'.
+  Type 'string' is not assignable to type 'ISODateTime'.
+    Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/identity/identity-provider.repository.ts(208,11): error TS2322: Type 'Result<IdentityProvider | null, AppError>' is not assignable to type 'Result<IdentityProvider, AppError>'.
+  Type 'Success<IdentityProvider | null>' is not assignable to type 'Result<IdentityProvider, AppError>'.
+    Type 'Success<IdentityProvider | null>' is not assignable to type 'Success<IdentityProvider>'.
+      Type 'IdentityProvider | null' is not assignable to type 'IdentityProvider'.
+        Type 'null' is not assignable to type 'IdentityProvider'.
+database/repositories/identity/identity-provider.repository.ts(234,9): error TS2322: Type 'Result<IdentityProvider | null, AppError>' is not assignable to type 'Result<IdentityProvider, AppError>'.
+  Type 'Success<IdentityProvider | null>' is not assignable to type 'Result<IdentityProvider, AppError>'.
+    Type 'Success<IdentityProvider | null>' is not assignable to type 'Success<IdentityProvider>'.
+      Type 'IdentityProvider | null' is not assignable to type 'IdentityProvider'.
+        Type 'null' is not assignable to type 'IdentityProvider'.
+database/repositories/identity/identity-provider.repository.ts(243,7): error TS2322: Type 'Result<IdentityProvider | null, AppError>' is not assignable to type 'Result<IdentityProvider, AppError>'.
+  Type 'Success<IdentityProvider | null>' is not assignable to type 'Result<IdentityProvider, AppError>'.
+    Type 'Success<IdentityProvider | null>' is not assignable to type 'Success<IdentityProvider>'.
+      Type 'IdentityProvider | null' is not assignable to type 'IdentityProvider'.
+        Type 'null' is not assignable to type 'IdentityProvider'.
+database/repositories/identity/identity-provider.repository.ts(279,7): error TS2322: Type '"active" | "inactive"' is not assignable to type 'EntityStatus'.
+  Type '"active"' is not assignable to type 'EntityStatus'. Did you mean 'EntityStatus.Inactive'?
+database/repositories/identity/identity-provider.repository.ts(282,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/mfa-device.repository.ts(220,39): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/mfa-device.repository.ts(221,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/role.repository.ts(116,62): error TS1361: 'asRoleId' cannot be used as a value because it was imported using 'import type'.
+database/repositories/identity/role.repository.ts(138,62): error TS1361: 'asRoleId' cannot be used as a value because it was imported using 'import type'.
+database/repositories/identity/role.repository.ts(204,42): error TS1361: 'asRoleId' cannot be used as a value because it was imported using 'import type'.
+database/repositories/identity/role.repository.ts(240,9): error TS2322: Type 'Result<Role | null, AppError>' is not assignable to type 'Result<Role, AppError>'.
+  Type 'Success<Role | null>' is not assignable to type 'Result<Role, AppError>'.
+    Type 'Success<Role | null>' is not assignable to type 'Success<Role>'.
+      Type 'Role | null' is not assignable to type 'Role'.
+        Type 'null' is not assignable to type 'Role'.
+database/repositories/identity/role.repository.ts(247,7): error TS2322: Type 'Result<Role | null, AppError>' is not assignable to type 'Result<Role, AppError>'.
+  Type 'Success<Role | null>' is not assignable to type 'Result<Role, AppError>'.
+    Type 'Success<Role | null>' is not assignable to type 'Success<Role>'.
+      Type 'Role | null' is not assignable to type 'Role'.
+        Type 'null' is not assignable to type 'Role'.
+database/repositories/identity/role.repository.ts(263,13): error TS2353: Object literal may only specify known properties, and 'status' does not exist in type 'AppError'.
+database/repositories/identity/role.repository.ts(406,11): error TS1361: 'asRoleId' cannot be used as a value because it was imported using 'import type'.
+database/repositories/identity/role.repository.ts(407,34): error TS2304: Cannot find name 'UUID'.
+database/repositories/identity/role.repository.ts(412,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/role.repository.ts(424,11): error TS1361: 'asPermissionId' cannot be used as a value because it was imported using 'import type'.
+database/repositories/identity/role.repository.ts(428,7): error TS2322: Type 'PermissionCondition[] | null | undefined' is not assignable to type 'PermissionCondition[] | undefined'.
+  Type 'null' is not assignable to type 'PermissionCondition[] | undefined'.
+database/repositories/identity/role.repository.ts(435,34): error TS2304: Cannot find name 'UUID'.
+database/repositories/identity/role.repository.ts(442,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/role.repository.ts(443,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/session.repository.ts(200,28): error TS2339: Property 'changes' does not exist on type 'void'.
+database/repositories/identity/session.repository.ts(216,28): error TS2339: Property 'changes' does not exist on type 'void'.
+database/repositories/identity/session.repository.ts(239,7): error TS2322: Type 'string' is not assignable to type 'never'.
+  The intersection 'TenantId' was reduced to 'never' because property '[__brand]' has conflicting types in some constituents.
+database/repositories/identity/session.repository.ts(242,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/session.repository.ts(243,7): error TS2322: Type 'string' is not assignable to type 'ISODateTime'.
+  Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/identity/session.repository.ts(247,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/session.repository.ts(248,7): error TS2322: Type 'string | undefined' is not assignable to type 'ISODateTime | undefined'.
+  Type 'string' is not assignable to type 'ISODateTime'.
+    Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/identity/team.repository.ts(201,9): error TS2322: Type 'Result<Team | null, AppError>' is not assignable to type 'Result<Team, AppError>'.
+  Type 'Success<Team | null>' is not assignable to type 'Result<Team, AppError>'.
+    Type 'Success<Team | null>' is not assignable to type 'Success<Team>'.
+      Type 'Team | null' is not assignable to type 'Team'.
+        Type 'null' is not assignable to type 'Team'.
+database/repositories/identity/team.repository.ts(208,7): error TS2322: Type 'Result<Team | null, AppError>' is not assignable to type 'Result<Team, AppError>'.
+  Type 'Success<Team | null>' is not assignable to type 'Result<Team, AppError>'.
+    Type 'Success<Team | null>' is not assignable to type 'Success<Team>'.
+      Type 'Team | null' is not assignable to type 'Team'.
+        Type 'null' is not assignable to type 'Team'.
+database/repositories/identity/team.repository.ts(327,7): error TS2322: Type 'number' is not assignable to type 'NonNegativeInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "NonNegativeInt"; }'.
+database/repositories/identity/team.repository.ts(328,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/team.repository.ts(329,7): error TS2322: Type 'string' is not assignable to type 'ISODateTime'.
+  Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/identity/team.repository.ts(338,7): error TS2322: Type 'string' is not assignable to type 'ISODateTime'.
+  Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/identity/user.repository.ts(329,7): error TS2322: Type 'Result<User | null, AppError>' is not assignable to type 'Result<User, AppError>'.
+  Type 'Success<User | null>' is not assignable to type 'Result<User, AppError>'.
+    Type 'Success<User | null>' is not assignable to type 'Success<User>'.
+      Type 'User | null' is not assignable to type 'User'.
+        Type 'null' is not assignable to type 'User'.
+database/repositories/identity/user.repository.ts(343,7): error TS2322: Type 'Result<User | null, AppError>' is not assignable to type 'Result<User, AppError>'.
+  Type 'Success<User | null>' is not assignable to type 'Result<User, AppError>'.
+    Type 'Success<User | null>' is not assignable to type 'Success<User>'.
+      Type 'User | null' is not assignable to type 'User'.
+        Type 'null' is not assignable to type 'User'.
+database/repositories/identity/user.repository.ts(563,34): error TS2304: Cannot find name 'UUID'.
+database/repositories/identity/user.repository.ts(567,7): error TS2322: Type 'string | undefined' is not assignable to type 'URL | undefined'.
+  Type 'string' is not assignable to type 'URL'.
+    Type 'string' is not assignable to type '{ readonly [__brand]: "URL"; }'.
+database/repositories/identity/user.repository.ts(571,7): error TS2322: Type 'string | undefined' is not assignable to type 'ISODateTime | undefined'.
+  Type 'string' is not assignable to type 'ISODateTime'.
+    Type 'string' is not assignable to type '{ readonly [__brand]: "ISODateTime"; }'.
+database/repositories/identity/user.repository.ts(573,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/user.repository.ts(574,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/identity/user.repository.ts(599,21): error TS2304: Cannot find name 'UUID'.
+database/repositories/identity/user.repository.ts(600,7): error TS2322: Type 'undefined' is not assignable to type 'never'.
+  The intersection 'TenantId' was reduced to 'never' because property '[__brand]' has conflicting types in some constituents.
+database/repositories/identity/user.repository.ts(600,34): error TS2304: Cannot find name 'UUID'.
+database/repositories/identity/user.repository.ts(608,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/api-key-repository.ts(33,9): error TS2416: Property 'findById' in type 'SqliteApiKeyRepository' is not assignable to the same property in base type 'IApiKeyRepository'.
+  Type '(id: ApiKeyId, tenantId: never) => AsyncResult<ApiKey | null>' is not assignable to type '(id: UUID) => AsyncResult<ApiKey | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/integration/api-key-repository.ts(69,9): error TS2416: Property 'findByKeyHash' in type 'SqliteApiKeyRepository' is not assignable to the same property in base type 'IApiKeyRepository'.
+  Type '(keyHash: string, tenantId: never) => AsyncResult<ApiKey | null>' is not assignable to type '(keyHash: string) => AsyncResult<ApiKey | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/integration/api-key-repository.ts(87,9): error TS2416: Property 'create' in type 'SqliteApiKeyRepository' is not assignable to the same property in base type 'IApiKeyRepository'.
+  Type '(data: CreateApiKeyData) => AsyncResult<ApiKey>' is not assignable to type '(data: CreateApiKeyData) => AsyncResult<{ apiKey: ApiKey; plainKey: string; }>'.
+    Type 'AsyncResult<ApiKey>' is not assignable to type 'AsyncResult<{ apiKey: ApiKey; plainKey: string; }>'.
+      Type 'Result<ApiKey, AppError>' is not assignable to type 'Result<{ apiKey: ApiKey; plainKey: string; }, AppError>'.
+        Type 'Success<ApiKey>' is not assignable to type 'Result<{ apiKey: ApiKey; plainKey: string; }, AppError>'.
+          Type 'Success<ApiKey>' is not assignable to type 'Success<{ apiKey: ApiKey; plainKey: string; }>'.
+            Type 'ApiKey' is missing the following properties from type '{ apiKey: ApiKey; plainKey: string; }': apiKey, plainKey
+database/repositories/integration/api-key-repository.ts(104,16): error TS2339: Property 'description' does not exist on type 'CreateApiKeyData'.
+database/repositories/integration/api-key-repository.ts(105,16): error TS2339: Property 'keyPrefix' does not exist on type 'CreateApiKeyData'.
+database/repositories/integration/api-key-repository.ts(106,16): error TS2339: Property 'keyHash' does not exist on type 'CreateApiKeyData'.
+database/repositories/integration/api-key-repository.ts(107,16): error TS2339: Property 'createdBy' does not exist on type 'CreateApiKeyData'.
+database/repositories/integration/api-key-repository.ts(126,9): error TS2416: Property 'update' in type 'SqliteApiKeyRepository' is not assignable to the same property in base type 'IApiKeyRepository'.
+  Type '(id: ApiKeyId, data: UpdateApiKeyData, tenantId: never) => AsyncResult<ApiKey>' is not assignable to type '(id: UUID, data: UpdateApiKeyData) => AsyncResult<ApiKey>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/integration/api-key-repository.ts(139,16): error TS2339: Property 'description' does not exist on type 'UpdateApiKeyData'.
+database/repositories/integration/api-key-repository.ts(141,26): error TS2339: Property 'description' does not exist on type 'UpdateApiKeyData'.
+database/repositories/integration/api-key-repository.ts(145,16): error TS2352: Conversion of type 'Result<ApiKey | null, AppError>' to type 'AsyncResult<ApiKey>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<ApiKey | null>' is missing the following properties from type 'Promise<Result<ApiKey, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/integration/api-key-repository.ts(191,7): error TS2353: Object literal may only specify known properties, and 'description' does not exist in type 'ApiKey'.
+database/repositories/integration/api-key-repository.ts(195,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/api-key-repository.ts(196,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/integration-repository.ts(35,9): error TS2416: Property 'findById' in type 'SqliteIntegrationRepository' is not assignable to the same property in base type 'IIntegrationRepository'.
+  Type '(id: IntegrationId, tenantId: never) => AsyncResult<Integration | null>' is not assignable to type '(id: UUID) => AsyncResult<Integration | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/integration/integration-repository.ts(53,9): error TS2416: Property 'findByTenantId' in type 'SqliteIntegrationRepository' is not assignable to the same property in base type 'IIntegrationRepository'.
+  Type '(tenantId: never) => AsyncResult<readonly Integration[]>' is not assignable to type '(tenantId: never, options?: PageRequest | undefined) => AsyncResult<PageResponse<Integration>>'.
+    Type 'AsyncResult<readonly Integration[]>' is not assignable to type 'AsyncResult<PageResponse<Integration>>'.
+      Type 'Result<readonly Integration[], AppError>' is not assignable to type 'Result<PageResponse<Integration>, AppError>'.
+        Type 'Success<readonly Integration[]>' is not assignable to type 'Result<PageResponse<Integration>, AppError>'.
+          Type 'Success<readonly Integration[]>' is not assignable to type 'Success<PageResponse<Integration>>'.
+            Type 'readonly Integration[]' is missing the following properties from type 'PageResponse<Integration>': data, page, limit, total, and 3 more.
+database/repositories/integration/integration-repository.ts(124,16): error TS2339: Property 'description' does not exist on type 'CreateIntegrationData'.
+database/repositories/integration/integration-repository.ts(125,16): error TS2339: Property 'status' does not exist on type 'CreateIntegrationData'.
+database/repositories/integration/integration-repository.ts(127,16): error TS2339: Property 'provider' does not exist on type 'CreateIntegrationData'.
+database/repositories/integration/integration-repository.ts(146,9): error TS2416: Property 'update' in type 'SqliteIntegrationRepository' is not assignable to the same property in base type 'IIntegrationRepository'.
+  Type '(id: IntegrationId, data: UpdateIntegrationData, tenantId: never) => AsyncResult<Integration>' is not assignable to type '(id: UUID, data: UpdateIntegrationData) => AsyncResult<Integration>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/integration/integration-repository.ts(159,16): error TS2339: Property 'description' does not exist on type 'UpdateIntegrationData'.
+database/repositories/integration/integration-repository.ts(161,26): error TS2339: Property 'description' does not exist on type 'UpdateIntegrationData'.
+database/repositories/integration/integration-repository.ts(169,16): error TS2352: Conversion of type 'Result<Integration | null, AppError>' to type 'AsyncResult<Integration>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Integration | null>' is missing the following properties from type 'Promise<Result<Integration, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/integration/integration-repository.ts(198,9): error TS2416: Property 'delete' in type 'SqliteIntegrationRepository' is not assignable to the same property in base type 'IIntegrationRepository'.
+  Type '(id: IntegrationId, tenantId: never) => AsyncResult<void>' is not assignable to type '(id: UUID) => AsyncResult<void>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/integration/integration-repository.ts(215,7): error TS2353: Object literal may only specify known properties, and 'description' does not exist in type 'Integration'.
+database/repositories/integration/integration-repository.ts(219,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/integration-repository.ts(220,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/o-auth-token-repository.ts(50,9): error TS2416: Property 'findByIntegrationId' in type 'SqliteOAuthTokenRepository' is not assignable to the same property in base type 'IOAuthTokenRepository'.
+  Type '(integrationId: UUID) => AsyncResult<readonly OAuthToken[]>' is not assignable to type '(integrationId: UUID) => AsyncResult<OAuthToken | null>'.
+    Type 'AsyncResult<readonly OAuthToken[]>' is not assignable to type 'AsyncResult<OAuthToken | null>'.
+      Type 'Result<readonly OAuthToken[], AppError>' is not assignable to type 'Result<OAuthToken | null, AppError>'.
+        Type 'Success<readonly OAuthToken[]>' is not assignable to type 'Result<OAuthToken | null, AppError>'.
+          Type 'Success<readonly OAuthToken[]>' is not assignable to type 'Success<OAuthToken | null>'.
+            Type 'readonly OAuthToken[]' is missing the following properties from type 'OAuthToken': id, integrationId, provider, accessTokenEncrypted, and 4 more.
+database/repositories/integration/o-auth-token-repository.ts(83,16): error TS2339: Property 'name' does not exist on type 'CreateOAuthTokenData'.
+database/repositories/integration/o-auth-token-repository.ts(84,16): error TS2339: Property 'description' does not exist on type 'CreateOAuthTokenData'.
+database/repositories/integration/o-auth-token-repository.ts(114,16): error TS2339: Property 'name' does not exist on type 'UpdateOAuthTokenData'.
+database/repositories/integration/o-auth-token-repository.ts(116,26): error TS2339: Property 'name' does not exist on type 'UpdateOAuthTokenData'.
+database/repositories/integration/o-auth-token-repository.ts(118,16): error TS2339: Property 'description' does not exist on type 'UpdateOAuthTokenData'.
+database/repositories/integration/o-auth-token-repository.ts(120,26): error TS2339: Property 'description' does not exist on type 'UpdateOAuthTokenData'.
+database/repositories/integration/o-auth-token-repository.ts(124,16): error TS2352: Conversion of type 'Result<OAuthToken | null, AppError>' to type 'AsyncResult<OAuthToken>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<OAuthToken | null>' is missing the following properties from type 'Promise<Result<OAuthToken, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/integration/o-auth-token-repository.ts(167,7): error TS2353: Object literal may only specify known properties, and 'name' does not exist in type 'OAuthToken'.
+database/repositories/integration/o-auth-token-repository.ts(171,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/o-auth-token-repository.ts(172,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/o-auth-token-repository.ts(173,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/webhook-repository.ts(32,9): error TS2416: Property 'findById' in type 'SqliteWebhookRepository' is not assignable to the same property in base type 'IWebhookRepository'.
+  Type '(id: WebhookId, tenantId: never) => AsyncResult<Webhook | null>' is not assignable to type '(id: UUID) => AsyncResult<Webhook | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/integration/webhook-repository.ts(50,9): error TS2416: Property 'findByTenantId' in type 'SqliteWebhookRepository' is not assignable to the same property in base type 'IWebhookRepository'.
+  Type '(tenantId: never) => AsyncResult<readonly Webhook[]>' is not assignable to type '(tenantId: never, options?: PageRequest | undefined) => AsyncResult<PageResponse<Webhook>>'.
+    Type 'AsyncResult<readonly Webhook[]>' is not assignable to type 'AsyncResult<PageResponse<Webhook>>'.
+      Type 'Result<readonly Webhook[], AppError>' is not assignable to type 'Result<PageResponse<Webhook>, AppError>'.
+        Type 'Success<readonly Webhook[]>' is not assignable to type 'Result<PageResponse<Webhook>, AppError>'.
+          Type 'Success<readonly Webhook[]>' is not assignable to type 'Success<PageResponse<Webhook>>'.
+            Type 'readonly Webhook[]' is missing the following properties from type 'PageResponse<Webhook>': data, page, limit, total, and 3 more.
+database/repositories/integration/webhook-repository.ts(103,16): error TS2339: Property 'description' does not exist on type 'CreateWebhookData'.
+database/repositories/integration/webhook-repository.ts(105,16): error TS2339: Property 'isActive' does not exist on type 'CreateWebhookData'.
+database/repositories/integration/webhook-repository.ts(124,9): error TS2416: Property 'update' in type 'SqliteWebhookRepository' is not assignable to the same property in base type 'IWebhookRepository'.
+  Type '(id: WebhookId, data: UpdateWebhookData, tenantId: never) => AsyncResult<Webhook>' is not assignable to type '(id: UUID, data: UpdateWebhookData) => AsyncResult<Webhook>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/integration/webhook-repository.ts(137,16): error TS2339: Property 'description' does not exist on type 'UpdateWebhookData'.
+database/repositories/integration/webhook-repository.ts(139,26): error TS2339: Property 'description' does not exist on type 'UpdateWebhookData'.
+database/repositories/integration/webhook-repository.ts(143,16): error TS2352: Conversion of type 'Result<Webhook | null, AppError>' to type 'AsyncResult<Webhook>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Webhook | null>' is missing the following properties from type 'Promise<Result<Webhook, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/integration/webhook-repository.ts(172,9): error TS2416: Property 'delete' in type 'SqliteWebhookRepository' is not assignable to the same property in base type 'IWebhookRepository'.
+  Type '(id: WebhookId, tenantId: never) => AsyncResult<void>' is not assignable to type '(id: UUID) => AsyncResult<void>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/integration/webhook-repository.ts(190,7): error TS2322: Type 'string' is not assignable to type 'URL'.
+  Type 'string' is not assignable to type '{ readonly [__brand]: "URL"; }'.
+database/repositories/integration/webhook-repository.ts(192,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/integration/webhook-repository.ts(193,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/operational/feature-flag-repository.ts(31,14): error TS2420: Class 'SqliteFeatureFlagRepository' incorrectly implements interface 'IFeatureFlagRepository'.
+  Type 'SqliteFeatureFlagRepository' is missing the following properties from type 'IFeatureFlagRepository': findAll, findActive, evaluate, evaluateAll
+database/repositories/operational/feature-flag-repository.ts(57,10): error TS2554: Expected 2 arguments, but got 1.
+database/repositories/operational/feature-flag-repository.ts(107,16): error TS2339: Property 'isEnabled' does not exist on type 'CreateFeatureFlagData'.
+database/repositories/operational/feature-flag-repository.ts(144,16): error TS2352: Conversion of type 'Result<FeatureFlag | null, AppError>' to type 'AsyncResult<FeatureFlag>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<FeatureFlag | null>' is missing the following properties from type 'Promise<Result<FeatureFlag, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/operational/feature-flag-repository.ts(192,7): error TS2353: Object literal may only specify known properties, and 'isEnabled' does not exist in type 'FeatureFlag'.
+database/repositories/operational/feature-flag-repository.ts(193,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/operational/feature-flag-repository.ts(194,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/operational/system-config-repository.ts(31,14): error TS2420: Class 'SqliteSystemConfigRepository' incorrectly implements interface 'ISystemConfigRepository'.
+  Type 'SqliteSystemConfigRepository' is missing the following properties from type 'ISystemConfigRepository': get, getMany, getByPrefix, getEntry, and 3 more.
+database/repositories/operational/system-config-repository.ts(57,10): error TS2554: Expected 2 arguments, but got 1.
+database/repositories/operational/system-config-repository.ts(86,16): error TS2339: Property 'name' does not exist on type 'CreateSystemConfigData'.
+database/repositories/operational/system-config-repository.ts(90,16): error TS2339: Property 'isSensitive' does not exist on type 'CreateSystemConfigData'.
+database/repositories/operational/system-config-repository.ts(117,16): error TS2339: Property 'name' does not exist on type 'UpdateSystemConfigData'.
+database/repositories/operational/system-config-repository.ts(119,26): error TS2339: Property 'name' does not exist on type 'UpdateSystemConfigData'.
+database/repositories/operational/system-config-repository.ts(127,16): error TS2352: Conversion of type 'Result<SystemConfig | null, AppError>' to type 'AsyncResult<SystemConfig>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<SystemConfig | null>' is missing the following properties from type 'Promise<Result<SystemConfig, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/operational/system-config-repository.ts(169,7): error TS2353: Object literal may only specify known properties, and 'id' does not exist in type 'SystemConfig'.
+database/repositories/operational/system-config-repository.ts(169,11): error TS2352: Conversion of type 'UUID' to type 'SystemConfigId' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property '[__brand]' is missing in type 'String & { readonly [__brand]: "UUID"; }' but required in type '{ readonly [__brand]: "SystemConfigId"; }'.
+database/repositories/operational/system-config-repository.ts(176,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/operational/system-config-repository.ts(177,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/operational/tenant-settings-repository.ts(30,14): error TS2420: Class 'SqliteTenantSettingsRepository' incorrectly implements interface 'ITenantSettingsRepository'.
+  Type 'SqliteTenantSettingsRepository' is missing the following properties from type 'ITenantSettingsRepository': getOrCreate, updateBranding, updateSecurity, updateNotifications, and 2 more.
+database/repositories/operational/tenant-settings-repository.ts(85,16): error TS2339: Property 'name' does not exist on type 'CreateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(86,16): error TS2339: Property 'description' does not exist on type 'CreateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(87,16): error TS2339: Property 'timezone' does not exist on type 'CreateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(88,16): error TS2339: Property 'locale' does not exist on type 'CreateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(89,16): error TS2339: Property 'currency' does not exist on type 'CreateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(117,16): error TS2339: Property 'name' does not exist on type 'UpdateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(119,26): error TS2339: Property 'name' does not exist on type 'UpdateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(121,16): error TS2339: Property 'description' does not exist on type 'UpdateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(123,26): error TS2339: Property 'description' does not exist on type 'UpdateTenantSettingsData'.
+database/repositories/operational/tenant-settings-repository.ts(127,16): error TS2352: Conversion of type 'Result<ExtendedTenantSettings | null, AppError>' to type 'AsyncResult<ExtendedTenantSettings>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<ExtendedTenantSettings | null>' is missing the following properties from type 'Promise<Result<ExtendedTenantSettings, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/operational/tenant-settings-repository.ts(170,7): error TS2353: Object literal may only specify known properties, and 'id' does not exist in type 'ExtendedTenantSettings'.
+database/repositories/operational/tenant-settings-repository.ts(177,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/operational/tenant-settings-repository.ts(178,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/case-repository.ts(32,14): error TS2420: Class 'SqliteCaseRepository' incorrectly implements interface 'ICaseRepository'.
+  Type 'SqliteCaseRepository' is missing the following properties from type 'ICaseRepository': findByModelId, findByVariant, getCaseEvents, getVariants, and 3 more.
+database/repositories/process-mining/case-repository.ts(97,16): error TS2339: Property 'name' does not exist on type 'CreateCaseData'.
+database/repositories/process-mining/case-repository.ts(98,16): error TS2339: Property 'description' does not exist on type 'CreateCaseData'.
+database/repositories/process-mining/case-repository.ts(100,16): error TS2339: Property 'caseKey' does not exist on type 'CreateCaseData'.
+database/repositories/process-mining/case-repository.ts(101,16): error TS2339: Property 'eventCount' does not exist on type 'CreateCaseData'.
+database/repositories/process-mining/case-repository.ts(129,16): error TS2339: Property 'name' does not exist on type 'UpdateCaseData'.
+database/repositories/process-mining/case-repository.ts(131,26): error TS2339: Property 'name' does not exist on type 'UpdateCaseData'.
+database/repositories/process-mining/case-repository.ts(133,16): error TS2339: Property 'description' does not exist on type 'UpdateCaseData'.
+database/repositories/process-mining/case-repository.ts(135,26): error TS2339: Property 'description' does not exist on type 'UpdateCaseData'.
+database/repositories/process-mining/case-repository.ts(139,16): error TS2352: Conversion of type 'Result<Case | null, AppError>' to type 'AsyncResult<Case>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Case | null>' is missing the following properties from type 'Promise<Result<Case, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/process-mining/case-repository.ts(182,11): error TS2352: Conversion of type 'UUID' to type 'CaseId' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'UUID' is not comparable to type '{ readonly [__brand]: "CaseId"; }'.
+    Types of property '[__brand]' are incompatible.
+      Type '"UUID"' is not comparable to type '"CaseId"'.
+database/repositories/process-mining/case-repository.ts(186,7): error TS2322: Type 'UUID' is not assignable to type 'never'.
+  The intersection 'DataModelId' was reduced to 'never' because property '[__brand]' has conflicting types in some constituents.
+database/repositories/process-mining/case-repository.ts(189,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/case-repository.ts(190,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/data-model-repository.ts(14,8): error TS2300: Duplicate identifier 'DataModelType'.
+database/repositories/process-mining/data-model-repository.ts(15,3): error TS1484: 'DataModelType' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+database/repositories/process-mining/data-model-repository.ts(15,3): error TS2300: Duplicate identifier 'DataModelType'.
+database/repositories/process-mining/data-model-repository.ts(37,9): error TS2416: Property 'findById' in type 'SqliteDataModelRepository' is not assignable to the same property in base type 'IDataModelRepository'.
+  Type '(id: never, tenantId: never) => AsyncResult<DataModel | null>' is not assignable to type '(id: never) => AsyncResult<DataModel | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/data-model-repository.ts(55,9): error TS2416: Property 'findByDataPoolId' in type 'SqliteDataModelRepository' is not assignable to the same property in base type 'IDataModelRepository'.
+  Type '(dataPoolId: UUID, tenantId: never) => AsyncResult<readonly DataModel[]>' is not assignable to type '(poolId: never) => AsyncResult<readonly DataModel[]>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/data-model-repository.ts(109,16): error TS2339: Property 'status' does not exist on type 'CreateDataModelData'.
+database/repositories/process-mining/data-model-repository.ts(112,16): error TS2339: Property 'modelType' does not exist on type 'CreateDataModelData'.
+database/repositories/process-mining/data-model-repository.ts(131,9): error TS2416: Property 'update' in type 'SqliteDataModelRepository' is not assignable to the same property in base type 'IDataModelRepository'.
+  Type '(id: never, data: UpdateDataModelData, tenantId: never) => AsyncResult<DataModel>' is not assignable to type '(id: never, data: UpdateDataModelData) => AsyncResult<DataModel>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/process-mining/data-model-repository.ts(148,16): error TS2339: Property 'status' does not exist on type 'UpdateDataModelData'.
+database/repositories/process-mining/data-model-repository.ts(150,26): error TS2339: Property 'status' does not exist on type 'UpdateDataModelData'.
+database/repositories/process-mining/data-model-repository.ts(154,16): error TS2352: Conversion of type 'Result<DataModel | null, AppError>' to type 'AsyncResult<DataModel>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<DataModel | null>' is missing the following properties from type 'Promise<Result<DataModel, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/process-mining/data-model-repository.ts(183,9): error TS2416: Property 'delete' in type 'SqliteDataModelRepository' is not assignable to the same property in base type 'IDataModelRepository'.
+  Type '(id: never, tenantId: never) => AsyncResult<void>' is not assignable to type '(id: never) => AsyncResult<void>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/data-model-repository.ts(203,7): error TS2322: Type 'UUID' is not assignable to type 'never'.
+  The intersection 'DataPoolId' was reduced to 'never' because property '[__brand]' has conflicting types in some constituents.
+database/repositories/process-mining/data-model-repository.ts(205,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/data-model-repository.ts(206,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/data-pool-repository.ts(16,8): error TS2300: Duplicate identifier 'DataPoolType'.
+database/repositories/process-mining/data-pool-repository.ts(17,3): error TS1484: 'DataPoolType' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+database/repositories/process-mining/data-pool-repository.ts(17,3): error TS2300: Duplicate identifier 'DataPoolType'.
+database/repositories/process-mining/data-pool-repository.ts(38,9): error TS2416: Property 'findById' in type 'SqliteDataPoolRepository' is not assignable to the same property in base type 'IDataPoolRepository'.
+  Type '(id: never, tenantId: never) => AsyncResult<DataPool | null>' is not assignable to type '(id: never) => AsyncResult<DataPool | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/data-pool-repository.ts(120,16): error TS2339: Property 'status' does not exist on type 'CreateDataPoolData'.
+database/repositories/process-mining/data-pool-repository.ts(121,16): error TS2339: Property 'type' does not exist on type 'CreateDataPoolData'.
+database/repositories/process-mining/data-pool-repository.ts(122,16): error TS2339: Property 'poolType' does not exist on type 'CreateDataPoolData'.
+database/repositories/process-mining/data-pool-repository.ts(141,9): error TS2416: Property 'update' in type 'SqliteDataPoolRepository' is not assignable to the same property in base type 'IDataPoolRepository'.
+  Type '(id: never, data: UpdateDataPoolData, tenantId: never) => AsyncResult<DataPool>' is not assignable to type '(id: never, data: UpdateDataPoolData) => AsyncResult<DataPool>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/process-mining/data-pool-repository.ts(158,16): error TS2339: Property 'status' does not exist on type 'UpdateDataPoolData'.
+database/repositories/process-mining/data-pool-repository.ts(160,26): error TS2339: Property 'status' does not exist on type 'UpdateDataPoolData'.
+database/repositories/process-mining/data-pool-repository.ts(164,16): error TS2352: Conversion of type 'Result<DataPool | null, AppError>' to type 'AsyncResult<DataPool>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<DataPool | null>' is missing the following properties from type 'Promise<Result<DataPool, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/process-mining/data-pool-repository.ts(193,9): error TS2416: Property 'delete' in type 'SqliteDataPoolRepository' is not assignable to the same property in base type 'IDataPoolRepository'.
+  Type '(id: never, tenantId: never) => AsyncResult<void>' is not assignable to type '(id: never) => AsyncResult<void>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/data-pool-repository.ts(212,7): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'DataPool'.
+database/repositories/process-mining/data-pool-repository.ts(214,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/data-pool-repository.ts(215,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/process-model-repository.ts(13,8): error TS2300: Duplicate identifier 'ProcessModelType'.
+database/repositories/process-mining/process-model-repository.ts(14,3): error TS1484: 'ProcessModelType' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+database/repositories/process-mining/process-model-repository.ts(14,3): error TS2300: Duplicate identifier 'ProcessModelType'.
+database/repositories/process-mining/process-model-repository.ts(35,9): error TS2416: Property 'findById' in type 'SqliteProcessModelRepository' is not assignable to the same property in base type 'IProcessModelRepository'.
+  Type '(id: never, tenantId: never) => AsyncResult<ProcessModel | null>' is not assignable to type '(id: never) => AsyncResult<ProcessModel | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/process-model-repository.ts(53,9): error TS2416: Property 'findByDataModelId' in type 'SqliteProcessModelRepository' is not assignable to the same property in base type 'IProcessModelRepository'.
+  Type '(dataModelId: UUID, tenantId: never) => AsyncResult<readonly ProcessModel[]>' is not assignable to type '(dataModelId: never) => AsyncResult<readonly ProcessModel[]>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/process-model-repository.ts(109,16): error TS2339: Property 'modelType' does not exist on type 'CreateProcessModelData'.
+database/repositories/process-mining/process-model-repository.ts(128,9): error TS2416: Property 'update' in type 'SqliteProcessModelRepository' is not assignable to the same property in base type 'IProcessModelRepository'.
+  Type '(id: never, data: UpdateProcessModelData, tenantId: never) => AsyncResult<ProcessModel>' is not assignable to type '(id: never, data: UpdateProcessModelData) => AsyncResult<ProcessModel>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/process-mining/process-model-repository.ts(147,16): error TS2352: Conversion of type 'Result<ProcessModel | null, AppError>' to type 'AsyncResult<ProcessModel>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<ProcessModel | null>' is missing the following properties from type 'Promise<Result<ProcessModel, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/process-mining/process-model-repository.ts(176,9): error TS2416: Property 'delete' in type 'SqliteProcessModelRepository' is not assignable to the same property in base type 'IProcessModelRepository'.
+  Type '(id: never, tenantId: never) => AsyncResult<void>' is not assignable to type '(id: never) => AsyncResult<void>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/process-model-repository.ts(195,7): error TS2322: Type 'UUID' is not assignable to type 'undefined'.
+database/repositories/process-mining/process-model-repository.ts(197,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/process-model-repository.ts(198,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/table-repository.ts(13,8): error TS2300: Duplicate identifier 'TableType'.
+database/repositories/process-mining/table-repository.ts(14,3): error TS1484: 'TableType' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+database/repositories/process-mining/table-repository.ts(14,3): error TS2300: Duplicate identifier 'TableType'.
+database/repositories/process-mining/table-repository.ts(35,9): error TS2416: Property 'findById' in type 'SqliteTableRepository' is not assignable to the same property in base type 'ITableRepository'.
+  Type '(id: TableId, tenantId: never) => AsyncResult<Table | null>' is not assignable to type '(id: UUID) => AsyncResult<Table | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/table-repository.ts(53,9): error TS2416: Property 'findByDataPoolId' in type 'SqliteTableRepository' is not assignable to the same property in base type 'ITableRepository'.
+  Type '(dataPoolId: UUID, tenantId: never) => AsyncResult<readonly Table[]>' is not assignable to type '(poolId: never) => AsyncResult<readonly Table[]>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/table-repository.ts(104,16): error TS2339: Property 'tenantId' does not exist on type 'CreateTableData'.
+database/repositories/process-mining/table-repository.ts(106,16): error TS2339: Property 'description' does not exist on type 'CreateTableData'.
+database/repositories/process-mining/table-repository.ts(107,16): error TS2339: Property 'type' does not exist on type 'CreateTableData'.
+database/repositories/process-mining/table-repository.ts(109,16): error TS2339: Property 'rowCount' does not exist on type 'CreateTableData'.
+database/repositories/process-mining/table-repository.ts(114,62): error TS2339: Property 'tenantId' does not exist on type 'CreateTableData'.
+database/repositories/process-mining/table-repository.ts(128,9): error TS2416: Property 'update' in type 'SqliteTableRepository' is not assignable to the same property in base type 'ITableRepository'.
+  Type '(id: TableId, data: UpdateTableData, tenantId: never) => AsyncResult<Table>' is not assignable to type '(id: UUID, data: UpdateTableData) => AsyncResult<Table>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/process-mining/table-repository.ts(141,16): error TS2339: Property 'description' does not exist on type 'UpdateTableData'.
+database/repositories/process-mining/table-repository.ts(143,26): error TS2339: Property 'description' does not exist on type 'UpdateTableData'.
+database/repositories/process-mining/table-repository.ts(147,16): error TS2352: Conversion of type 'Result<Table | null, AppError>' to type 'AsyncResult<Table>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Table | null>' is missing the following properties from type 'Promise<Result<Table, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/process-mining/table-repository.ts(176,9): error TS2416: Property 'delete' in type 'SqliteTableRepository' is not assignable to the same property in base type 'ITableRepository'.
+  Type '(id: TableId, tenantId: never) => AsyncResult<void>' is not assignable to type '(id: UUID) => AsyncResult<void>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/process-mining/table-repository.ts(195,7): error TS2322: Type 'UUID' is not assignable to type 'never'.
+  The intersection 'DataPoolId' was reduced to 'never' because property '[__brand]' has conflicting types in some constituents.
+database/repositories/process-mining/table-repository.ts(196,7): error TS2322: Type 'number' is not assignable to type 'NonNegativeInt'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "NonNegativeInt"; }'.
+database/repositories/process-mining/table-repository.ts(197,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/table-repository.ts(198,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/variant-repository.ts(12,8): error TS2724: '"@odin/domain"' has no exported member named 'IVariantRepository'. Did you mean 'IVariableRepository'?
+database/repositories/process-mining/variant-repository.ts(84,16): error TS2339: Property 'name' does not exist on type 'CreateVariantData'.
+database/repositories/process-mining/variant-repository.ts(85,16): error TS2339: Property 'description' does not exist on type 'CreateVariantData'.
+database/repositories/process-mining/variant-repository.ts(87,16): error TS2339: Property 'frequency' does not exist on type 'CreateVariantData'.
+database/repositories/process-mining/variant-repository.ts(115,16): error TS2339: Property 'name' does not exist on type 'UpdateVariantData'.
+database/repositories/process-mining/variant-repository.ts(117,26): error TS2339: Property 'name' does not exist on type 'UpdateVariantData'.
+database/repositories/process-mining/variant-repository.ts(119,16): error TS2339: Property 'description' does not exist on type 'UpdateVariantData'.
+database/repositories/process-mining/variant-repository.ts(121,26): error TS2339: Property 'description' does not exist on type 'UpdateVariantData'.
+database/repositories/process-mining/variant-repository.ts(125,16): error TS2352: Conversion of type 'Result<Variant | null, AppError>' to type 'AsyncResult<Variant>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<Variant | null>' is missing the following properties from type 'Promise<Result<Variant, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/process-mining/variant-repository.ts(168,11): error TS2352: Conversion of type 'UUID' to type 'VariantId' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'UUID' is not comparable to type '{ readonly [__brand]: "VariantId"; }'.
+    Types of property '[__brand]' are incompatible.
+      Type '"UUID"' is not comparable to type '"VariantId"'.
+database/repositories/process-mining/variant-repository.ts(172,7): error TS2322: Type 'UUID' is not assignable to type 'never'.
+  The intersection 'DataModelId' was reduced to 'never' because property '[__brand]' has conflicting types in some constituents.
+database/repositories/process-mining/variant-repository.ts(173,7): error TS2322: Type 'number' is not assignable to type 'Percentage'.
+  Type 'number' is not assignable to type '{ readonly [__brand]: "Percentage"; }'.
+database/repositories/process-mining/variant-repository.ts(174,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/process-mining/variant-repository.ts(175,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/studio/component.repository.ts(16,14): error TS2420: Class 'SqliteComponentRepository' incorrectly implements interface 'IComponentRepository'.
+  Type 'SqliteComponentRepository' is missing the following properties from type 'IComponentRepository': findByViewId, create, update
+database/repositories/studio/package.repository.ts(16,14): error TS2420: Class 'SqlitePackageRepository' incorrectly implements interface 'IPackageRepository'.
+  Type 'SqlitePackageRepository' is missing the following properties from type 'IPackageRepository': findByKey, findBySpaceId, findByStatus, create, update
+database/repositories/studio/space.repository.ts(16,14): error TS2420: Class 'SqliteSpaceRepository' incorrectly implements interface 'ISpaceRepository'.
+  Type 'SqliteSpaceRepository' is missing the following properties from type 'ISpaceRepository': findByTenantId, findByOwnerId, findByType, create, update
+database/repositories/studio/view.repository.ts(16,14): error TS2420: Class 'SqliteViewRepository' incorrectly implements interface 'IViewRepository'.
+  Type 'SqliteViewRepository' is missing the following properties from type 'IViewRepository': findByKey, findByPackageId, findByType, create, update
+database/repositories/temporal/audit-log-repository.ts(15,3): error TS1484: 'ActorType' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+database/repositories/temporal/audit-log-repository.ts(16,3): error TS1484: 'AuditAction' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+database/repositories/temporal/audit-log-repository.ts(17,3): error TS1484: 'AuditResourceType' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+database/repositories/temporal/audit-log-repository.ts(40,9): error TS2416: Property 'findById' in type 'SqliteAuditLogRepository' is not assignable to the same property in base type 'IAuditLogRepository'.
+  Type '(id: AuditLogId, tenantId: never) => AsyncResult<AuditLog | null>' is not assignable to type '(id: UUID) => AsyncResult<AuditLog | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/temporal/audit-log-repository.ts(148,16): error TS2339: Property 'name' does not exist on type 'CreateAuditLogData'.
+database/repositories/temporal/audit-log-repository.ts(149,16): error TS2339: Property 'description' does not exist on type 'CreateAuditLogData'.
+database/repositories/temporal/audit-log-repository.ts(150,16): error TS2339: Property 'actorType' does not exist on type 'CreateAuditLogData'.
+database/repositories/temporal/audit-log-repository.ts(151,16): error TS2551: Property 'actorId' does not exist on type 'CreateAuditLogData'. Did you mean 'actor'?
+database/repositories/temporal/audit-log-repository.ts(153,16): error TS2551: Property 'resourceType' does not exist on type 'CreateAuditLogData'. Did you mean 'resource'?
+database/repositories/temporal/audit-log-repository.ts(154,16): error TS2551: Property 'resourceId' does not exist on type 'CreateAuditLogData'. Did you mean 'resource'?
+database/repositories/temporal/audit-log-repository.ts(182,16): error TS2339: Property 'name' does not exist on type 'UpdateAuditLogData'.
+database/repositories/temporal/audit-log-repository.ts(184,26): error TS2339: Property 'name' does not exist on type 'UpdateAuditLogData'.
+database/repositories/temporal/audit-log-repository.ts(186,16): error TS2339: Property 'description' does not exist on type 'UpdateAuditLogData'.
+database/repositories/temporal/audit-log-repository.ts(188,26): error TS2339: Property 'description' does not exist on type 'UpdateAuditLogData'.
+database/repositories/temporal/audit-log-repository.ts(192,16): error TS2352: Conversion of type 'Result<AuditLog | null, AppError>' to type 'AsyncResult<AuditLog>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<AuditLog | null>' is missing the following properties from type 'Promise<Result<AuditLog, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/temporal/audit-log-repository.ts(241,7): error TS2322: Type 'string' is not assignable to type 'AuditAction'.
+database/repositories/temporal/audit-log-repository.ts(244,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/temporal/audit-log-repository.ts(245,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/temporal/entity-history-repository.ts(12,3): error TS1484: 'HistoryOperation' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+database/repositories/temporal/entity-history-repository.ts(31,14): error TS2420: Class 'SqliteEntityHistoryRepository' incorrectly implements interface 'IEntityHistoryRepository'.
+  Type 'SqliteEntityHistoryRepository' is missing the following properties from type 'IEntityHistoryRepository': record, getHistory, getVersion, getAtPoint, and 3 more.
+database/repositories/temporal/entity-history-repository.ts(85,16): error TS2339: Property 'name' does not exist on type 'CreateEntityHistoryData<unknown>'.
+database/repositories/temporal/entity-history-repository.ts(86,16): error TS2339: Property 'description' does not exist on type 'CreateEntityHistoryData<unknown>'.
+database/repositories/temporal/entity-history-repository.ts(89,16): error TS2339: Property 'version' does not exist on type 'CreateEntityHistoryData<unknown>'.
+database/repositories/temporal/entity-history-repository.ts(117,16): error TS2339: Property 'name' does not exist on type 'UpdateEntityHistoryData'.
+database/repositories/temporal/entity-history-repository.ts(119,26): error TS2339: Property 'name' does not exist on type 'UpdateEntityHistoryData'.
+database/repositories/temporal/entity-history-repository.ts(121,16): error TS2339: Property 'description' does not exist on type 'UpdateEntityHistoryData'.
+database/repositories/temporal/entity-history-repository.ts(123,26): error TS2339: Property 'description' does not exist on type 'UpdateEntityHistoryData'.
+database/repositories/temporal/entity-history-repository.ts(127,16): error TS2352: Conversion of type 'Result<EntityHistory<unknown> | null, AppError>' to type 'AsyncResult<EntityHistory<unknown>>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<EntityHistory<unknown> | null>' is missing the following properties from type 'Promise<Result<EntityHistory<unknown>, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/temporal/entity-history-repository.ts(175,7): error TS2322: Type 'string' is not assignable to type 'HistoryOperation'.
+database/repositories/temporal/entity-history-repository.ts(176,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/temporal/entity-history-repository.ts(177,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/temporal/scheduled-job-repository.ts(38,9): error TS2416: Property 'findById' in type 'SqliteScheduledJobRepository' is not assignable to the same property in base type 'IScheduledJobRepository'.
+  Type '(id: ScheduledJobId, tenantId: never) => AsyncResult<ScheduledJob | null>' is not assignable to type '(id: UUID) => AsyncResult<ScheduledJob | null>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/temporal/scheduled-job-repository.ts(137,16): error TS2339: Property 'description' does not exist on type 'CreateJobData'.
+database/repositories/temporal/scheduled-job-repository.ts(138,16): error TS2339: Property 'status' does not exist on type 'CreateJobData'.
+database/repositories/temporal/scheduled-job-repository.ts(141,16): error TS2339: Property 'nextRunAt' does not exist on type 'CreateJobData'.
+database/repositories/temporal/scheduled-job-repository.ts(160,9): error TS2416: Property 'update' in type 'SqliteScheduledJobRepository' is not assignable to the same property in base type 'IScheduledJobRepository'.
+  Type '(id: ScheduledJobId, data: UpdateJobData, tenantId: never) => AsyncResult<ScheduledJob>' is not assignable to type '(id: UUID, data: UpdateJobData) => AsyncResult<ScheduledJob>'.
+    Target signature provides too few arguments. Expected 3 or more, but got 2.
+database/repositories/temporal/scheduled-job-repository.ts(173,16): error TS2339: Property 'description' does not exist on type 'UpdateJobData'.
+database/repositories/temporal/scheduled-job-repository.ts(175,26): error TS2339: Property 'description' does not exist on type 'UpdateJobData'.
+database/repositories/temporal/scheduled-job-repository.ts(183,16): error TS2352: Conversion of type 'Result<ScheduledJob | null, AppError>' to type 'AsyncResult<ScheduledJob>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'Success<ScheduledJob | null>' is missing the following properties from type 'Promise<Result<ScheduledJob, AppError>>': then, catch, finally, [Symbol.toStringTag]
+database/repositories/temporal/scheduled-job-repository.ts(212,9): error TS2416: Property 'delete' in type 'SqliteScheduledJobRepository' is not assignable to the same property in base type 'IScheduledJobRepository'.
+  Type '(id: ScheduledJobId, tenantId: never) => AsyncResult<void>' is not assignable to type '(id: UUID) => AsyncResult<void>'.
+    Target signature provides too few arguments. Expected 2 or more, but got 1.
+database/repositories/temporal/scheduled-job-repository.ts(232,7): error TS2322: Type 'string' is not assignable to type 'JobSchedule'.
+database/repositories/temporal/scheduled-job-repository.ts(233,7): error TS2322: Type 'string | null' is not assignable to type 'ISODateTime | undefined'.
+  Type 'null' is not assignable to type 'ISODateTime | undefined'.
+database/repositories/temporal/scheduled-job-repository.ts(234,36): error TS2304: Cannot find name 'ISODateTime'.
+database/repositories/temporal/scheduled-job-repository.ts(235,36): error TS2304: Cannot find name 'ISODateTime'.
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

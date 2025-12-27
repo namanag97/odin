@@ -1,0 +1,4 @@
+
+> @odin/core-lib@1.0.1 typecheck /Users/namanagarwal/coding/odin/packages/core-lib
+> tsc --noEmit
+

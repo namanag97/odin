@@ -204,15 +204,15 @@ export class SqliteDataPoolRepository implements IDataPoolRepository {
 
   private mapRowToEntity(row: DataPoolRow): DataPool {
     return {
-      id: row.id as DataPoolId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as DataPoolId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       status: row.status as DataPoolStatus,
       type: row.type as DataPoolType,
       poolType: row.pool_type,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

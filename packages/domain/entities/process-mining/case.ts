@@ -5,13 +5,20 @@
  */
 
 import type {
-  CaseId,
+  CaseId as CoreCaseId,
   VariantId,
   EventId,
   DataModelId,
   ISODateTime,
   Duration,
+  TenantId,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Re-export Branded IDs from core-contracts
+// ============================================================================
+
+export type CaseId = CoreCaseId;
 
 // ============================================================================
 // Case Event
@@ -52,9 +59,38 @@ export interface CaseMetrics {
  */
 export interface Case {
   readonly id: CaseId;
+  readonly tenantId: TenantId;
   readonly dataModelId: DataModelId;
   readonly variant: VariantId;
   readonly events: readonly CaseEvent[];
   readonly attributes: Record<string, unknown>;
   readonly metrics: CaseMetrics;
+  readonly createdAt: ISODateTime;
+  readonly updatedAt: ISODateTime;
 }
+
+// ============================================================================
+// DTOs
+// ============================================================================
+
+/**
+ * Data required to create a new Case
+ */
+export interface CreateCaseData {
+  readonly tenantId: TenantId;
+  readonly dataModelId: DataModelId;
+  readonly variant?: VariantId;
+  readonly events?: readonly CaseEvent[];
+  readonly attributes?: Record<string, unknown>;
+}
+
+/**
+ * Data for updating a Case
+ */
+export interface UpdateCaseData {
+  readonly variant?: VariantId;
+  readonly events?: readonly CaseEvent[];
+  readonly attributes?: Record<string, unknown>;
+  readonly metrics?: Partial<CaseMetrics>;
+}
+

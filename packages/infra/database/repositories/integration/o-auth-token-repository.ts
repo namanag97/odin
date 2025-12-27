@@ -163,14 +163,14 @@ export class SqliteOAuthTokenRepository implements IOAuthTokenRepository {
 
   private mapRowToEntity(row: OAuthTokenRow): OAuthToken {
     return {
-      id: row.id as OAuthTokenId,
+      id: row.id as UUID as OAuthTokenId,
       name: row.name,
       description: row.description || undefined,
-      integrationId: row.integration_id,
+      integrationId: row.integration_id as UUID,
       tokenType: row.token_type,
-      expiresAt: row.expires_at,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      expiresAt: row.expires_at as ISODateTime,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

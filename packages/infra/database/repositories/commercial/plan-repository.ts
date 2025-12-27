@@ -9,8 +9,8 @@ import {
   type CreatePlanData,
   type UpdatePlanData,
   type IPlanRepository,
-  PlanTier,
-  BillingInterval,
+  type PlanTier,
+  type BillingInterval,
 } from "@odin/domain";
 import { mapDatabaseError } from "../../error-mapper";
 import { DbTimestamp, JsonColumn, Pagination } from "../../types";
@@ -204,7 +204,7 @@ export class SqlitePlanRepository implements IPlanRepository {
 
   private mapRowToEntity(row: PlanRow): Plan {
     return {
-      id: row.id as PlanId,
+      id: row.id as UUID as PlanId,
       key: row.key,
       name: row.name,
       description: row.description || undefined,
@@ -212,8 +212,8 @@ export class SqlitePlanRepository implements IPlanRepository {
       billingInterval: row.billing_interval,
       basePrice: row.base_price,
       currency: row.currency,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

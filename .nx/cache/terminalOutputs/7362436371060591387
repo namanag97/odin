@@ -1,0 +1,4 @@
+
+> @odin/domain@0.2.0 typecheck /Users/namanagarwal/coding/odin/packages/domain
+> tsc --noEmit
+

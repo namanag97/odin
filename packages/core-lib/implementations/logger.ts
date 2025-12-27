@@ -62,7 +62,7 @@ export class ConsoleLogger implements Logger {
         : console.log;
     
     // In production, output JSON for log aggregators
-    if (process.env.NODE_ENV === 'production') {
+    if ((globalThis as any).process?.env?.NODE_ENV === 'production') {
       logFn(JSON.stringify(entry));
     } else {
       // In development, use pretty formatting

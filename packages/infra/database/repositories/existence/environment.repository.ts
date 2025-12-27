@@ -12,6 +12,7 @@ import type {
   PageRequest,
   PageResponse,
 } from "@odin/core-contracts";
+import { EntityStatus, type PositiveInt, type ISODateTime, createNotFoundError } from "@odin/core-contracts";
 import type {
   Environment,
   EnvironmentType,
@@ -44,7 +45,8 @@ interface EnvironmentRow {
 // Internal Configuration Type (with metadata)
 // ============================================================================
 
-interface InternalEnvironmentConfig extends EnvironmentConfig {
+interface InternalConfig {
+  config: EnvironmentConfig;
   promotedFrom?: UUID;
   isDefault?: boolean;
 }
@@ -54,9 +56,9 @@ interface InternalEnvironmentConfig extends EnvironmentConfig {
 // ============================================================================
 
 const DEFAULT_RESOURCE_LIMITS: ResourceLimits = {
-  maxConcurrentJobs: 5,
-  maxEventLogSize: 10, // 10 million events
-  maxStorageGB: 50,
+  maxConcurrentJobs: 5 as PositiveInt,
+  maxEventLogSize: 10 as PositiveInt, // 10 million events
+  maxStorageGB: 50 as PositiveInt,
 };
 
 const DEFAULT_CONFIG: EnvironmentConfig = {
@@ -220,8 +222,11 @@ export class SqliteEnvironmentRepository implements IEnvironmentRepository {
       if (data.configuration !== undefined) {
         // Get current environment to merge configuration
         const current = await this.findById(id);
-        if (!current.success || !current.data) {
+        if (!current.success) {
           return current;
+        }
+        if (!current.data) {
+          return { success: false, error: createNotFoundError("Environment", id) };
         }
 
         const merged: EnvironmentConfig = {
@@ -243,7 +248,14 @@ export class SqliteEnvironmentRepository implements IEnvironmentRepository {
 
       if (updates.length === 0) {
         // No updates, just return current
-        return this.findById(id);
+        const result = await this.findById(id);
+        if (!result.success) {
+          return result;
+        }
+        if (!result.data) {
+          return { success: false, error: createNotFoundError("Environment", id) };
+        }
+        return { success: true, data: result.data };
       }
 
       params.push(id);
@@ -252,7 +264,14 @@ export class SqliteEnvironmentRepository implements IEnvironmentRepository {
         .query(`UPDATE environments SET ${updates.join(", ")} WHERE id = ?`)
         .run(...params);
 
-      return this.findById(id);
+      const result = await this.findById(id);
+      if (!result.success) {
+        return result;
+      }
+      if (!result.data) {
+        return { success: false, error: createNotFoundError("Environment", id) };
+      }
+      return { success: true, data: result.data };
     } catch (error) {
       return { success: false, error: mapDatabaseError(error, "update") };
     }
@@ -272,8 +291,11 @@ export class SqliteEnvironmentRepository implements IEnvironmentRepository {
     try {
       // Get source environment
       const sourceResult = await this.findById(sourceId);
-      if (!sourceResult.success || !sourceResult.data) {
+      if (!sourceResult.success) {
         return sourceResult;
+      }
+      if (!sourceResult.data) {
+        return { success: false, error: createNotFoundError("Environment", sourceId) };
       }
 
       const source = sourceResult.data;
@@ -298,23 +320,22 @@ export class SqliteEnvironmentRepository implements IEnvironmentRepository {
   // -------------------------------------------------------------------------
 
   private mapRowToEntity(row: EnvironmentRow): Environment {
-    const config = JsonColumn.parse<InternalEnvironmentConfig>(row.config) || DEFAULT_CONFIG;
-
-    // Extract promotedFrom from config if it exists
-    const { promotedFrom, isDefault, ...configuration } = config;
+    const internalConfig = JsonColumn.parse<InternalConfig>(row.config) || {
+      config: DEFAULT_CONFIG,
+    };
 
     return {
-      id: row.id,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as UUID,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       type: this.mapDbTypeToDomain(row.type),
-      status: "active", // No status in DB schema, default to active
+      status: EntityStatus.Active, // No status in DB schema, default to active
       configuration: {
         ...DEFAULT_CONFIG,
-        ...configuration,
+        ...internalConfig.config,
       },
-      promotedFrom,
-      createdAt: row.created_at,
+      promotedFrom: internalConfig.promotedFrom,
+      createdAt: row.created_at as ISODateTime as ISODateTime,
     };
   }
 

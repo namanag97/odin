@@ -319,21 +319,21 @@ export class SqliteTeamRepository implements ITeamRepository {
     const memberCount = countRow?.count || 0;
 
     return {
-      id: row.id,
-      tenantId: row.tenant_id as TenantId,
-      organizationId: row.organization_id ? (row.organization_id as any) : undefined,
+      id: row.id as UUID,
+      tenantId: row.tenant_id as UUID as TenantId,
+      organizationId: row.organization_id as UUID ? (row.organization_id as any) : undefined,
       name: row.name,
       description: row.description || undefined,
       memberCount,
-      createdAt: row.created_at,
+      createdAt: row.created_at as ISODateTime,
       updatedAt: row.created_at, // No updated_at in schema
     };
   }
 
   private mapMembershipRowToEntity(row: TeamMembershipRow): TeamMembership {
     return {
-      teamId: row.team_id,
-      userId: row.user_id as UserId,
+      teamId: row.team_id as UUID,
+      userId: row.user_id as UUID as UserId,
       role: row.role as TeamRole,
       joinedAt: row.joined_at,
     };

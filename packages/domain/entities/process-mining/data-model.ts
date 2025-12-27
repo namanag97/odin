@@ -5,18 +5,26 @@
  */
 
 import type {
-  DataModelId,
+  DataModelId as CoreDataModelId,
   TenantId,
   DataPoolId,
   UserId,
   UUID,
   ISODateTime,
   PositiveInt,
-  DataModelType,
+  DataModelType as CoreDataModelType,
   LoadStatus,
   DataType,
   DateRange,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Re-export Branded IDs and Types from core-contracts
+// ============================================================================
+
+export type DataModelId = CoreDataModelId;
+export type DataModelType = CoreDataModelType;
+export type DataModelStatus = LoadStatus;
 
 // ============================================================================
 // Type Definitions

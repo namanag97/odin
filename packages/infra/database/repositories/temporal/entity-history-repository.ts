@@ -166,15 +166,15 @@ export class SqliteEntityHistoryRepository implements IEntityHistoryRepository {
 
   private mapRowToEntity(row: EntityHistoryRow): EntityHistory {
     return {
-      id: row.id as EntityHistoryId,
+      id: row.id as UUID as EntityHistoryId,
       name: row.name,
       description: row.description || undefined,
       entityType: row.entity_type,
-      entityId: row.entity_id,
+      entityId: row.entity_id as UUID,
       version: row.version,
       operation: row.operation,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

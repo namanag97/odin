@@ -6,7 +6,7 @@
  */
 
 import type {
-  DataPoolId,
+  DataPoolId as CoreDataPoolId,
   TenantId,
   UserId,
   ISODateTime,
@@ -15,11 +15,20 @@ import type {
 } from '@odin/core-contracts';
 
 // ============================================================================
+// Re-export Branded IDs from core-contracts
+// ============================================================================
+
+export type DataPoolId = CoreDataPoolId;
+
+// ============================================================================
 // Status Types
 // ============================================================================
 
 /** DataPool lifecycle status */
 export type DataPoolStatus = 'active' | 'archived' | 'error';
+
+/** DataPool type (alias for repositories) */
+export type DataPoolType = DataPoolStatus;
 
 /** How to handle null values during import */
 export type NullHandling = 'keep' | 'empty_string' | 'default';

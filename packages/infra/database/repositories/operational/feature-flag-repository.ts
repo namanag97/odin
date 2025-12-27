@@ -183,15 +183,15 @@ export class SqliteFeatureFlagRepository implements IFeatureFlagRepository {
 
   private mapRowToEntity(row: FeatureFlagRow): FeatureFlag {
     return {
-      id: row.id as FeatureFlagId,
+      id: row.id as UUID as FeatureFlagId,
       key: row.key,
       name: row.name,
       description: row.description || undefined,
       type: row.type as FeatureFlagType,
-      defaultValue: row.default_value,
+      defaultValue: Boolean(row.default_value),
       isEnabled: row.is_enabled,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

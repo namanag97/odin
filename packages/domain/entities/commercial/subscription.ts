@@ -4,12 +4,23 @@
  * Tenant subscription to a plan with billing cycle tracking.
  */
 
-import type { 
-  UUID, 
+import type {
+  UUID,
   TenantId,
-  ISODateTime, 
-  PositiveInt
+  ISODateTime,
+  PositiveInt,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded Subscription ID */
+export type SubscriptionId = Brand<UUID, 'SubscriptionId'>;
+
+/** Cast function for SubscriptionId */
+export const asSubscriptionId = (id: string): SubscriptionId => id as unknown as SubscriptionId;
 
 // ============================================================================
 // Status & Cycle Types

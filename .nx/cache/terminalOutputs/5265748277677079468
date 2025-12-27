@@ -1,0 +1,8 @@
+> nx run @odin/core-lib:typecheck
+
+> pnpm run typecheck
+
+
+> @odin/core-lib@1.0.1 typecheck /Users/namanagarwal/coding/odin/packages/core-lib
+> tsc --noEmit
+

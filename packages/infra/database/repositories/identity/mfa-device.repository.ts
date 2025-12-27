@@ -211,14 +211,14 @@ export class SqliteMfaDeviceRepository implements IMfaDeviceRepository {
     const type: MfaType = row.type === "backup_codes" ? "recovery_codes" : (row.type as MfaType);
 
     return {
-      id: row.id,
-      userId: row.user_id as UserId,
+      id: row.id as UUID,
+      userId: row.user_id as UUID as UserId,
       type,
       name: row.name,
       secretEncrypted: row.secret_encrypted,
       isDefault: row.is_primary === 1,
-      lastUsedAt: row.last_used_at || undefined,
-      createdAt: row.created_at,
+      lastUsedAt: row.last_used_at as ISODateTime || undefined,
+      createdAt: row.created_at as ISODateTime,
     };
   }
 }

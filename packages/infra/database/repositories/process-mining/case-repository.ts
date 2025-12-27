@@ -179,15 +179,15 @@ export class SqliteCaseRepository implements ICaseRepository {
 
   private mapRowToEntity(row: CaseRow): Case {
     return {
-      id: row.id as CaseId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as CaseId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
-      dataModelId: row.data_model_id,
+      dataModelId: row.data_model_id as UUID,
       caseKey: row.case_key,
       eventCount: row.event_count,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

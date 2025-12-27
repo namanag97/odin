@@ -165,14 +165,14 @@ export class SqliteVariantRepository implements IVariantRepository {
 
   private mapRowToEntity(row: VariantRow): Variant {
     return {
-      id: row.id as VariantId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as VariantId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
-      dataModelId: row.data_model_id,
+      dataModelId: row.data_model_id as UUID,
       frequency: row.frequency,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

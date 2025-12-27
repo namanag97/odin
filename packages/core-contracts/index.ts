@@ -45,6 +45,8 @@ export {
   type UserId,
   type OrganizationId,
   type SessionId,
+  type RoleId,
+  type EnvironmentId,
   type DataPoolId,
   type PoolId,
   type DataModelId,
@@ -73,6 +75,8 @@ export {
   asTenantId,
   asUserId,
   asSessionId,
+  asRoleId,
+  asEnvironmentId,
   asPoolId,
   asEventLogId,
   asConnectionId,
@@ -104,6 +108,8 @@ export {
   type ISODateTime,
   type UnixTimestamp,
   type Duration,
+  // Brand type for creating branded types
+  type Brand,
   // Tracing types
   type TraceId,
   type CorrelationId,

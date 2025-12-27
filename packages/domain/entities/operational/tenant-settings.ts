@@ -5,15 +5,26 @@
  * security, notifications, and process mining defaults.
  */
 
-import type { 
+import type {
   TenantId,
   UserId,
-  ISODateTime, 
+  ISODateTime,
   URL,
-  Duration
+  Duration,
+  Brand,
 } from '@odin/core-contracts';
 
 import type { DiscoveryAlgorithm, ConformanceMethod } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded TenantSettings ID */
+export type TenantSettingsId = Brand<TenantId, 'TenantSettingsId'>;
+
+/** Cast function for TenantSettingsId */
+export const asTenantSettingsId = (id: string): TenantSettingsId => id as unknown as TenantSettingsId;
 
 // ============================================================================
 // Branding Settings
@@ -144,6 +155,16 @@ export interface UpdateTenantSettingsData {
   readonly notifications?: Partial<NotificationSettings>;
   readonly processMining?: Partial<ProcessMiningSettings>;
 }
+
+/**
+ * Alias for CreateTenantSettingsData
+ */
+export type CreateExtendedTenantSettingsData = CreateTenantSettingsData;
+
+/**
+ * Alias for UpdateTenantSettingsData
+ */
+export type UpdateExtendedTenantSettingsData = UpdateTenantSettingsData;
 
 // ============================================================================
 // Defaults

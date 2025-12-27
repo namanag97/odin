@@ -5,12 +5,12 @@
  */
 
 import type {
-  ProcessModelId,
+  ProcessModelId as CoreProcessModelId,
   TenantId,
   DataModelId,
   UserId,
   ISODateTime,
-  ProcessModelType,
+  ProcessModelType as CoreProcessModelType,
   DiscoveryAlgorithm,
   ConformanceMethod,
 } from '@odin/core-contracts';
@@ -20,6 +20,13 @@ import type { ProcessTree } from './process-tree';
 import type { DirectlyFollowsGraph } from './dfg';
 import type { BPMNModel } from './bpmn';
 import type { OCELPetriNet } from './ocel-petri-net';
+
+// ============================================================================
+// Re-export Branded IDs and Types from core-contracts
+// ============================================================================
+
+export type ProcessModelId = CoreProcessModelId;
+export type ProcessModelType = CoreProcessModelType;
 
 // ============================================================================
 // Source & Format Types

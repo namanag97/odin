@@ -8,10 +8,21 @@ import type {
   UUID, 
   TenantId, 
   UserId, 
-  ISODateTime 
+  ISODateTime,
+  Brand,
 } from '@odin/core-contracts';
 
 import type { FieldChange } from './audit-log';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded EntityHistory ID */
+export type EntityHistoryId = Brand<UUID, 'EntityHistoryId'>;
+
+/** Cast function for EntityHistoryId */
+export const asEntityHistoryId = (id: string): EntityHistoryId => id as unknown as EntityHistoryId;
 
 // ============================================================================
 // Operation Types
@@ -31,7 +42,7 @@ export type HistoryOperation = 'create' | 'update' | 'delete' | 'restore';
  * @template T - The type of the entity snapshot
  */
 export interface EntityHistory<T = unknown> {
-  readonly id: UUID;
+  readonly id: EntityHistoryId;
   readonly tenantId: TenantId;
   /** Type of entity (e.g., 'data_pool', 'user') */
   readonly entityType: string;
@@ -64,3 +75,29 @@ export interface EntityDiff {
   readonly toVersion: number;
   readonly changes: readonly FieldChange[];
 }
+
+// ============================================================================
+// DTOs
+// ============================================================================
+
+/**
+ * Data required to create an entity history record
+ */
+export interface CreateEntityHistoryData<T = unknown> {
+  readonly tenantId: TenantId;
+  readonly entityType: string;
+  readonly entityId: UUID;
+  readonly operation: HistoryOperation;
+  readonly snapshot: T;
+  readonly changes: readonly FieldChange[];
+  readonly changedBy: UserId;
+  readonly reason?: string;
+}
+
+/**
+ * Data for updating an entity history record (typically histories are immutable)
+ */
+export interface UpdateEntityHistoryData {
+  readonly reason?: string;
+}
+

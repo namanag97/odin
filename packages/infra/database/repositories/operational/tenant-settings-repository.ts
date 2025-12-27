@@ -167,15 +167,15 @@ export class SqliteTenantSettingsRepository implements ITenantSettingsRepository
 
   private mapRowToEntity(row: ExtendedTenantSettingsRow): ExtendedTenantSettings {
     return {
-      id: row.id as TenantSettingsId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as TenantSettingsId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       timezone: row.timezone,
       locale: row.locale,
       currency: row.currency,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

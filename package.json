@@ -4,13 +4,27 @@
   "private": true,
   "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "build": "pnpm -r build",
-    "typecheck": "pnpm -r typecheck",
-    "lint": "pnpm -r lint",
-    "test": "pnpm -r test",
-    "dev": "pnpm -r --parallel dev"
+    "build": "nx run-many -t build --all",
+    "typecheck": "nx run-many -t typecheck --all",
+    "typecheck:affected": "nx affected -t typecheck",
+    "lint": "nx run-many -t lint --all",
+    "lint:fix": "nx run-many -t lint --all -- --fix",
+    "lint:root": "eslint packages apps --ext .ts",
+    "test": "nx run-many -t test --all",
+    "dev": "pnpm -r --parallel dev",
+    "graph": "nx graph",
+    "affected": "nx affected",
+    "clean": "rm -rf node_modules/.cache .nx/cache",
+    "bun:typecheck": "bun run typecheck",
+    "bun:lint": "bun run lint",
+    "analyze": "nx run-many -t typecheck,lint --all --parallel=4"
   },
   "devDependencies": {
+    "@nx/js": "^22.3.3",
+    "@typescript-eslint/eslint-plugin": "^8.50.1",
+    "@typescript-eslint/parser": "^8.50.1",
+    "eslint": "^9.39.2",
+    "nx": "^22.3.3",
     "typescript": "^5.0.0"
   }
 }

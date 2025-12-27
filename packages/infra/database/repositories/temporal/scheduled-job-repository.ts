@@ -223,16 +223,16 @@ export class SqliteScheduledJobRepository implements IScheduledJobRepository {
 
   private mapRowToEntity(row: ScheduledJobRow): ScheduledJob {
     return {
-      id: row.id as ScheduledJobId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as ScheduledJobId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       status: row.status as ScheduledJobStatus,
       type: row.type as ScheduledJobType,
       schedule: row.schedule,
       nextRunAt: row.next_run_at,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

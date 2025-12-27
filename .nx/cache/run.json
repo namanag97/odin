@@ -1,0 +1,32 @@
+{
+  "run": {
+    "command": "nx run-many -t build --all --filter @odin/core-contracts --filter @odin/core-lib --filter @odin/domain",
+    "startTime": "2025-12-27T17:56:39.868Z",
+    "endTime": "2025-12-27T17:56:43.190Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "@odin/web:build",
+      "target": "build",
+      "projectName": "@odin/web",
+      "hash": "13903668405405836246",
+      "startTime": "2025-12-27T17:56:40.208Z",
+      "endTime": "2025-12-27T17:56:42.968Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@odin/domain:build",
+      "target": "build",
+      "projectName": "@odin/domain",
+      "hash": "3375863429877239852",
+      "startTime": "2025-12-27T17:56:40.208Z",
+      "endTime": "2025-12-27T17:56:43.166Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

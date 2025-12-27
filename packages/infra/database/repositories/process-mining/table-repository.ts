@@ -187,15 +187,15 @@ export class SqliteTableRepository implements ITableRepository {
 
   private mapRowToEntity(row: TableRow): Table {
     return {
-      id: row.id as TableId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as TableId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       type: row.type as TableType,
-      dataPoolId: row.data_pool_id,
+      dataPoolId: row.data_pool_id as UUID,
       rowCount: row.row_count,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

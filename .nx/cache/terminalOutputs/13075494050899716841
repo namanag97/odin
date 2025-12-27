@@ -1,0 +1,4 @@
+
+> @odin/core-contracts@1.0.2 typecheck /Users/namanagarwal/coding/odin/packages/core-contracts
+> tsc --noEmit
+

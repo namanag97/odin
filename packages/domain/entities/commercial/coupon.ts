@@ -4,15 +4,26 @@
  * Discount coupons and redemptions.
  */
 
-import type { 
-  UUID, 
+import type {
+  UUID,
   TenantId,
   ISODateTime,
   Percentage,
-  EntityStatus
+  EntityStatus,
+  Brand,
 } from '@odin/core-contracts';
 
 import type { Currency } from './plan';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded Coupon ID */
+export type CouponId = Brand<UUID, 'CouponId'>;
+
+/** Cast function for CouponId */
+export const asCouponId = (id: string): CouponId => id as unknown as CouponId;
 
 // ============================================================================
 // Types
@@ -20,6 +31,9 @@ import type { Currency } from './plan';
 
 /** Coupon discount type */
 export type CouponType = 'percentage' | 'fixed_amount';
+
+/** Alias for DiscountType used in repositories */
+export type DiscountType = CouponType;
 
 /** Coupon duration type */
 export type CouponDuration = 'once' | 'repeating' | 'forever';

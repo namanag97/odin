@@ -8,7 +8,9 @@
 // ============================================================================
 
 declare const __brand: unique symbol;
-type Brand<T, TBrand extends string> = T & { readonly [__brand]: TBrand };
+export type BrandSymbol = typeof __brand;
+export type Brand<T, TBrand extends string> = T & { readonly [__brand]: TBrand };
+
 
 // ============================================================================
 // Branded Temporal Types

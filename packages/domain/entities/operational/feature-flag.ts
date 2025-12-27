@@ -5,8 +5,8 @@
  * gradual rollouts and targeting.
  */
 
-import type { 
-  UUID, 
+import type {
+  UUID,
   TenantId,
   UserId,
   OrganizationId,
@@ -14,11 +14,22 @@ import type {
   Percentage,
   EntityStatus,
   Email,
-  FilterOperator
+  FilterOperator,
+  Brand,
 } from '@odin/core-contracts';
 
 import type { TenantTier } from '../existence/tenant';
 import type { EnvironmentType } from '../existence/environment';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded FeatureFlag ID */
+export type FeatureFlagId = Brand<UUID, 'FeatureFlagId'>;
+
+/** Cast function for FeatureFlagId */
+export const asFeatureFlagId = (id: string): FeatureFlagId => id as unknown as FeatureFlagId;
 
 // ============================================================================
 // Types

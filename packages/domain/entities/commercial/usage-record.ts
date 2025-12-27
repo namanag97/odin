@@ -4,14 +4,25 @@
  * Tracks metered usage for billing.
  */
 
-import type { 
-  UUID, 
+import type {
+  UUID,
   TenantId,
-  ISODateTime, 
-  PositiveInt
+  ISODateTime,
+  PositiveInt,
+  Brand,
 } from '@odin/core-contracts';
 
 import type { UsageMetric } from './plan';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded UsageRecord ID */
+export type UsageRecordId = Brand<UUID, 'UsageRecordId'>;
+
+/** Cast function for UsageRecordId */
+export const asUsageRecordId = (id: string): UsageRecordId => id as unknown as UsageRecordId;
 
 // ============================================================================
 // Entity
@@ -74,5 +85,13 @@ export interface CreateUsageRecordData {
   readonly quantity: PositiveInt;
   readonly timestamp?: ISODateTime;
   readonly idempotencyKey?: string;
+  readonly metadata?: Record<string, unknown>;
+}
+
+/**
+ * Data for updating a usage record
+ */
+export interface UpdateUsageRecordData {
+  readonly quantity?: PositiveInt;
   readonly metadata?: Record<string, unknown>;
 }

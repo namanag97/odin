@@ -194,16 +194,16 @@ export class SqliteDataModelRepository implements IDataModelRepository {
 
   private mapRowToEntity(row: DataModelRow): DataModel {
     return {
-      id: row.id as DataModelId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as DataModelId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       status: row.status as DataModelStatus,
       type: row.type as DataModelType,
-      dataPoolId: row.data_pool_id,
+      dataPoolId: row.data_pool_id as UUID,
       modelType: row.model_type,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

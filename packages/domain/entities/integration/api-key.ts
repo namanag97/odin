@@ -4,13 +4,24 @@
  * API key management for programmatic access.
  */
 
-import type { 
-  UUID, 
-  TenantId, 
-  UserId, 
+import type {
+  UUID,
+  TenantId,
+  UserId,
   ISODateTime,
-  EntityStatus
+  EntityStatus,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded ApiKey ID */
+export type ApiKeyId = Brand<UUID, 'ApiKeyId'>;
+
+/** Cast function for ApiKeyId */
+export const asApiKeyId = (id: string): ApiKeyId => id as unknown as ApiKeyId;
 
 // ============================================================================
 // Scope Types

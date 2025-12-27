@@ -11,8 +11,19 @@ import type {
   ISODateTime,
   TraceId,
   Duration,
-  Email
+  Email,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded AuditLog ID */
+export type AuditLogId = Brand<UUID, 'AuditLogId'>;
+
+/** Cast function for AuditLogId */
+export const asAuditLogId = (id: string): AuditLogId => id as unknown as AuditLogId;
 
 // ============================================================================
 // Actor Types
@@ -170,3 +181,12 @@ export interface CreateAuditLogData {
   readonly request: AuditRequest;
   readonly metadata?: Record<string, unknown>;
 }
+
+/**
+ * Data for updating an audit log entry (typically immutable, minimal updates)
+ * Note: Audit logs are generally immutable; updates are rare and restricted
+ */
+export interface UpdateAuditLogData {
+  readonly metadata?: Record<string, unknown>;
+}
+

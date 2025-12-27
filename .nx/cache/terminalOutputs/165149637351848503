@@ -1,0 +1,4 @@
+
+> @odin/web@0.1.0 typecheck /Users/namanagarwal/coding/odin/apps/web
+> tsc --noEmit
+

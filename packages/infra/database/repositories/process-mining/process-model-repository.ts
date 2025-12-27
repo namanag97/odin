@@ -187,15 +187,15 @@ export class SqliteProcessModelRepository implements IProcessModelRepository {
 
   private mapRowToEntity(row: ProcessModelRow): ProcessModel {
     return {
-      id: row.id as ProcessModelId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as ProcessModelId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       type: row.type as ProcessModelType,
-      dataModelId: row.data_model_id,
+      dataModelId: row.data_model_id as UUID,
       modelType: row.model_type,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

@@ -427,8 +427,8 @@ export class SqliteTenantRepository implements ITenantRepository {
       tier: row.tier as TenantTier,
       settings,
       metadata,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
       suspendedAt: row.status === "suspended" ? row.updated_at : undefined,
       deletedAt: row.deleted_at || undefined,
     };

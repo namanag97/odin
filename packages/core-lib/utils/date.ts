@@ -72,8 +72,8 @@ export const parseDuration = (duration: string): number => {
   let match: RegExpExecArray | null;
   
   while ((match = regex.exec(duration)) !== null) {
-    const value = parseInt(match[1], 10);
-    const unit = match[2];
+    const value = parseInt(match[1] ?? '0', 10);
+    const unit = match[2] ?? 's';
     
     switch (unit) {
       case 'd': totalMs += value * 86400000; break;

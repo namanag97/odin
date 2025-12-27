@@ -404,12 +404,12 @@ export class SqliteRoleRepository implements IRoleRepository {
   private mapRowToEntity(row: RoleRow, permissions: Permission[]): Role {
     return {
       id: asRoleId(row.id),
-      tenantId: row.tenant_id ? (row.tenant_id as TenantId) : ("" as TenantId),
+      tenantId: row.tenant_id as UUID ? (row.tenant_id as TenantId) : ("" as TenantId),
       name: row.name,
       description: row.description || undefined,
       isSystem: row.type === "system",
       permissions,
-      createdAt: row.created_at,
+      createdAt: row.created_at as ISODateTime,
     };
   }
 
@@ -432,15 +432,15 @@ export class SqliteRoleRepository implements IRoleRepository {
   private mapUserRowToEntity(row: UserRow): User {
     return {
       id: asUserId(row.id),
-      tenantId: row.tenant_id as TenantId,
+      tenantId: row.tenant_id as UUID as TenantId,
       email: row.email as any,
       emailVerified: false,
       name: row.email, // Simplified, would need profile join
       status: row.status as any,
       authMethod: "password" as any,
       mfaEnabled: false,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

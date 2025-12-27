@@ -4,14 +4,25 @@
  * Billing invoice with line items.
  */
 
-import type { 
-  UUID, 
+import type {
+  UUID,
   TenantId,
-  ISODateTime, 
-  URL
+  ISODateTime,
+  URL,
+  Brand,
 } from '@odin/core-contracts';
 
 import type { Currency } from './plan';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded Invoice ID */
+export type InvoiceId = Brand<UUID, 'InvoiceId'>;
+
+/** Cast function for InvoiceId */
+export const asInvoiceId = (id: string): InvoiceId => id as unknown as InvoiceId;
 
 // ============================================================================
 // Status & Line Item Types

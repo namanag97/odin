@@ -209,15 +209,15 @@ export class SqliteIntegrationRepository implements IIntegrationRepository {
 
   private mapRowToEntity(row: IntegrationRow): Integration {
     return {
-      id: row.id as IntegrationId,
-      tenantId: row.tenant_id as TenantId,
+      id: row.id as UUID as IntegrationId,
+      tenantId: row.tenant_id as UUID as TenantId,
       name: row.name,
       description: row.description || undefined,
       status: row.status as IntegrationStatus,
       type: row.type as IntegrationType,
       provider: row.provider,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at,
+      createdAt: row.created_at as ISODateTime,
+      updatedAt: row.updated_at as ISODateTime,
     };
   }
 }

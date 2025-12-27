@@ -1,9 +1,11 @@
-# L1 DOMAIN CONTRACTS — COMMERCIAL & OPERATIONAL LAYERS
+# L1 DOMAIN CONTRACTS — COMMERCIAL & OPERATIONAL LAYERS implemented
+
 > Monetization, billing, and runtime configuration
 
 ---
 
 ## COMMERCIAL LAYER
+
 > Value exchange, subscriptions, and usage tracking
 
 ### Entity: Plan
@@ -28,8 +30,8 @@ interface Plan {
   readonly updatedAt: ISODateTime;
 }
 
-type PlanStatus = 'active' | 'deprecated' | 'archived';
-type PlanVisibility = 'public' | 'private' | 'enterprise_only';
+type PlanStatus = "active" | "deprecated" | "archived";
+type PlanVisibility = "public" | "private" | "enterprise_only";
 
 interface PlanPricing {
   readonly model: PricingModel;
@@ -40,8 +42,8 @@ interface PlanPricing {
   readonly usageRates?: UsageRate[];
 }
 
-type PricingModel = 'flat' | 'per_seat' | 'usage_based' | 'hybrid';
-type Currency = 'USD' | 'EUR' | 'GBP';
+type PricingModel = "flat" | "per_seat" | "usage_based" | "hybrid";
+type Currency = "USD" | "EUR" | "GBP";
 
 interface UsageRate {
   readonly metric: UsageMetric;
@@ -49,22 +51,22 @@ interface UsageRate {
 }
 
 interface UsageTier {
-  readonly upTo: number | 'unlimited';
+  readonly upTo: number | "unlimited";
   readonly pricePerUnit: number;
 }
 
-type UsageMetric = 
-  | 'events_processed'
-  | 'active_users'
-  | 'data_storage_gb'
-  | 'api_calls'
-  | 'action_flow_executions';
+type UsageMetric =
+  | "events_processed"
+  | "active_users"
+  | "data_storage_gb"
+  | "api_calls"
+  | "action_flow_executions";
 
 interface PlanFeatures {
-  readonly maxUsers: number | 'unlimited';
-  readonly maxDataPools: number | 'unlimited';
-  readonly maxDataModels: number | 'unlimited';
-  readonly maxEventLogSize: number;         // millions of events
+  readonly maxUsers: number | "unlimited";
+  readonly maxDataPools: number | "unlimited";
+  readonly maxDataModels: number | "unlimited";
+  readonly maxEventLogSize: number; // millions of events
   readonly discoveryAlgorithms: readonly DiscoveryAlgorithm[];
   readonly conformanceEnabled: boolean;
   readonly ocelEnabled: boolean;
@@ -76,10 +78,10 @@ interface PlanFeatures {
   readonly supportLevel: SupportLevel;
 }
 
-type SupportLevel = 'community' | 'email' | 'priority' | 'dedicated';
+type SupportLevel = "community" | "email" | "priority" | "dedicated";
 
 interface PlanLimits {
-  readonly apiRateLimit: number;            // requests per minute
+  readonly apiRateLimit: number; // requests per minute
   readonly maxConcurrentJobs: number;
   readonly maxStorageGB: number;
   readonly maxWebhooks: number;
@@ -95,12 +97,12 @@ interface IPlanRepository {
   findBySlug(slug: string): AsyncResult<Plan | null>;
   findActive(): AsyncResult<readonly Plan[]>;
   findPublic(): AsyncResult<readonly Plan[]>;
-  
+
   create(data: CreatePlanData): AsyncResult<Plan>;
   update(id: UUID, data: UpdatePlanData): AsyncResult<Plan>;
   deprecate(id: UUID): AsyncResult<void>;
   archive(id: UUID): AsyncResult<void>;
-  
+
   comparePlans(planIds: UUID[]): AsyncResult<PlanComparison>;
 }
 ```
@@ -122,16 +124,20 @@ interface Subscription {
   readonly trialEndsAt?: ISODateTime;
   readonly cancelledAt?: ISODateTime;
   readonly cancellationReason?: string;
-  readonly externalId?: string;             // Stripe subscription ID
+  readonly externalId?: string; // Stripe subscription ID
   readonly createdAt: ISODateTime;
   readonly updatedAt: ISODateTime;
 }
 
-type SubscriptionStatus = 
-  | 'trialing' | 'active' | 'past_due' 
-  | 'cancelled' | 'unpaid' | 'paused';
+type SubscriptionStatus =
+  | "trialing"
+  | "active"
+  | "past_due"
+  | "cancelled"
+  | "unpaid"
+  | "paused";
 
-type BillingCycle = 'monthly' | 'yearly';
+type BillingCycle = "monthly" | "yearly";
 
 interface SubscriptionChange {
   readonly id: UUID;
@@ -146,7 +152,12 @@ interface SubscriptionChange {
   readonly createdAt: ISODateTime;
 }
 
-type ChangeType = 'upgrade' | 'downgrade' | 'seat_change' | 'cancel' | 'reactivate';
+type ChangeType =
+  | "upgrade"
+  | "downgrade"
+  | "seat_change"
+  | "cancel"
+  | "reactivate";
 ```
 
 ### Repository: ISubscriptionRepository
@@ -157,15 +168,18 @@ interface ISubscriptionRepository {
   findByTenantId(tenantId: TenantId): AsyncResult<Subscription | null>;
   findActive(): AsyncResult<readonly Subscription[]>;
   findExpiring(withinDays: number): AsyncResult<readonly Subscription[]>;
-  
+
   create(data: CreateSubscriptionData): AsyncResult<Subscription>;
   update(id: UUID, data: UpdateSubscriptionData): AsyncResult<Subscription>;
   updateStatus(id: UUID, status: SubscriptionStatus): AsyncResult<Subscription>;
   cancel(id: UUID, reason?: string): AsyncResult<Subscription>;
   reactivate(id: UUID): AsyncResult<Subscription>;
-  
+
   // Changes
-  scheduleChange(subscriptionId: UUID, change: ScheduleChangeData): AsyncResult<SubscriptionChange>;
+  scheduleChange(
+    subscriptionId: UUID,
+    change: ScheduleChangeData
+  ): AsyncResult<SubscriptionChange>;
   getChanges(subscriptionId: UUID): AsyncResult<readonly SubscriptionChange[]>;
   processScheduledChanges(): AsyncResult<number>;
 }
@@ -180,7 +194,7 @@ interface Invoice {
   readonly id: UUID;
   readonly tenantId: TenantId;
   readonly subscriptionId: UUID;
-  readonly number: string;                  // INV-2024-00001
+  readonly number: string; // INV-2024-00001
   readonly status: InvoiceStatus;
   readonly periodStart: ISODateTime;
   readonly periodEnd: ISODateTime;
@@ -191,12 +205,12 @@ interface Invoice {
   readonly currency: Currency;
   readonly lineItems: readonly InvoiceLineItem[];
   readonly paidAt?: ISODateTime;
-  readonly externalId?: string;             // Stripe invoice ID
+  readonly externalId?: string; // Stripe invoice ID
   readonly pdfUrl?: URL;
   readonly createdAt: ISODateTime;
 }
 
-type InvoiceStatus = 'draft' | 'open' | 'paid' | 'void' | 'uncollectible';
+type InvoiceStatus = "draft" | "open" | "paid" | "void" | "uncollectible";
 
 interface InvoiceLineItem {
   readonly id: UUID;
@@ -209,7 +223,12 @@ interface InvoiceLineItem {
   readonly periodEnd?: ISODateTime;
 }
 
-type LineItemType = 'subscription' | 'seat' | 'usage' | 'adjustment' | 'proration';
+type LineItemType =
+  | "subscription"
+  | "seat"
+  | "usage"
+  | "adjustment"
+  | "proration";
 ```
 
 ---
@@ -228,10 +247,10 @@ interface PaymentMethod {
   readonly createdAt: ISODateTime;
 }
 
-type PaymentMethodType = 'card' | 'bank_account' | 'invoice';
+type PaymentMethodType = "card" | "bank_account" | "invoice";
 
 interface PaymentDetails {
-  readonly brand?: string;                  // visa, mastercard
+  readonly brand?: string; // visa, mastercard
   readonly last4: string;
   readonly expiryMonth?: number;
   readonly expiryYear?: number;
@@ -283,24 +302,26 @@ interface UsageSummary {
 
 interface IUsageRepository {
   record(data: CreateUsageRecordData): AsyncResult<UsageRecord>;
-  recordBatch(records: readonly CreateUsageRecordData[]): AsyncResult<readonly UsageRecord[]>;
-  
+  recordBatch(
+    records: readonly CreateUsageRecordData[]
+  ): AsyncResult<readonly UsageRecord[]>;
+
   getSummary(
-    tenantId: TenantId, 
-    metric: UsageMetric, 
+    tenantId: TenantId,
+    metric: UsageMetric,
     period: DateRange
   ): AsyncResult<UsageSummary>;
-  
+
   getAllSummaries(
-    tenantId: TenantId, 
+    tenantId: TenantId,
     period: DateRange
   ): AsyncResult<readonly UsageSummary[]>;
-  
+
   getTimeSeries(
     tenantId: TenantId,
     metric: UsageMetric,
     period: DateRange,
-    granularity: 'hour' | 'day' | 'week' | 'month'
+    granularity: "hour" | "day" | "week" | "month"
   ): AsyncResult<readonly TimeSeriesPoint[]>;
 }
 
@@ -334,8 +355,8 @@ interface Coupon {
   readonly createdAt: ISODateTime;
 }
 
-type CouponType = 'percentage' | 'fixed_amount';
-type CouponDuration = 'once' | 'repeating' | 'forever';
+type CouponType = "percentage" | "fixed_amount";
+type CouponDuration = "once" | "repeating" | "forever";
 
 interface CouponRedemption {
   readonly id: UUID;
@@ -350,6 +371,7 @@ interface CouponRedemption {
 ---
 
 ## OPERATIONAL LAYER
+
 > Runtime configuration and feature management
 
 ### Entity: TenantSettings (Extended)
@@ -357,19 +379,19 @@ interface CouponRedemption {
 ```typescript
 interface TenantSettings {
   readonly tenantId: TenantId;
-  
+
   // Branding
   readonly branding: BrandingSettings;
-  
+
   // Security
   readonly security: SecuritySettings;
-  
+
   // Notifications
   readonly notifications: NotificationSettings;
-  
+
   // Process Mining Defaults
   readonly processMining: ProcessMiningSettings;
-  
+
   readonly updatedAt: ISODateTime;
   readonly updatedBy: UserId;
 }
@@ -405,7 +427,7 @@ interface NotificationSettings {
   readonly emailEnabled: boolean;
   readonly slackEnabled: boolean;
   readonly webhookEnabled: boolean;
-  readonly digestFrequency: 'daily' | 'weekly' | 'never';
+  readonly digestFrequency: "daily" | "weekly" | "never";
 }
 
 interface ProcessMiningSettings {
@@ -435,7 +457,7 @@ interface FeatureFlag {
   readonly updatedAt: ISODateTime;
 }
 
-type FeatureFlagType = 'release' | 'experiment' | 'operational' | 'permission';
+type FeatureFlagType = "release" | "experiment" | "operational" | "permission";
 
 interface FeatureRule {
   readonly id: UUID;
@@ -451,24 +473,29 @@ interface FeatureCondition {
   readonly value: unknown;
 }
 
-type FeatureAttribute = 
-  | 'tenantId' | 'tenantTier' | 'userId' | 'userEmail'
-  | 'organizationId' | 'environment' | 'planId';
+type FeatureAttribute =
+  | "tenantId"
+  | "tenantTier"
+  | "userId"
+  | "userEmail"
+  | "organizationId"
+  | "environment"
+  | "planId";
 
 interface IFeatureFlagRepository {
   findByKey(key: string): AsyncResult<FeatureFlag | null>;
   findAll(): AsyncResult<readonly FeatureFlag[]>;
   findActive(): AsyncResult<readonly FeatureFlag[]>;
-  
+
   create(data: CreateFeatureFlagData): AsyncResult<FeatureFlag>;
   update(id: UUID, data: UpdateFeatureFlagData): AsyncResult<FeatureFlag>;
   delete(id: UUID): AsyncResult<void>;
-  
+
   evaluate(
-    key: string, 
+    key: string,
     context: FeatureEvaluationContext
   ): AsyncResult<boolean>;
-  
+
   evaluateAll(
     context: FeatureEvaluationContext
   ): AsyncResult<Record<string, boolean>>;
@@ -505,17 +532,17 @@ interface SystemConfig {
   readonly updatedBy: UserId;
 }
 
-type ConfigValueType = 'string' | 'number' | 'boolean' | 'json' | 'secret';
+type ConfigValueType = "string" | "number" | "boolean" | "json" | "secret";
 
 interface ISystemConfigRepository {
   get<T>(key: string): AsyncResult<T | null>;
   getMany(keys: readonly string[]): AsyncResult<Record<string, unknown>>;
   getByPrefix(prefix: string): AsyncResult<Record<string, unknown>>;
-  
+
   set(key: string, value: unknown, meta?: ConfigMetadata): AsyncResult<void>;
   setMany(configs: Record<string, unknown>): AsyncResult<void>;
   delete(key: string): AsyncResult<void>;
-  
+
   getHistory(key: string, limit?: number): AsyncResult<readonly ConfigChange[]>;
 }
 

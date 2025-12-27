@@ -11,7 +11,19 @@ import type {
   NonNegativeInt,
   Duration,
   DataType,
+  TenantId,
+  Brand,
 } from '@odin/core-contracts';
+
+// ============================================================================
+// Branded IDs
+// ============================================================================
+
+/** Branded Table ID */
+export type TableId = Brand<UUID, 'TableId'>;
+
+/** Cast function for TableId */
+export const asTableId = (id: string): TableId => id as unknown as TableId;
 
 // ============================================================================
 // Source Types
@@ -19,6 +31,9 @@ import type {
 
 /** Supported table source types */
 export type TableSourceType = 'csv' | 'xlsx' | 'parquet' | 'json' | 'database' | 'api';
+
+/** Table type (alias for source type, used in repositories) */
+export type TableType = TableSourceType;
 
 /**
  * Configuration for table data source
@@ -67,7 +82,8 @@ export interface Column {
  * Table - Data table within a DataPool
  */
 export interface Table {
-  readonly id: UUID;
+  readonly id: TableId;
+  readonly tenantId: TenantId;
   readonly dataPoolId: DataPoolId;
   readonly name: string;
   readonly displayName?: string;
