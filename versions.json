@@ -1,0 +1,16 @@
+{
+  "baseline": "2024-Q4",
+  "phase": "development",
+  "packages": {
+    "@odin/core-contracts": "0.1.0",
+    "@odin/core-lib": "0.1.0",
+    "@odin/domain": "0.1.0",
+    "@odin/services": "0.1.0",
+    "@odin/infra": "0.1.0",
+    "@odin/api": "0.1.0"
+  },
+  "compatible": {
+    "@odin/api@0.x": ["@odin/services@^0.1.0"],
+    "@odin/services@0.x": ["@odin/domain@^0.1.0", "@odin/infra@^0.1.0"]
+  }
+}

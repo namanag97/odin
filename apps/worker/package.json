@@ -1,0 +1,21 @@
+{
+  "name": "@odin/worker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Background Job Runner",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Worker not configured yet'",
+    "start": "echo 'Worker not configured yet'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@odin/core-contracts": "workspace:*",
+    "@odin/core-lib": "workspace:*",
+    "@odin/services": "workspace:*",
+    "@odin/infra": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

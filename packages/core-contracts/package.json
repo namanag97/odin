@@ -1,0 +1,36 @@
+{
+  "name": "@odin/core-contracts",
+  "version": "1.0.0",
+  "description": "L0 Core Contracts - Shared types and interfaces for the Process Intelligence Platform",
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./types": "./types/index.ts",
+    "./errors": "./errors/index.ts",
+    "./auth": "./auth/index.ts",
+    "./contracts": "./contracts/index.ts",
+    "./enums": "./enums/index.ts"
+  },
+  "files": [
+    "**/*.ts",
+    "!**/*.test.ts"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "types",
+    "contracts",
+    "core",
+    "shared"
+  ],
+  "license": "MIT",
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@odin/api",
+  "version": "0.1.0",
+  "description": "L3 API Layer - Routes, controllers, and middleware",
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./routes": "./routes/index.ts",
+    "./middleware": "./middleware/index.ts"
+  },
+  "files": [
+    "**/*.ts",
+    "!**/*.test.ts"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
+    "dev": "bun run --watch ./server.ts",
+    "start": "bun run ./server.ts"
+  },
+  "keywords": ["api", "routes", "controllers", "hono"],
+  "license": "MIT",
+  "dependencies": {
+    "@odin/core-contracts": "workspace:*",
+    "@odin/core-lib": "workspace:*",
+    "@odin/services": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

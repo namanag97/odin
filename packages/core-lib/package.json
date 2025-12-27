@@ -1,0 +1,35 @@
+{
+  "name": "@odin/core-lib",
+  "version": "1.0.0",
+  "description": "L0 Core Lib - Shared implementations and utilities for the Process Intelligence Platform",
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./implementations": "./implementations/index.ts",
+    "./utils": "./utils/index.ts"
+  },
+  "files": [
+    "**/*.ts",
+    "!**/*.test.ts"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "utils",
+    "lib",
+    "core",
+    "shared"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@odin/core-contracts": "1.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

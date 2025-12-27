@@ -1,0 +1,136 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  apps/web:
+    dependencies:
+      '@odin/core-contracts':
+        specifier: workspace:*
+        version: link:../../packages/core-contracts
+      '@odin/core-lib':
+        specifier: workspace:*
+        version: link:../../packages/core-lib
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  apps/worker:
+    dependencies:
+      '@odin/core-contracts':
+        specifier: workspace:*
+        version: link:../../packages/core-contracts
+      '@odin/core-lib':
+        specifier: workspace:*
+        version: link:../../packages/core-lib
+      '@odin/infra':
+        specifier: workspace:*
+        version: link:../../packages/infra
+      '@odin/services':
+        specifier: workspace:*
+        version: link:../../packages/services
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  packages/api:
+    dependencies:
+      '@odin/core-contracts':
+        specifier: workspace:*
+        version: link:../core-contracts
+      '@odin/core-lib':
+        specifier: workspace:*
+        version: link:../core-lib
+      '@odin/services':
+        specifier: workspace:*
+        version: link:../services
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  packages/core-contracts:
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  packages/core-lib:
+    dependencies:
+      '@odin/core-contracts':
+        specifier: workspace:*
+        version: link:../core-contracts
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  packages/domain:
+    dependencies:
+      '@odin/core-contracts':
+        specifier: workspace:*
+        version: link:../core-contracts
+      '@odin/core-lib':
+        specifier: workspace:*
+        version: link:../core-lib
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  packages/infra:
+    dependencies:
+      '@odin/core-contracts':
+        specifier: workspace:*
+        version: link:../core-contracts
+      '@odin/core-lib':
+        specifier: workspace:*
+        version: link:../core-lib
+      '@odin/domain':
+        specifier: workspace:*
+        version: link:../domain
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  packages/services:
+    dependencies:
+      '@odin/core-contracts':
+        specifier: workspace:*
+        version: link:../core-contracts
+      '@odin/core-lib':
+        specifier: workspace:*
+        version: link:../core-lib
+      '@odin/domain':
+        specifier: workspace:*
+        version: link:../domain
+      '@odin/infra':
+        specifier: workspace:*
+        version: link:../infra
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+packages:
+
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+snapshots:
+
+  typescript@5.9.3: {}

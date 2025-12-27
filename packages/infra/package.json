@@ -1,0 +1,33 @@
+{
+  "name": "@odin/infra",
+  "version": "0.1.0",
+  "description": "I1-I4 Infrastructure Layer - Storage, processing, jobs, external integrations",
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./database": "./database/index.ts",
+    "./storage": "./storage/index.ts",
+    "./queue": "./queue/index.ts",
+    "./external": "./external/index.ts"
+  },
+  "files": [
+    "**/*.ts",
+    "!**/*.test.ts"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": ["infrastructure", "database", "storage", "queue"],
+  "license": "MIT",
+  "dependencies": {
+    "@odin/core-contracts": "workspace:*",
+    "@odin/core-lib": "workspace:*",
+    "@odin/domain": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

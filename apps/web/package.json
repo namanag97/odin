@@ -1,0 +1,19 @@
+{
+  "name": "@odin/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "L4+ Frontend Application",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Web app not configured yet'",
+    "build": "echo 'Web app not configured yet'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@odin/core-contracts": "workspace:*",
+    "@odin/core-lib": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
