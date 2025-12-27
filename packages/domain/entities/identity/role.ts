@@ -39,9 +39,9 @@ export const asPermissionId = (id: string): PermissionId => id as PermissionId;
 // ============================================================================
 
 /**
- * Resource types that can be protected
+ * Resource types that can be protected by permissions
  */
-export type ResourceType = 
+export type PermissionResourceType =
   | 'tenant' | 'organization' | 'user' | 'role'
   | 'data_pool' | 'data_model' | 'event_log'
   | 'knowledge_model' | 'view' | 'package' | 'space'
@@ -88,7 +88,7 @@ export interface PermissionCondition {
  */
 export interface Permission {
   readonly id: PermissionId;
-  readonly resource: ResourceType;
+  readonly resource: PermissionResourceType;
   readonly action: ActionType;
   readonly scope: PermissionScope;
   readonly conditions?: PermissionCondition[];

@@ -16,12 +16,12 @@ import type {
   DateRange
 } from '@odin/core-contracts';
 
-import type { 
+import type {
   AuditLog,
   AuditCategory,
   AuditOutcome,
   ActorType,
-  ResourceType,
+  AuditResourceType,
   CreateAuditLogData
 } from '../../entities/temporal/audit-log';
 
@@ -37,7 +37,7 @@ export interface AuditSearchCriteria {
   readonly actorType?: ActorType;
   readonly actionType?: string;
   readonly category?: AuditCategory;
-  readonly resourceType?: ResourceType;
+  readonly resourceType?: AuditResourceType;
   readonly resourceId?: UUID;
   readonly outcome?: AuditOutcome;
   readonly dateRange?: DateRange;
@@ -64,7 +64,7 @@ export interface ActorActivity {
  */
 export interface ResourceActivity {
   readonly resourceId: UUID;
-  readonly resourceType: ResourceType;
+  readonly resourceType: AuditResourceType;
   readonly actionCount: number;
   readonly lastAction: ISODateTime;
 }
@@ -126,7 +126,7 @@ export interface IAuditLogRepository {
    * Get audit logs for a specific resource
    */
   getByResource(
-    resourceType: ResourceType,
+    resourceType: AuditResourceType,
     resourceId: UUID,
     options?: PageRequest
   ): AsyncResult<PageResponse<AuditLog>>;

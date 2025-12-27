@@ -66,30 +66,30 @@ export interface AuditAction {
 // Resource Types
 // ============================================================================
 
-/** Type of resource affected by the action */
-export type ResourceType = 
-  | 'tenant' 
-  | 'user' 
+/** Type of resource affected by an audited action */
+export type AuditResourceType =
+  | 'tenant'
+  | 'user'
   | 'role'
-  | 'data_pool' 
-  | 'data_model' 
+  | 'data_pool'
+  | 'data_model'
   | 'view'
-  | 'action_flow' 
-  | 'integration' 
+  | 'action_flow'
+  | 'integration'
   | 'webhook'
-  | 'api_key' 
-  | 'subscription' 
+  | 'api_key'
+  | 'subscription'
   | 'settings';
 
 /**
  * Information about the resource affected by the action
  */
 export interface AuditResource {
-  readonly type: ResourceType;
+  readonly type: AuditResourceType;
   readonly id: UUID;
   readonly name?: string;
   readonly parentId?: UUID;
-  readonly parentType?: ResourceType;
+  readonly parentType?: AuditResourceType;
 }
 
 // ============================================================================
